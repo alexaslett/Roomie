@@ -119,6 +119,7 @@
 		4D055B6F1F71898C00EC7BE7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				524551B71F719941009A83AF /* LoginViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -219,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				524551B81F719941009A83AF /* LoginViewController.swift in Sources */,
 				4D055B601F717A2300EC7BE7 /* Expense.swift in Sources */,
 				711705AF1F71ADBD00BB107F /* Task.swift in Sources */,
 				711705B11F71B2EA00BB107F /* TaskController.swift in Sources */,
