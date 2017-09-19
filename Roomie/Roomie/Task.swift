@@ -48,3 +48,9 @@ class Task {
         return record
     }
 }
+
+extension Task: Equatable {
+    static func ==(lhs: Task, rhs: Task) -> Bool {
+        return lhs.owner == rhs.owner && lhs.isComplete == rhs.isComplete && lhs.dueDate == rhs.dueDate && lhs.ckRecordID == rhs.ckRecordID
+    }
+}
