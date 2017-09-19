@@ -17,6 +17,7 @@
 		4D055B671F71862800EC7BE7 /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D055B661F71862800EC7BE7 /* Task.storyboard */; };
 		4D055B691F71863A00EC7BE7 /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D055B681F71863A00EC7BE7 /* Post.storyboard */; };
 		4D055B6B1F71865300EC7BE7 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D055B6A1F71865300EC7BE7 /* Settings.storyboard */; };
+		524551B81F719941009A83AF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524551B71F719941009A83AF /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		4D055B661F71862800EC7BE7 /* Task.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Task.storyboard; sourceTree = "<group>"; };
 		4D055B681F71863A00EC7BE7 /* Post.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Post.storyboard; sourceTree = "<group>"; };
 		4D055B6A1F71865300EC7BE7 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		524551B71F719941009A83AF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		4D055B6F1F71898C00EC7BE7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				524551B71F719941009A83AF /* LoginViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				524551B81F719941009A83AF /* LoginViewController.swift in Sources */,
 				4D055B601F717A2300EC7BE7 /* Expense.swift in Sources */,
 				4D055B4E1F70245D00EC7BE7 /* AppDelegate.swift in Sources */,
 			);

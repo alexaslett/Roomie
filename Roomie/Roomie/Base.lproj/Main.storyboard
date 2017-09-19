@@ -21,20 +21,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrm-gu-wZB">
-                                <rect key="frame" x="164" y="318" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="SLm-TJ-fxV" kind="show" id="3Y2-U8-4SQ"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newroomies" translatesAutoresizingMaskIntoConstraints="NO" id="rLJ-or-IB4">
+                                <rect key="frame" x="112" y="70" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="5S0-jA-CdY"/>
+                                    <constraint firstAttribute="width" constant="150" id="OBT-yo-eqm"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="LAx-WI-GxA">
+                                <rect key="frame" x="87" y="298" width="200" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s5r-3e-b33">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
+                                        <color key="backgroundColor" red="0.40443294761574078" green="0.83409646604939502" blue="0.88384175406494725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="O0P-SK-nv2"/>
+                                            <constraint firstAttribute="height" constant="30" id="YHo-yN-AtX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Login">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMT-A9-Jph">
+                                        <rect key="frame" x="0.0" y="40" width="200" height="30"/>
+                                        <color key="backgroundColor" red="0.40443294761574078" green="0.83409646604939502" blue="0.88384175406494725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Omi-Er-Xt0"/>
+                                            <constraint firstAttribute="width" constant="200" id="xRQ-Il-5DJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Sign-Up">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="hMT-A9-Jph" secondAttribute="bottom" id="9oa-AN-kNh"/>
+                                    <constraint firstItem="s5r-3e-b33" firstAttribute="top" secondItem="LAx-WI-GxA" secondAttribute="top" id="D09-12-bME"/>
+                                    <constraint firstItem="s5r-3e-b33" firstAttribute="leading" secondItem="LAx-WI-GxA" secondAttribute="leading" id="Ife-SI-ERB"/>
+                                    <constraint firstItem="hMT-A9-Jph" firstAttribute="leading" secondItem="LAx-WI-GxA" secondAttribute="leading" id="OQu-8r-v79"/>
+                                    <constraint firstAttribute="trailing" secondItem="s5r-3e-b33" secondAttribute="trailing" id="SuE-Lt-cKi"/>
+                                    <constraint firstItem="hMT-A9-Jph" firstAttribute="top" secondItem="s5r-3e-b33" secondAttribute="bottom" constant="10" id="be2-aV-YBE"/>
+                                    <constraint firstItem="hMT-A9-Jph" firstAttribute="top" secondItem="s5r-3e-b33" secondAttribute="bottom" constant="10" id="iii-B1-NXz"/>
+                                    <constraint firstAttribute="trailing" secondItem="hMT-A9-Jph" secondAttribute="trailing" id="uoe-Qi-wyu"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="rLJ-or-IB4" secondAttribute="trailing" constant="113" id="UIP-nJ-p6w"/>
+                            <constraint firstItem="LAx-WI-GxA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mhV-vc-U2Z"/>
+                            <constraint firstItem="rLJ-or-IB4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="nvr-pn-oUW"/>
+                            <constraint firstItem="rLJ-or-IB4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="112" id="w5U-8v-H0P"/>
+                            <constraint firstItem="LAx-WI-GxA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="yna-tz-eU5"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
         </scene>
         <!--tabBarController-->
         <scene sceneID="bDO-Pk-Jek">
@@ -45,4 +91,7 @@
             <point key="canvasLocation" x="822" y="147"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="newroomies" width="585" height="717"/>
+    </resources>
 </document>
