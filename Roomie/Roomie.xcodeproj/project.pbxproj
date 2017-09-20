@@ -22,6 +22,8 @@
 		52A82D8C1F72CF3B00264906 /* GroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A82D8B1F72CF3B00264906 /* GroupController.swift */; };
 		711705AF1F71ADBD00BB107F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705AE1F71ADBD00BB107F /* Task.swift */; };
 		711705B11F71B2EA00BB107F /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705B01F71B2EA00BB107F /* TaskController.swift */; };
+		711705B31F72C30F00BB107F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705B21F72C30F00BB107F /* Post.swift */; };
+		711705B51F72D07A00BB107F /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705B41F72D07A00BB107F /* PostController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		52A82D8B1F72CF3B00264906 /* GroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupController.swift; sourceTree = "<group>"; };
 		711705AE1F71ADBD00BB107F /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		711705B01F71B2EA00BB107F /* TaskController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
+		711705B21F72C30F00BB107F /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		711705B41F72D07A00BB107F /* PostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +107,9 @@
 			children = (
 				4D055B5F1F717A2300EC7BE7 /* Expense.swift */,
 				711705AE1F71ADBD00BB107F /* Task.swift */,
+				711705B21F72C30F00BB107F /* Post.swift */,
 				52A82D891F72C95F00264906 /* Group.swift */,
+
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -112,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				711705B01F71B2EA00BB107F /* TaskController.swift */,
+				711705B41F72D07A00BB107F /* PostController.swift */,
 				52A82D8B1F72CF3B00264906 /* GroupController.swift */,
 			);
 			name = ModelControllers;
@@ -232,6 +239,8 @@
 				711705AF1F71ADBD00BB107F /* Task.swift in Sources */,
 				52A82D8C1F72CF3B00264906 /* GroupController.swift in Sources */,
 				711705B11F71B2EA00BB107F /* TaskController.swift in Sources */,
+				711705B31F72C30F00BB107F /* Post.swift in Sources */,
+				711705B51F72D07A00BB107F /* PostController.swift in Sources */,
 				52A82D8A1F72C95F00264906 /* Group.swift in Sources */,
 				4D055B4E1F70245D00EC7BE7 /* AppDelegate.swift in Sources */,
 				4DA885651F71D79200C65C4D /* CloudKitManager.swift in Sources */,
