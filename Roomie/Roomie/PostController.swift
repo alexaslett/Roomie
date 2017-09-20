@@ -19,7 +19,7 @@ class PostController {
     
     var posts: [Post] = []
     
-    //MARK: - Create
+    // MARK: - Create
     
     func createPost(author: CKReference, group: CKReference, timestamp: Date = Date(), text: String, completion: @escaping ((Error?) -> Void) = { _ in }) {
         
@@ -37,9 +37,33 @@ class PostController {
         }
     }
     
-    // retreive/fetch post
+    // MARK: - Retreive/Fetch
     
-    // update post
+    func fetchPosts() {
+        
+    }
     
-    // delete post
+    // MARK: - Update
+    
+    func updatePosts() {
+        
+    }
+    
+    // MARK: - Delete
+    
+    func delete(recordID: CKRecordID, completion: @escaping ((Error?) -> Void) = { _ in }) {
+        cloudKitManager.deleteRecordWithID(recordID) { (ckRecordID, error) in
+            defer { completion(error) }
+            
+            if let error = error {
+                NSLog("Error deleting contact. \(#file) \(#function) \(error.localizedDescription)")
+                return
+            }
+        }
+    }
+    
+    func deletePost(post: Post) {
+        let record = CKRecord(post: post)
+        cloudKitManager.deleteRecordsWithID(<#T##recordIDs: [CKRecordID]##[CKRecordID]#>, completion: <#T##(([CKRecord]?, [CKRecordID]?, Error?) -> Void)?##(([CKRecord]?, [CKRecordID]?, Error?) -> Void)?##([CKRecord]?, [CKRecordID]?, Error?) -> Void#>)
+    }
 }

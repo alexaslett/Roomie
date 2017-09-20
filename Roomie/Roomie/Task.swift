@@ -24,7 +24,7 @@ class Task {
     
     var ckRecordID: CKRecordID?
     
-    init(owner: CKReference, isComplete: Bool, dueDate: Date = Date(), group: CKReference) {
+    init(owner: CKReference, isComplete: Bool = false, dueDate: Date = Date(), group: CKReference) {
         self.owner = owner
         self.isComplete = isComplete
         self.dueDate = dueDate
