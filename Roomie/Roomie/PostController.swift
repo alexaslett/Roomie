@@ -26,7 +26,7 @@ class PostController {
         let post = Post(author: author, group: group, timestamp: timestamp, text: text)
         let postRecord = CKRecord(post: post)
         
-        cloudKitManager.save(postRecord) { (record, error) in
+        cloudKitManager.saveRecord(postRecord) { (record, error) in
             defer { completion(error) }
             
             if let error = error { NSLog("Error saving record \(#file) \(#function) \(error.localizedDescription)"); return }

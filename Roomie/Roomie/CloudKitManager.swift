@@ -11,13 +11,13 @@ import CloudKit
 
 class CloudKitManager {
     
-    
-    let publicDB = CKContainer.default().publicCloudDatabase
+    let publicDatabase = CKContainer.default().publicCloudDatabase
+    let privateDatabase = CKContainer.default().privateCloudDatabase
     
     
     func fetchRecord(withID recordID: CKRecordID, completion: ((_ record: CKRecord?, _ error: Error?) -> Void)?) {
         
-        publicDB.fetch(withRecordID: recordID) { (record, error) in
+        publicDatabase.fetch(withRecordID: recordID) { (record, error) in
             completion?(record, error)
         }
     }
@@ -49,7 +49,7 @@ class CloudKitManager {
                 continuedQueryOperation.recordFetchedBlock = perRecordBlock
                 continuedQueryOperation.queryCompletionBlock = queryCompletionBlock
                 
-                self.publicDB.add(continuedQueryOperation)
+                self.publicDatabase.add(continuedQueryOperation)
             } else {
                 completion?(fetchedRecords, error)
             }
@@ -57,8 +57,62 @@ class CloudKitManager {
         }
         
         queryOperation.queryCompletionBlock = queryCompletionBlock
-        self.publicDB.add(queryOperation)
+        self.publicDatabase.add(queryOperation)
         
     }
+    
+    // MARK: - Delete
+    
+    func deleteRecordWithID(_ recordID: CKRecordID, completion: ((_ recordID: CKRecordID?, _ error: Error?) -> Void)?) {
+        
+        publicDatabase.delete(withRecordID: recordID) { (recordID, error) in
+            completion?(recordID, error)
+        }
+    }
+    
+    func deleteRecordsWithID(_ recordIDs: [CKRecordID], completion: ((_ records: [CKRecord]?, _ recordIDs: [CKRecordID]?, _ error: Error?) -> Void)?) {
+        
+        let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: recordIDs)
+        operation.savePolicy = .ifServerRecordUnchanged
+        
+        operation.modifyRecordsCompletionBlock = completion
+        
+        publicDatabase.add(operation)
+    }
+    
+    
+    // MARK: - Save and Modify
+    
+    func saveRecords(_ records: [CKRecord], perRecordCompletion: ((_ record: CKRecord?, _ error: Error?) -> Void)?, completion: ((_ records: [CKRecord]?, _ error: Error?) -> Void)?) {
+        
+        modifyRecords(records, perRecordCompletion: perRecordCompletion, completion: completion)
+    }
+    
+    func saveRecord(_ record: CKRecord, completion: ((_ record: CKRecord?, _ error: Error?) -> Void)?) {
+        
+        publicDatabase.save(record, completionHandler: { (record, error) in
+            
+            completion?(record, error)
+        })
+    }
+    
+    func modifyRecords(_ records: [CKRecord], perRecordCompletion: ((_ record: CKRecord?, _ error: Error?) -> Void)?, completion: ((_ records: [CKRecord]?, _ error: Error?) -> Void)?) {
+        
+        let operation = CKModifyRecordsOperation(recordsToSave: records, recordIDsToDelete: nil)
+        operation.savePolicy = .changedKeys
+        operation.queuePriority = .high
+        operation.qualityOfService = .userInteractive
+        
+        operation.perRecordCompletionBlock = perRecordCompletion
+        
+        operation.modifyRecordsCompletionBlock = { (records, recordIDs, error) -> Void in
+            (completion?(records, error))!
+        }
+        
+        publicDatabase.add(operation)
+        
+    }
+    
+    
     
 }
