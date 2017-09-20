@@ -95,7 +95,7 @@ class CloudKitManager {
         let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [record.recordID])
         operation.savePolicy = .changedKeys
         operation.queuePriority = .high
-        operation.qualityOfService = .userInteractive // as fast as it gets
+        operation.qualityOfService = .userInteractive
         
         publicDatabase.add(operation)
         completion()
