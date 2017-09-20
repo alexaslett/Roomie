@@ -69,7 +69,7 @@ class CloudKitManager {
         
         query.sortDescriptors = sortDescriptors // now we can pass in sort descriptors
         
-        publicDataBase.perform(query, inZoneWith: nil, completionHandler: completion)
+        publicDatabase.perform(query, inZoneWith: nil, completionHandler: completion)
     }
     
     // MARK: - Delete

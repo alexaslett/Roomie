@@ -19,6 +19,8 @@ class PostController {
     
     var posts: [Post] = []
     
+    var post: Post?
+    
     // MARK: - Create
     
     func createPost(author: CKReference, group: CKReference, timestamp: Date = Date(), text: String, completion: @escaping ((Error?) -> Void) = { _ in }) {
@@ -31,7 +33,7 @@ class PostController {
             
             if let error = error { NSLog("Error saving record \(#file) \(#function) \(error.localizedDescription)"); return }
             
-//            guard record != nil else { NSLog("cannot create post"); return }
+            guard record != nil else { NSLog("cannot create post"); return }
             
             self.posts.append(post)
         }
@@ -42,13 +44,42 @@ class PostController {
     func fetchPosts(completion: @escaping ((Error?) -> Void) = { _ in }) {
         let sortDescriptors = [NSSortDescriptor(key: Post.timestampKey, ascending: false)]
         
-        
+        cloudKitManager.fetchRecords(ofType: Post.recordType, withSortDescriptors: sortDescriptors) { (records, error) in
+            
+            defer { completion(error) }
+            
+            if let error = error {
+                NSLog("Error fetching data. \(#file) \(#function) \n\(error.localizedDescription)")
+                return
+            }
+            guard let records = records else { return }
+            
+            self.posts = records.flatMap { Post(ckRecord: $0) }
+        }
     }
     
     // MARK: - Update
     
-    func updatePosts() {
+    func updatePosts(post: Post?, author: CKReference, group: CKReference, timestamp: Date = Date(), text: String, completion: @escaping ((_ success: Bool) -> Void) = { _ in }) {
         
+        guard let post = post else { return }
+        
+        post.author = author
+        post.group = group
+        post.timestamp = timestamp
+        post.text = text
+        
+        let postRecord = CKRecord(post: post)
+        
+        cloudKitManager.saveRecords([postRecord], perRecordCompletion: { (_, error) in
+            if let error = error {
+                NSLog("Error updating post. \(#file) \(#function) \n\(error.localizedDescription)")
+                return
+            }
+        }) { (records, error) in
+            let success = records != nil
+            completion(success)
+        }
     }
     
     // MARK: - Delete
@@ -58,7 +89,7 @@ class PostController {
             defer { completion(error) }
             
             if let error = error {
-                NSLog("Error deleting contact. \(#file) \(#function) \(error.localizedDescription)")
+                NSLog("Error deleting post. \(#file) \(#function) \(error.localizedDescription)")
                 return
             }
         }

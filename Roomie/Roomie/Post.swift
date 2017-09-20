@@ -17,10 +17,10 @@ class Post {
     fileprivate static var textKey: String { return "text" }
     static var recordType: String { return "Post" }
     
-    let author: CKReference
-    let group: CKReference
-    let timestamp: Date
-    let text: String
+    var author: CKReference
+    var group: CKReference
+    var timestamp: Date
+    var text: String
     
     var ckRecordID: CKRecordID?
     

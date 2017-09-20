@@ -19,6 +19,8 @@ class TaskController {
     
     var tasks: [Task] = []
     
+    var task: Task?
+    
     // MARK: - Create
     
     func createTask(owner: CKReference, isComplete: Bool = false, dueDate: Date = Date(), group: CKReference, completion: @escaping ((Error?) -> Void) = { _ in }) {
@@ -34,6 +36,70 @@ class TaskController {
             guard record != nil else { NSLog("cannot create task"); return }
             
             self.tasks.append(task)
+        }
+    }
+    
+    // MARK: - Retreive/Fetch
+    
+    func fetchTasks(completion: @escaping ((Error?) -> Void) = { _ in }) {
+        let sortDescriptors = [NSSortDescriptor(key: Task.dueDateKey, ascending: false)]
+        
+        cloudKitManager.fetchRecords(ofType: Task.recordType, withSortDescriptors: sortDescriptors) { (records, error) in
+            
+            defer { completion(error) }
+            
+            if let error = error {
+                NSLog("Error fetching task. \(#file) \(#function) \n\(error.localizedDescription)")
+                return
+            }
+            guard let records = records else { return }
+            
+            self.tasks = records.flatMap { Task(ckRecord: $0) }
+        }
+    }
+    
+    // MARK: - Update
+    
+    func updateTask(task: Task?, owner: CKReference, isComplete: Bool = false, dueDate: Date = Date(), group: CKReference, completion: @escaping ((_ success: Bool) -> Void) = { _ in }) {
+        
+        guard let task = task else { return }
+        
+        task.owner = owner
+        task.isComplete = isComplete
+        task.dueDate = dueDate
+        task.group = group
+        
+        let taskRecord = CKRecord(task: task)
+        
+        cloudKitManager.saveRecords([taskRecord], perRecordCompletion: { (_, error) in
+            if let error = error {
+                NSLog("Error updating task. \(#file) \(#function) \n\(error.localizedDescription)")
+                return
+            }
+        }) { (records, error) in
+            let success = records != nil
+            completion(success)
+        }
+    }
+    
+    // MARK: - Delete
+    
+    func delete(recordID: CKRecordID, completion: @escaping ((Error?) -> Void) = { _ in }) {
+        cloudKitManager.deleteRecordWithID(recordID) { (ckRecordID, error) in
+            defer { completion(error) }
+            
+            if let error = error {
+                NSLog("Error deleting task. \(#file) \(#function) \n\(error.localizedDescription)")
+                return
+            }
+        }
+    }
+    
+    func deleteTask(task: Task) {
+        let record = CKRecord(task: task)
+        cloudKitManager.deleteOperation(record) { 
+            guard let index = self.tasks.index(of: task) else { return }
+            self.tasks.remove(at: index)
         }
     }
 }
