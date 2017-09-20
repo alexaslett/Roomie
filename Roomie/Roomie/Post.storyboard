@@ -12,7 +12,7 @@
         <!--Messages-->
         <scene sceneID="Chb-yd-v8d">
             <objects>
-                <viewController id="uOi-8u-Ew1" sceneMemberID="viewController">
+                <viewController id="uOi-8u-Ew1" customClass="PostListViewController" customModule="Roomie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uEd-hf-hD1"/>
                         <viewControllerLayoutGuide type="bottom" id="521-Fq-d6h"/>
@@ -33,6 +33,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hyg-QP-WA2">
                                         <rect key="frame" x="323" y="0.0" width="36" height="30"/>
                                         <state key="normal" title="Send"/>
+                                        <connections>
+                                            <action selector="sendButtonTapped:" destination="uOi-8u-Ew1" eventType="touchUpInside" id="D39-Bd-gTO"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -71,6 +74,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="uOi-8u-Ew1" id="5I2-cR-aVx"/>
+                                    <outlet property="delegate" destination="uOi-8u-Ew1" id="Gxh-xz-TyC"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <constraints>
@@ -85,6 +92,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Messages" id="H1Y-qJ-zWr"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="postListTableView" destination="aaL-q6-3ue" id="kop-WD-yWc"/>
+                        <outlet property="postTextField" destination="hzQ-AX-L2W" id="t1S-gH-kpy"/>
+                        <outlet property="sendButton" destination="Hyg-QP-WA2" id="aKW-NV-T2X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3vk-eo-fhU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -93,7 +105,7 @@
         <!--Title-->
         <scene sceneID="q9M-3c-AKy">
             <objects>
-                <viewController id="BcD-sF-v8N" sceneMemberID="viewController">
+                <viewController id="BcD-sF-v8N" customClass="PostDetailViewController" customModule="Roomie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="i0K-AX-Mmi"/>
                         <viewControllerLayoutGuide type="bottom" id="l5X-Du-ZUO"/>
@@ -154,8 +166,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="o1m-rc-heJ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="GeU-s0-PpQ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="GeU-s0-PpQ">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="BcD-sF-v8N" id="LOb-lM-Dx0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="authorLabel" destination="hZr-fx-43S" id="igG-zA-aGz"/>
+                        <outlet property="messageTextField" destination="US7-6t-JPJ" id="ZdN-xe-g4I"/>
+                        <outlet property="timestampLabel" destination="Lbg-Rc-5EP" id="Qjv-9n-ddo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FRM-v2-F5U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
