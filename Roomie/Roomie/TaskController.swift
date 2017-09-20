@@ -13,7 +13,9 @@ class TaskController {
     
     static let shared = TaskController()
     
-    // cloud kit manager goes here.
+    let cloudKitManager: CloudKitManager = {
+       return CloudKitManager()
+    }()
     
     // Create Task Function
     
