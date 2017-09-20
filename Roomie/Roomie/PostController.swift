@@ -39,7 +39,9 @@ class PostController {
     
     // MARK: - Retreive/Fetch
     
-    func fetchPosts() {
+    func fetchPosts(completion: @escaping ((Error?) -> Void) = { _ in }) {
+        let sortDescriptors = [NSSortDescriptor(key: Post.timestampKey, ascending: false)]
+        
         
     }
     

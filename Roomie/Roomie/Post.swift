@@ -13,7 +13,7 @@ class Post {
     
     fileprivate static var authorKey: String { return "author" }
     fileprivate static var groupKey: String { return "group" }
-    fileprivate static var timestampKey: String { return "timestamp" }
+    static var timestampKey: String { return "timestamp" }
     fileprivate static var textKey: String { return "text" }
     static var recordType: String { return "Post" }
     
