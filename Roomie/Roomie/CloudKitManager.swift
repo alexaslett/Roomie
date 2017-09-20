@@ -80,6 +80,15 @@ class CloudKitManager {
         publicDatabase.add(operation)
     }
     
+    func deleteOperation(_ record: CKRecord, completion: @escaping () -> Void) {
+        let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [record.recordID])
+        operation.savePolicy = .changedKeys
+        operation.queuePriority = .high
+        operation.qualityOfService = .userInteractive // as fast as it gets
+        
+        publicDatabase.add(operation)
+        completion()
+    }
     
     // MARK: - Save and Modify
     
