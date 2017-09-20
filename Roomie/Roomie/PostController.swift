@@ -8,3 +8,38 @@
 
 import Foundation
 import CloudKit
+
+class PostController {
+    
+    static let shared = PostController()
+    
+    let cloudKitManager: CloudKitManager = {
+       return CloudKitManager()
+    }()
+    
+    var posts: [Post] = []
+    
+    //MARK: - Create
+    
+    func createPost(author: CKReference, group: CKReference, timestamp: Date = Date(), text: String, completion: @escaping ((Error?) -> Void) = { _ in }) {
+        
+        let post = Post(author: author, group: group, timestamp: timestamp, text: text)
+        let postRecord = CKRecord(post: post)
+        
+        cloudKitManager.save(postRecord) { (record, error) in
+            defer { completion(error) }
+            
+            if let error = error { NSLog("Error saving record \(#file) \(#function) \(error.localizedDescription)"); return }
+            
+//            guard record != nil else { NSLog("cannot create post"); return }
+            
+            self.posts.append(post)
+        }
+    }
+    
+    // retreive/fetch post
+    
+    // update post
+    
+    // delete post
+}
