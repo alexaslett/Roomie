@@ -72,6 +72,7 @@ extension CKRecord {
         self.setValue(user.email, forKey: User.emailKey)
         self.setValue(user.phone, forKey: User.phoneKey)
         self.setValue(user.groupID, forKey: User.groupIDKey)
+        self.setValue(user.appleUserRef, forKey: User.appleUserRefKey)
     }
     
     
