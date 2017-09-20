@@ -13,7 +13,7 @@
         <!--Tasks-->
         <scene sceneID="au6-MQ-aoy">
             <objects>
-                <viewController id="i3N-bZ-sXF" sceneMemberID="viewController">
+                <viewController id="i3N-bZ-sXF" customClass="TaskOptionsViewController" customModule="Roomie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sJC-Ss-NkI"/>
                         <viewControllerLayoutGuide type="bottom" id="Rb8-NI-H6k"/>
@@ -30,6 +30,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Chores"/>
                                         <connections>
+                                            <action selector="choresButtonTapped:" destination="i3N-bZ-sXF" eventType="touchUpInside" id="V1B-dy-WgA"/>
                                             <segue destination="dBd-cu-36m" kind="show" identifier="ToChoresListVC" id="7yF-IH-0lX"/>
                                         </connections>
                                     </button>
@@ -38,12 +39,14 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Shopping List"/>
                                         <connections>
+                                            <action selector="shoppingListButtonTapped:" destination="i3N-bZ-sXF" eventType="touchUpInside" id="h29-YX-4Rd"/>
                                             <segue destination="dBd-cu-36m" kind="show" identifier="ToShoppingListVC" id="eYC-FO-eQR"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="VyP-1a-Kh6" firstAttribute="centerX" secondItem="22G-vQ-nqX" secondAttribute="centerX" id="GCP-Df-Xd2"/>
                             <constraint firstItem="VyP-1a-Kh6" firstAttribute="centerY" secondItem="22G-vQ-nqX" secondAttribute="centerY" id="rIF-30-MMC"/>
@@ -51,6 +54,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Tasks" id="gIm-f1-UIi"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="choresButton" destination="CFU-7a-Xfc" id="Rjj-95-F28"/>
+                        <outlet property="shoppingListButton" destination="a4T-1W-8ir" id="Aq8-rd-5nq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IdU-pO-apT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -59,17 +66,17 @@
         <!--Title-->
         <scene sceneID="sE9-Sb-1tx">
             <objects>
-                <tableViewController id="dBd-cu-36m" sceneMemberID="viewController">
+                <tableViewController id="dBd-cu-36m" customClass="TaskListTableViewController" customModule="Roomie" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="plR-ud-hgh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" id="z75-Su-Y95">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" id="z75-Su-Y95" customClass="TaskTableViewCell" customModule="Roomie" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z75-Su-Y95" id="IcC-m2-DjD">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="t7q-dI-16Z">
@@ -104,6 +111,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="dueDateLabel" destination="ZQ4-XI-FYX" id="Au8-f7-tFk"/>
+                                    <outlet property="ownerNameLabel" destination="606-qR-87j" id="4hf-3U-jOE"/>
+                                    <outlet property="taskNameLabel" destination="mRX-wv-mjg" id="yw6-mm-E0J"/>
                                     <segue destination="lkw-6Z-soc" kind="show" identifier="ToEditTaskVC" id="qzH-eH-4XB"/>
                                 </connections>
                             </tableViewCell>
@@ -114,7 +124,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="AGg-Qd-R6V">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="keL-Xu-72k"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="keL-Xu-72k">
+                            <connections>
+                                <action selector="addTaskButtonTapped:" destination="dBd-cu-36m" id="72s-bD-t6w"/>
+                                <segue destination="lkw-6Z-soc" kind="show" identifier="ToNewTaskVC" id="DlK-kK-sWx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j2V-H7-H3Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -124,7 +139,7 @@
         <!--Title-->
         <scene sceneID="AQv-5G-zYV">
             <objects>
-                <viewController id="lkw-6Z-soc" sceneMemberID="viewController">
+                <viewController id="lkw-6Z-soc" customClass="TaskDetailViewController" customModule="Roomie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yQ9-4Y-lhS"/>
                         <viewControllerLayoutGuide type="bottom" id="KjR-Tj-6ca"/>
@@ -198,6 +213,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="Task Completed"/>
+                                <connections>
+                                    <action selector="taskCompletedButtonTapped:" destination="lkw-6Z-soc" eventType="touchUpInside" id="pZM-1S-e49"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -215,8 +233,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="xKc-og-80c">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="d6i-Ul-S2A"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="d6i-Ul-S2A">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="lkw-6Z-soc" id="IlE-KV-xzF"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dueDatePicker" destination="7YE-HP-d0a" id="7Hf-x2-S42"/>
+                        <outlet property="ownerNameTextField" destination="ePI-al-VcL" id="HwG-fv-jpe"/>
+                        <outlet property="taskCompletedButton" destination="5Wd-Sk-1hJ" id="QR6-be-Bhb"/>
+                        <outlet property="taskNameTextField" destination="Kcy-Tr-OhJ" id="bhH-8C-Fhc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cb5-43-Szm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -244,5 +272,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="7yF-IH-0lX"/>
+        <segue reference="DlK-kK-sWx"/>
     </inferredMetricsTieBreakers>
 </document>
