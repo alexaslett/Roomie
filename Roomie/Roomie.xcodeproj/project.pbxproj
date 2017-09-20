@@ -20,6 +20,7 @@
 		4DA885651F71D79200C65C4D /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA885641F71D79200C65C4D /* CloudKitManager.swift */; };
 		711705AF1F71ADBD00BB107F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705AE1F71ADBD00BB107F /* Task.swift */; };
 		711705B11F71B2EA00BB107F /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705B01F71B2EA00BB107F /* TaskController.swift */; };
+		711705B31F72C30F00BB107F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705B21F72C30F00BB107F /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		4DA885641F71D79200C65C4D /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		711705AE1F71ADBD00BB107F /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		711705B01F71B2EA00BB107F /* TaskController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
+		711705B21F72C30F00BB107F /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				4D055B5F1F717A2300EC7BE7 /* Expense.swift */,
 				711705AE1F71ADBD00BB107F /* Task.swift */,
+				711705B21F72C30F00BB107F /* Post.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				4D055B601F717A2300EC7BE7 /* Expense.swift in Sources */,
 				711705AF1F71ADBD00BB107F /* Task.swift in Sources */,
 				711705B11F71B2EA00BB107F /* TaskController.swift in Sources */,
+				711705B31F72C30F00BB107F /* Post.swift in Sources */,
 				4D055B4E1F70245D00EC7BE7 /* AppDelegate.swift in Sources */,
 				4DA885651F71D79200C65C4D /* CloudKitManager.swift in Sources */,
 			);

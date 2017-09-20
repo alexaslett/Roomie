@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,14 +21,68 @@
                     <view key="view" contentMode="scaleToFill" id="p8y-xd-bgR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Rg7-Nh-3g1">
+                                <rect key="frame" x="8" y="580" width="359" height="30"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hzQ-AX-L2W">
+                                        <rect key="frame" x="0.0" y="0.0" width="318" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hyg-QP-WA2">
+                                        <rect key="frame" x="323" y="0.0" width="36" height="30"/>
+                                        <state key="normal" title="Send"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="awn-vd-HpL"/>
+                                </constraints>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aaL-q6-3ue">
+                                <rect key="frame" x="0.0" y="69" width="375" height="503"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="h8i-iE-Be8">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h8i-iE-Be8" id="4Hq-sf-btO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N25-hM-DfS">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="N25-hM-DfS" secondAttribute="height" multiplier="375:44" id="o4e-QW-fqL"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Messages" id="War-UF-mL0"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Rg7-Nh-3g1" firstAttribute="leading" secondItem="p8y-xd-bgR" secondAttribute="leading" constant="8" id="2sZ-6P-ghN"/>
+                            <constraint firstItem="N25-hM-DfS" firstAttribute="leading" secondItem="p8y-xd-bgR" secondAttribute="leading" id="KZb-jR-ci7"/>
+                            <constraint firstItem="N25-hM-DfS" firstAttribute="top" secondItem="uEd-hf-hD1" secondAttribute="bottom" id="O0p-FN-gxO"/>
+                            <constraint firstItem="aaL-q6-3ue" firstAttribute="leading" secondItem="p8y-xd-bgR" secondAttribute="leading" id="Rv7-NO-SUH"/>
+                            <constraint firstAttribute="trailing" secondItem="Rg7-Nh-3g1" secondAttribute="trailing" constant="8" id="Sgv-fl-8o6"/>
+                            <constraint firstItem="Rg7-Nh-3g1" firstAttribute="top" secondItem="aaL-q6-3ue" secondAttribute="bottom" constant="8" id="can-K1-54A"/>
+                            <constraint firstItem="aaL-q6-3ue" firstAttribute="top" secondItem="N25-hM-DfS" secondAttribute="bottom" constant="5" id="coR-7M-hOl"/>
+                            <constraint firstAttribute="trailing" secondItem="aaL-q6-3ue" secondAttribute="trailing" id="geU-JS-CoG"/>
+                            <constraint firstAttribute="trailing" secondItem="N25-hM-DfS" secondAttribute="trailing" id="ocX-LG-onj"/>
+                            <constraint firstItem="521-Fq-d6h" firstAttribute="top" secondItem="Rg7-Nh-3g1" secondAttribute="bottom" constant="8" id="p3A-Eb-lQF"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Post" id="cSK-a7-qR1"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3vk-eo-fhU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="81" y="195"/>
+            <point key="canvasLocation" x="-172" y="-59.820089955022496"/>
         </scene>
     </scenes>
 </document>
