@@ -11,61 +11,54 @@ import CloudKit
 
 class CloudKitManager {
     
-    let publicDatabase = CKContainer.default().publicCloudDatabase
     
-    func fetchRecord(ofType type: String, sortDescriptors: [NSSortDescriptor]? = nil, completion: @escaping ([CKRecord]?, Error?) -> Void) {
-        let predicate = NSPredicate(value: true)
+    let publicDB = CKContainer.default().publicCloudDatabase
+    
+    
+    func fetchRecord(withID recordID: CKRecordID, completion: ((_ record: CKRecord?, _ error: Error?) -> Void)?) {
+        
+        publicDB.fetch(withRecordID: recordID) { (record, error) in
+            completion?(record, error)
+        }
+    }
+    
+    func fetchRecordsWithType(_ type: String,
+                              predicate: NSPredicate = NSPredicate(value: true),
+                              recordFetchedBlock: ((_ record: CKRecord) -> Void)?,
+                              completion: ((_ records: [CKRecord]?, _ error: Error?) -> Void)?) {
+        var fetchedRecords: [CKRecord] = []
         
         let query = CKQuery(recordType: type, predicate: predicate)
-        query.sortDescriptors = sortDescriptors
+        let queryOperation = CKQueryOperation(query: query)
         
-        publicDatabase.perform(query, inZoneWith: nil, completionHandler: completion)
+        let perRecordBlock = { (fetchedRecord: CKRecord) -> Void in
+            fetchedRecords.append(fetchedRecord)
+            recordFetchedBlock?(fetchedRecord)
+            
+        }
+        
+        
+        queryOperation.recordFetchedBlock = perRecordBlock
+        
+        var queryCompletionBlock: (CKQueryCursor?, Error?) -> Void = { (_, _) in }
+        queryCompletionBlock = { (queryCursor: CKQueryCursor?, error: Error?) -> Void in
+            if let queryCursor = queryCursor {
+                // there are more results
+                
+                let continuedQueryOperation = CKQueryOperation(cursor: queryCursor)
+                continuedQueryOperation.recordFetchedBlock = perRecordBlock
+                continuedQueryOperation.queryCompletionBlock = queryCompletionBlock
+                
+                self.publicDB.add(continuedQueryOperation)
+            } else {
+                completion?(fetchedRecords, error)
+            }
+            
+        }
+        
+        queryOperation.queryCompletionBlock = queryCompletionBlock
+        self.publicDB.add(queryOperation)
+        
     }
-    
-    func save(_ record: CKRecord, completion: @escaping (CKRecord?, Error?) -> Void = { _ in }) {
-        publicDatabase.save(record, completionHandler: completion)
-    }
-    
-    func update(_ record: CKRecord, completion: @escaping () -> Void) {
-        let operation = CKModifyRecordsOperation(recordsToSave: [record], recordIDsToDelete: nil)
-        operation.savePolicy = .changedKeys
-        operation.queuePriority = .high
-        operation.qualityOfService = .userInteractive
-        publicDatabase.add(operation)
-        completion()
-    }
-    
-    func delete(_ record: CKRecord, completion: @escaping () -> Void) {
-        let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [record.recordID])
-        operation.savePolicy = .changedKeys
-        operation.queuePriority = .high
-        operation.qualityOfService = .userInteractive
-        publicDatabase.add(operation)
-        completion()
-    }
-    
-    
-    
-    //    func subscription(type: String, completion: @escaping((Error?) -> Void) = { _ in }) {
-    //        let subscription = CKQuerySubscription(recordType: type, predicate: NSPredicate(value: true), options: .firesOnRecordCreation)
-    //
-    //
-    //        let notificationInfo = CKNotificationInfo()
-    //        notificationInfo.alertBody = "There is a new message on the board"
-    //        notificationInfo.soundName = "default"
-    //        notificationInfo.shouldBadge = true
-    //
-    //        subscription.notificationInfo = notificationInfo
-    //
-    //        publicDatabase.save(subscription) { (_, error) in
-    //            if let error = error {
-    //                print(error.localizedDescription)
-    //            }
-    //            completion(error)
-    //        }
-    //        
-    //    }
-    //    
-    
     
 }

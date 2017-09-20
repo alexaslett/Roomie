@@ -19,17 +19,19 @@ class User {
     static let appleUserRefKey = "appleUserRef"
     static let recordTypeKey = "User"
     
+    //FIXME: Need to make the group ID an array of CKRefrences 
+    
     var firstName: String
     var lastName: String
     var email: String
     var phone: String?
-    var groupID: CKReference
+    var groupID: CKReference?
     
     let appleUserRef: CKReference
     
     var cloudKitRecordID: CKRecordID?
     
-    init(firstName: String, lastName: String, email: String, phone: String?, groupID: CKReference, appleUserRef: CKReference){
+    init(firstName: String, lastName: String, email: String, phone: String?, groupID: CKReference?, appleUserRef: CKReference){
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
