@@ -64,6 +64,9 @@ class PostController {
     
     func deletePost(post: Post) {
         let record = CKRecord(post: post)
-        cloudKitManager.deleteRecordsWithID(<#T##recordIDs: [CKRecordID]##[CKRecordID]#>, completion: <#T##(([CKRecord]?, [CKRecordID]?, Error?) -> Void)?##(([CKRecord]?, [CKRecordID]?, Error?) -> Void)?##([CKRecord]?, [CKRecordID]?, Error?) -> Void#>)
+        cloudKitManager.deleteOperation(record) { 
+            guard let index = self.posts.index(of: post) else { return }
+            self.posts.remove(at: index)
+        }
     }
 }
