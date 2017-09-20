@@ -18,6 +18,7 @@ class Expense {
     static let paidDateKey = "paidDate"
     static let payorKey = "payor"
     static let payeeKey = "payee"
+    static let groupIDKey = "groupID"
     static let recordTypeKey = "Expense"
     
     var cloudKitRecordID: CKRecordID?
@@ -27,14 +28,16 @@ class Expense {
     var paidDate: Date?
     var payor: CKReference
     var payee: CKReference
+    var groupID: CKReference
     
     
-    init(title: String, amount: Double, paidDate: Date?, payor: CKReference, payee: CKReference){
+    init(title: String, amount: Double, paidDate: Date?, payor: CKReference, payee: CKReference, groupID: CKReference){
         self.title = title
         self.amount = amount
         self.paidDate = paidDate
         self.payor = payor
         self.payee = payee
+        self.groupID = groupID
     }
     
     init?(cloudKitRecord: CKRecord) {
@@ -43,20 +46,22 @@ class Expense {
             let amount = cloudKitRecord[Expense.amountKey] as? Double,
             let paidDate = cloudKitRecord[Expense.paidDateKey] as? Date,
             let payor = cloudKitRecord[Expense.payorKey] as? CKReference,
-            let payee = cloudKitRecord[Expense.payeeKey] as? CKReference else { return nil }
+            let payee = cloudKitRecord[Expense.payeeKey] as? CKReference,
+            let groupID = cloudKitRecord[Expense.groupIDKey] as? CKReference else { return nil }
         
         self.title = title
         self.amount = amount
         self.paidDate = paidDate
         self.payor = payor
         self.payee = payee
+        self.groupID = groupID
         
     }
 }
 
 extension CKRecord {
     
-    convenience init(expense: Expense){
+    convenience init(_ expense: Expense){
         let recordID = expense.cloudKitRecordID ?? CKRecordID(recordName: UUID().uuidString)
         
         self.init(recordType: Expense.recordTypeKey, recordID: recordID)
@@ -66,6 +71,7 @@ extension CKRecord {
         self.setValue(expense.paidDate, forKey: Expense.paidDateKey)
         self.setValue(expense.payor, forKey: Expense.payorKey)
         self.setValue(expense.payee, forKey: Expense.payeeKey)
+        self.setValue(expense.groupID, forKey: Expense.groupIDKey)
         
     }
 }
