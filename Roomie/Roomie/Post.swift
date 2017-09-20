@@ -13,14 +13,14 @@ class Post {
     
     fileprivate static var authorKey: String { return "author" }
     fileprivate static var groupKey: String { return "group" }
-    fileprivate static var timestampKey: String { return "timestamp" }
+    static var timestampKey: String { return "timestamp" }
     fileprivate static var textKey: String { return "text" }
     static var recordType: String { return "Post" }
     
-    let author: CKReference
-    let group: CKReference
-    let timestamp: Date
-    let text: String
+    var author: CKReference
+    var group: CKReference
+    var timestamp: Date
+    var text: String
     
     var ckRecordID: CKRecordID?
     

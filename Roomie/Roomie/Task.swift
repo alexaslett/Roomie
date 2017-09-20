@@ -13,18 +13,18 @@ class Task {
     
     fileprivate static var ownerKey: String { return "owner"}
     fileprivate static var isCompleteKey: String { return "isComplete" }
-    fileprivate static var dueDateKey: String { return "dueDate" }
+    static var dueDateKey: String { return "dueDate" }
     fileprivate static var groupKey: String { return "group" }
     static var recordType: String { return "Task" }
     
-    let owner: CKReference
-    let isComplete: Bool
-    let dueDate: Date
-    let group: CKReference
+    var owner: CKReference
+    var isComplete: Bool
+    var dueDate: Date
+    var group: CKReference
     
     var ckRecordID: CKRecordID?
     
-    init(owner: CKReference, isComplete: Bool, dueDate: Date = Date(), group: CKReference) {
+    init(owner: CKReference, isComplete: Bool = false, dueDate: Date = Date(), group: CKReference) {
         self.owner = owner
         self.isComplete = isComplete
         self.dueDate = dueDate

@@ -61,6 +61,17 @@ class CloudKitManager {
         
     }
     
+    func fetchRecords(ofType type: String, withSortDescriptors sortDescriptors: [NSSortDescriptor]? = nil, completion: @escaping (([CKRecord]?, Error?) -> Void)) { // similar to dataTask
+        
+        let predicate = NSPredicate(value: true) // like a filter. a bit more specific. true = yes! i want everything
+        
+        let query = CKQuery(recordType: type, predicate: predicate)
+        
+        query.sortDescriptors = sortDescriptors // now we can pass in sort descriptors
+        
+        publicDatabase.perform(query, inZoneWith: nil, completionHandler: completion)
+    }
+    
     // MARK: - Delete
     
     func deleteRecordWithID(_ recordID: CKRecordID, completion: ((_ recordID: CKRecordID?, _ error: Error?) -> Void)?) {
@@ -80,6 +91,15 @@ class CloudKitManager {
         publicDatabase.add(operation)
     }
     
+    func deleteOperation(_ record: CKRecord, completion: @escaping () -> Void) {
+        let operation = CKModifyRecordsOperation(recordsToSave: nil, recordIDsToDelete: [record.recordID])
+        operation.savePolicy = .changedKeys
+        operation.queuePriority = .high
+        operation.qualityOfService = .userInteractive
+        
+        publicDatabase.add(operation)
+        completion()
+    }
     
     // MARK: - Save and Modify
     
