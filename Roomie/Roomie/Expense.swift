@@ -11,34 +11,61 @@ import CloudKit
 
 class Expense {
     
+    //Think we get the creation date for free so removing those for now
+    
     static let titleKey = "title"
     static let amountKey = "amount"
-    static let creationDateKey = "creationDate"
     static let paidDateKey = "paidDate"
     static let payorKey = "payor"
     static let payeeKey = "payee"
     static let recordTypeKey = "Expense"
     
+    var cloudKitRecordID: CKRecordID?
+    
     var title: String
     var amount: Double
-    var creationDate: Date
     var paidDate: Date?
     var payor: CKReference
     var payee: CKReference
     
     
-    init(title: String, amount: Double, creationDate: Date, paidDate: Date?, payor: CKReference, payee: CKReference){
+    init(title: String, amount: Double, paidDate: Date?, payor: CKReference, payee: CKReference){
         self.title = title
         self.amount = amount
-        self.creationDate = creationDate
         self.paidDate = paidDate
         self.payor = payor
         self.payee = payee
     }
     
-//    init?(cloadKitRecord: CKRecord) {
-//        guard cloadKitRecord.recordType == Expense.recordTypeKey, let
-//    }
+    init?(cloudKitRecord: CKRecord) {
+        guard cloudKitRecord.recordType == Expense.recordTypeKey,
+            let title = cloudKitRecord[Expense.titleKey] as? String,
+            let amount = cloudKitRecord[Expense.amountKey] as? Double,
+            let paidDate = cloudKitRecord[Expense.paidDateKey] as? Date,
+            let payor = cloudKitRecord[Expense.payorKey] as? CKReference,
+            let payee = cloudKitRecord[Expense.payeeKey] as? CKReference else { return nil }
+        
+        self.title = title
+        self.amount = amount
+        self.paidDate = paidDate
+        self.payor = payor
+        self.payee = payee
+        
+    }
+}
+
+extension CKRecord {
     
-    
+    convenience init(expense: Expense){
+        let recordID = expense.cloudKitRecordID ?? CKRecordID(recordName: UUID().uuidString)
+        
+        self.init(recordType: Expense.recordTypeKey, recordID: recordID)
+        
+        self.setValue(expense.title, forKey: Expense.titleKey)
+        self.setValue(expense.amount, forKey: Expense.amountKey)
+        self.setValue(expense.paidDate, forKey: Expense.paidDateKey)
+        self.setValue(expense.payor, forKey: Expense.payorKey)
+        self.setValue(expense.payee, forKey: Expense.payeeKey)
+        
+    }
 }

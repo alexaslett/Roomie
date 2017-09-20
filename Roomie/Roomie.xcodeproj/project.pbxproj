@@ -23,6 +23,7 @@
 		4DB716681F72D09D004E166B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB716671F72D09D004E166B /* CloudKit.framework */; };
 		4DB7166A1F72E76C004E166B /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB716691F72E76C004E166B /* SignUpTableViewController.swift */; };
 		4DB7166C1F73029B004E166B /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB7166B1F73029B004E166B /* LaunchScreenViewController.swift */; };
+		4DB7166E1F730D6A004E166B /* ExpenseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB7166D1F730D6A004E166B /* ExpenseController.swift */; };
 		52A82D8A1F72C95F00264906 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A82D891F72C95F00264906 /* Group.swift */; };
 		52A82D8C1F72CF3B00264906 /* GroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A82D8B1F72CF3B00264906 /* GroupController.swift */; };
 		711705AF1F71ADBD00BB107F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705AE1F71ADBD00BB107F /* Task.swift */; };
@@ -51,6 +52,7 @@
 		4DB716671F72D09D004E166B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		4DB716691F72E76C004E166B /* SignUpTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTableViewController.swift; sourceTree = "<group>"; };
 		4DB7166B1F73029B004E166B /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		4DB7166D1F730D6A004E166B /* ExpenseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseController.swift; sourceTree = "<group>"; };
 		52A82D891F72C95F00264906 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		52A82D8B1F72CF3B00264906 /* GroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupController.swift; sourceTree = "<group>"; };
 		711705AE1F71ADBD00BB107F /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				711705B41F72D07A00BB107F /* PostController.swift */,
 				52A82D8B1F72CF3B00264906 /* GroupController.swift */,
 				711705B81F72E3E900BB107F /* TaskController.swift */,
+				4DB7166D1F730D6A004E166B /* ExpenseController.swift */,
 			);
 			name = ModelControllers;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				711705AF1F71ADBD00BB107F /* Task.swift in Sources */,
 				4DB716621F72BE52004E166B /* User.swift in Sources */,
 				4DB716641F72CA68004E166B /* UserController.swift in Sources */,
+				4DB7166E1F730D6A004E166B /* ExpenseController.swift in Sources */,
 				52A82D8C1F72CF3B00264906 /* GroupController.swift in Sources */,
 				4DB7166A1F72E76C004E166B /* SignUpTableViewController.swift in Sources */,
 				711705B31F72C30F00BB107F /* Post.swift in Sources */,
