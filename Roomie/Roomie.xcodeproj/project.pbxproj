@@ -27,6 +27,7 @@
 		52A82D8A1F72C95F00264906 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A82D891F72C95F00264906 /* Group.swift */; };
 		52A82D8C1F72CF3B00264906 /* GroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A82D8B1F72CF3B00264906 /* GroupController.swift */; };
 		52A82D8E1F731DAC00264906 /* GroupLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52A82D8D1F731DAC00264906 /* GroupLaunchScreen.storyboard */; };
+		52C4BCC21F742C6B00E6BB6C /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C4BCC11F742C6B00E6BB6C /* CreateGroupViewController.swift */; };
 		711705AF1F71ADBD00BB107F /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705AE1F71ADBD00BB107F /* Task.swift */; };
 		711705B31F72C30F00BB107F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705B21F72C30F00BB107F /* Post.swift */; };
 		711705B51F72D07A00BB107F /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705B41F72D07A00BB107F /* PostController.swift */; };
@@ -63,6 +64,7 @@
 		52A82D891F72C95F00264906 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		52A82D8B1F72CF3B00264906 /* GroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupController.swift; sourceTree = "<group>"; };
 		52A82D8D1F731DAC00264906 /* GroupLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroupLaunchScreen.storyboard; sourceTree = "<group>"; };
+		52C4BCC11F742C6B00E6BB6C /* CreateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
 		711705AE1F71ADBD00BB107F /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		711705B21F72C30F00BB107F /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		711705B41F72D07A00BB107F /* PostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				711705C01F73168600BB107F /* TaskOptionsViewController.swift */,
 				711705C21F73176000BB107F /* TaskListTableViewController.swift */,
 				711705C61F7319C700BB107F /* TaskDetailViewController.swift */,
+				52C4BCC11F742C6B00E6BB6C /* CreateGroupViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				4DB716621F72BE52004E166B /* User.swift in Sources */,
 				4DB716641F72CA68004E166B /* UserController.swift in Sources */,
 				4DB7166E1F730D6A004E166B /* ExpenseController.swift in Sources */,
+				52C4BCC21F742C6B00E6BB6C /* CreateGroupViewController.swift in Sources */,
 				711705C31F73176000BB107F /* TaskListTableViewController.swift in Sources */,
 				52A82D8C1F72CF3B00264906 /* GroupController.swift in Sources */,
 				4DB7166A1F72E76C004E166B /* SignUpTableViewController.swift in Sources */,
