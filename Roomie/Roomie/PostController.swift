@@ -93,7 +93,7 @@ class PostController {
                 return
             }
         }
-    }
+    } // ** check to see if the project still works without the above function
     
     func deletePost(post: Post) {
         let record = CKRecord(post: post)

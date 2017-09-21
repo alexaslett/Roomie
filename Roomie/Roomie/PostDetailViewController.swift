@@ -10,6 +10,8 @@ import UIKit
 
 class PostDetailViewController: UIViewController {
     
+    var post: Post?
+    
     // MARK: - Outlets
     
     @IBOutlet weak var authorLabel: UILabel!

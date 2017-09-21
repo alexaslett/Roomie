@@ -10,6 +10,8 @@ import UIKit
 
 class TaskDetailViewController: UIViewController {
     
+    var task: Task?
+    
     // MARK: - Outlets
     
     @IBOutlet weak var taskNameTextField: UITextField!

@@ -46,7 +46,8 @@ class PostListViewController: UIViewController {
     // Override to support editing the table view.
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            
+            let post = PostController.shared.posts[indexPath.row]
+            PostController.shared.deletePost(post: post)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         
@@ -55,6 +56,12 @@ class PostListViewController: UIViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "ToEditPostVC" {
+            guard let destinationVC = segue.destination as? PostDetailViewController else { return }
+            guard let indexPath = postListTableView.indexPathForSelectedRow else { return }
+            let post = PostController.shared.posts[indexPath.row]
+            
+            destinationVC.post = post
+        }
     }
 }

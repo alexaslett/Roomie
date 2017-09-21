@@ -93,7 +93,7 @@ class TaskController {
                 return
             }
         }
-    }
+    } // ** check to see if the app works without the above function
     
     func deleteTask(task: Task) {
         let record = CKRecord(task: task)
