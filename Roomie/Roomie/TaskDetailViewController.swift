@@ -32,10 +32,22 @@ class TaskDetailViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        guard let taskName = taskNameTextField.text, taskName != "", let owner = ownerNameTextField.text, owner != "" else { return }
+        guard let taskName = taskNameTextField.text, taskName != "", let ownerName = ownerNameTextField.text, ownerName != "", let owner = UserController.shared.currentUser?.appleUserRef, let group = TaskController.shared.task?.group else { return }
         
         if self.task == nil {
-            
+            TaskController.shared.createTask(taskName: taskName, owner: owner, isComplete: false, dueDate: dueDatePicker.date, group: group)
+        } else {
+            guard let task = self.task else { return }
+            TaskController.shared.updateTask(task: task, owner: owner, isComplete: false, dueDate: dueDatePicker.date, group: group)
         }
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
+    func updateViews() {
+        guard let task = self.task, let owner = UserController.shared.currentUser?.appleUserRef else { return }
+        task.owner = owner
+        
+        taskNameTextField.text = task.taskName
+//        ownerNameTextField.text = task.owner
     }
 }
