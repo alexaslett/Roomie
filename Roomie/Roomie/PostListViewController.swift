@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class PostListViewController: UIViewController {
     
@@ -24,6 +25,11 @@ class PostListViewController: UIViewController {
     
     @IBAction func sendButtonTapped(_ sender: UIButton) {
         
+//        guard let authorCKRecordID = UserController.shared.currentUser?.cloudKitRecordID else { return }
+//
+//        let authorReference = CKReference(recordID: authorCKRecordID, action: .deleteSelf)
+//
+//        PostController.shared.createPost(author: authorReference, group: <#T##CKReference#>, text: <#T##String#>, completion: <#T##((Error?) -> Void)##((Error?) -> Void)##(Error?) -> Void#>)
     }
     
     // MARK: - Table view data source
@@ -37,7 +43,7 @@ class PostListViewController: UIViewController {
         
         let post = PostController.shared.posts[indexPath.row]
         
-//        cell.textLabel?.text = post.author
+        cell.textLabel?.text = post.authorUserName // will probably need to unwrap the usercontroller.shared.currentuser to get their name.
         cell.detailTextLabel?.text = post.text
         
         return cell

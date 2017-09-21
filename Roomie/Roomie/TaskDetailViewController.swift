@@ -26,10 +26,16 @@ class TaskDetailViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func taskCompletedButtonTapped(_ sender: UIButton) {
-        
+        guard let task = task else { return }
+        TaskController.shared.deleteTask(task: task)
+        _ = navigationController?.popViewController(animated: true)
     }
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        guard let taskName = taskNameTextField.text, taskName != "", let owner = ownerNameTextField.text, owner != "" else { return }
         
+        if self.task == nil {
+            
+        }
     }
 }

@@ -23,9 +23,9 @@ class PostController {
     
     // MARK: - Create
     
-    func createPost(author: CKReference, group: CKReference, timestamp: Date = Date(), text: String, completion: @escaping ((Error?) -> Void) = { _ in }) {
+    func createPost(author: CKReference, authorUserName: String, group: CKReference, timestamp: Date = Date(), text: String, completion: @escaping ((Error?) -> Void) = { _ in }) {
         
-        let post = Post(author: author, group: group, timestamp: timestamp, text: text)
+        let post = Post(author: author, authorUserName: authorUserName, group: group, timestamp: timestamp, text: text)
         let postRecord = CKRecord(post: post)
         
         cloudKitManager.saveRecord(postRecord) { (record, error) in
@@ -60,11 +60,12 @@ class PostController {
     
     // MARK: - Update
     
-    func updatePosts(post: Post?, author: CKReference, group: CKReference, timestamp: Date = Date(), text: String, completion: @escaping ((_ success: Bool) -> Void) = { _ in }) {
+    func updatePosts(post: Post?, author: CKReference, authorUserName: String, group: CKReference, timestamp: Date = Date(), text: String, completion: @escaping ((_ success: Bool) -> Void) = { _ in }) {
         
         guard let post = post else { return }
         
         post.author = author
+        post.authorUserName = authorUserName
         post.group = group
         post.timestamp = timestamp
         post.text = text
