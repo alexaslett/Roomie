@@ -16,7 +16,7 @@ class LaunchScreenViewController: UIViewController {
         
     }
     
-    func segueToGroupVC() {
+    @objc func segueToGroupVC() {
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "toGroupScreen", sender: self)
         }

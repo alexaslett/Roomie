@@ -23,7 +23,6 @@
                         <segue destination="yIt-mT-SCZ" kind="relationship" relationship="viewControllers" id="tX5-bj-8Lw"/>
                         <segue destination="yab-nF-hn2" kind="relationship" relationship="viewControllers" id="GS1-yp-A8b"/>
                         <segue destination="kKp-gD-JPV" kind="relationship" relationship="viewControllers" id="W8K-fc-PWf"/>
-                        <segue destination="SmN-tG-TqJ" kind="relationship" relationship="viewControllers" id="TUl-BR-qms"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Idl-4g-YxW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -69,16 +68,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fto-Vg-dMr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="303" y="446"/>
-        </scene>
-        <!--GroupLaunchScreen-->
-        <scene sceneID="nph-GG-jBy">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Home" storyboardName="GroupLaunchScreen" id="SmN-tG-TqJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="HO3-F8-yyL"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aOR-rh-w29" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="300" y="-13"/>
         </scene>
     </scenes>
 </document>
