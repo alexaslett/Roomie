@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import CloudKit
 
 class CreateGroupViewController: UIViewController {
     
+    
     let group = GroupController()
     
-    @IBOutlet weak var codeTextField: UITextField!
     
-
+    
+    @IBOutlet weak var codeTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,8 @@ class CreateGroupViewController: UIViewController {
         codeTextField.isUserInteractionEnabled = false
         codeTextField.text = passcode
     }
+    
+    
     
     
 }
