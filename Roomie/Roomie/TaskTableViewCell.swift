@@ -10,6 +10,8 @@ import UIKit
 
 class TaskTableViewCell: UITableViewCell {
     
+    var task: Task?
+    
     // MARK: - Outlets
     
     @IBOutlet weak var ownerNameLabel: UILabel!

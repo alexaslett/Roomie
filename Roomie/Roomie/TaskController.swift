@@ -23,9 +23,9 @@ class TaskController {
     
     // MARK: - Create
     
-    func createTask(owner: CKReference, isComplete: Bool = false, dueDate: Date = Date(), group: CKReference, completion: @escaping ((Error?) -> Void) = { _ in }) {
+    func createTask(taskName: String, owner: CKReference, isComplete: Bool = false, dueDate: Date = Date(), group: CKReference, completion: @escaping ((Error?) -> Void) = { _ in }) {
         
-        let task = Task(owner: owner, isComplete: isComplete, dueDate: dueDate, group: group)
+        let task = Task(taskName: taskName, owner: owner, isComplete: isComplete, dueDate: dueDate, group: group)
         let taskRecord = CKRecord(task: task)
         
         cloudKitManager.saveRecord(taskRecord) { (record, error) in
@@ -93,7 +93,7 @@ class TaskController {
                 return
             }
         }
-    }
+    } // ** check to see if the app works without the above function
     
     func deleteTask(task: Task) {
         let record = CKRecord(task: task)
