@@ -527,7 +527,7 @@
         <!--Join Group-->
         <scene sceneID="kL3-oI-x1J">
             <objects>
-                <viewController id="XOg-o4-6ic" sceneMemberID="viewController">
+                <viewController id="XOg-o4-6ic" customClass="JoinGroupViewController" customModule="Roomie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UC5-Th-laS"/>
                         <viewControllerLayoutGuide type="bottom" id="4Ab-nk-DFC"/>
@@ -578,8 +578,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Join Group" id="dkM-tw-yUS">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="LwZ-p9-77B"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="LwZ-p9-77B">
+                            <connections>
+                                <action selector="joinGroupButtonTapped:" destination="XOg-o4-6ic" id="7zH-VD-1Zd"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="passcodeTextfield" destination="1Dy-6p-TqJ" id="RGp-3k-Auc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LJC-IC-02m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
