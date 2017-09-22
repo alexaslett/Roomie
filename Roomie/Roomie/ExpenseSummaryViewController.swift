@@ -14,6 +14,8 @@ class ExpenseSummaryViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    @IBOutlet weak var youOweLabel: UILabel!
+    @IBOutlet weak var youAreOwedLabel: UILabel!
     
 
     /*

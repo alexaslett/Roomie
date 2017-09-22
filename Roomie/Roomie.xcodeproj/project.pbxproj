@@ -22,6 +22,7 @@
 		4D2AE3A71F75B45A0072CC21 /* ExpenseHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2AE3A61F75B45A0072CC21 /* ExpenseHistoryTableViewController.swift */; };
 		4D2AE3A91F75B6540072CC21 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2AE3A81F75B6540072CC21 /* AddExpenseViewController.swift */; };
 		4D2AE3AB1F75B6AF0072CC21 /* SplitExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2AE3AA1F75B6AE0072CC21 /* SplitExpensesViewController.swift */; };
+		4D2AE3AD1F75C8920072CC21 /* SplitUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2AE3AC1F75C8920072CC21 /* SplitUserTableViewCell.swift */; };
 		4DA885651F71D79200C65C4D /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA885641F71D79200C65C4D /* CloudKitManager.swift */; };
 		4DB716621F72BE52004E166B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB716611F72BE52004E166B /* User.swift */; };
 		4DB716641F72CA68004E166B /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB716631F72CA68004E166B /* UserController.swift */; };
@@ -62,6 +63,7 @@
 		4D2AE3A61F75B45A0072CC21 /* ExpenseHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseHistoryTableViewController.swift; sourceTree = "<group>"; };
 		4D2AE3A81F75B6540072CC21 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
 		4D2AE3AA1F75B6AE0072CC21 /* SplitExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitExpensesViewController.swift; sourceTree = "<group>"; };
+		4D2AE3AC1F75C8920072CC21 /* SplitUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitUserTableViewCell.swift; sourceTree = "<group>"; };
 		4DA885641F71D79200C65C4D /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		4DB716611F72BE52004E166B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4DB716631F72CA68004E166B /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				711705C41F7317E800BB107F /* TaskTableViewCell.swift */,
+				4D2AE3AC1F75C8920072CC21 /* SplitUserTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				52A82D8C1F72CF3B00264906 /* GroupController.swift in Sources */,
 				4DB7166A1F72E76C004E166B /* SignUpTableViewController.swift in Sources */,
 				711705C11F73168600BB107F /* TaskOptionsViewController.swift in Sources */,
+				4D2AE3AD1F75C8920072CC21 /* SplitUserTableViewCell.swift in Sources */,
 				4D2AE3AB1F75B6AF0072CC21 /* SplitExpensesViewController.swift in Sources */,
 				711705B31F72C30F00BB107F /* Post.swift in Sources */,
 				711705B51F72D07A00BB107F /* PostController.swift in Sources */,

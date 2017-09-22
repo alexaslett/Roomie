@@ -15,7 +15,17 @@ class MarkPaidViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
+    @IBOutlet weak var oweLabel: UILabel!
+    @IBOutlet weak var amountOwedLabel: UILabel!
+    @IBOutlet weak var expenseNameLabel: UILabel!
+    
+    @IBAction func markPaidButtonClicked(_ sender: Any) {
+    }
+    
+    
+    @IBAction func deleteButtonTapped(_ sender: Any) {
+    }
+    
     /*
     // MARK: - Navigation
 
