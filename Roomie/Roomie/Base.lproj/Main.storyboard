@@ -170,7 +170,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="SLm-TJ-fxV" kind="show" id="dei-rC-aI3"/>
+                                            <segue destination="SLm-TJ-fxV" kind="show" identifier="toTabBar" id="dei-rC-aI3"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
