@@ -12,7 +12,7 @@
         <!--Expenses-->
         <scene sceneID="nb4-4c-SMq">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Mdk-HO-Xy6" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Mdk-HO-Xy6" customClass="ExpenseSummaryViewController" customModule="Roomie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I57-Lk-qal"/>
                         <viewControllerLayoutGuide type="bottom" id="g5S-cB-LIP"/>

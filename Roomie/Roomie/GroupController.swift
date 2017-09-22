@@ -19,6 +19,7 @@ class GroupController {
     }()
     
     var groups: [Group] = []
+    var currentGroup: Group?
     
     var newGroup: Group? {
         didSet{

@@ -55,15 +55,19 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     
-    
-    /*
+
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
+        if segue.identifier == "toTabBar" {
+            guard let indexpath = tableView.indexPathForSelectedRow else { return }
+            let group = GroupController.shared.groups[indexpath.row]
+            // Fix me for MVC
+            GroupController.shared.currentGroup = group
+            
+        }
      }
-     */
+
     
 }
