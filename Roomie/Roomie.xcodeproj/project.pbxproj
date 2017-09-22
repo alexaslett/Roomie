@@ -34,7 +34,6 @@
 		711705B51F72D07A00BB107F /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705B41F72D07A00BB107F /* PostController.swift */; };
 		711705B91F72E3E900BB107F /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705B81F72E3E900BB107F /* TaskController.swift */; };
 		711705BB1F7309DE00BB107F /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705BA1F7309DE00BB107F /* PostListViewController.swift */; };
-		711705BF1F73159900BB107F /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705BE1F73159900BB107F /* PostDetailViewController.swift */; };
 		711705C11F73168600BB107F /* TaskOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705C01F73168600BB107F /* TaskOptionsViewController.swift */; };
 		711705C31F73176000BB107F /* TaskListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705C21F73176000BB107F /* TaskListTableViewController.swift */; };
 		711705C51F7317E800BB107F /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705C41F7317E800BB107F /* TaskTableViewCell.swift */; };
@@ -72,7 +71,6 @@
 		711705B41F72D07A00BB107F /* PostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		711705B81F72E3E900BB107F /* TaskController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
 		711705BA1F7309DE00BB107F /* PostListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
-		711705BE1F73159900BB107F /* PostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		711705C01F73168600BB107F /* TaskOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskOptionsViewController.swift; sourceTree = "<group>"; };
 		711705C21F73176000BB107F /* TaskListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListTableViewController.swift; sourceTree = "<group>"; };
 		711705C41F7317E800BB107F /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
@@ -174,7 +172,6 @@
 				4DB716691F72E76C004E166B /* SignUpTableViewController.swift */,
 				4DB7166B1F73029B004E166B /* LaunchScreenViewController.swift */,
 				711705BA1F7309DE00BB107F /* PostListViewController.swift */,
-				711705BE1F73159900BB107F /* PostDetailViewController.swift */,
 				711705C01F73168600BB107F /* TaskOptionsViewController.swift */,
 				711705C21F73176000BB107F /* TaskListTableViewController.swift */,
 				711705C61F7319C700BB107F /* TaskDetailViewController.swift */,
@@ -312,7 +309,6 @@
 				711705C31F73176000BB107F /* TaskListTableViewController.swift in Sources */,
 				52A82D8C1F72CF3B00264906 /* GroupController.swift in Sources */,
 				4DB7166A1F72E76C004E166B /* SignUpTableViewController.swift in Sources */,
-				711705BF1F73159900BB107F /* PostDetailViewController.swift in Sources */,
 				711705C11F73168600BB107F /* TaskOptionsViewController.swift in Sources */,
 				711705B31F72C30F00BB107F /* Post.swift in Sources */,
 				711705B51F72D07A00BB107F /* PostController.swift in Sources */,

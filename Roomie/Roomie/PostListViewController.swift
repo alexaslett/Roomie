@@ -25,11 +25,13 @@ class PostListViewController: UIViewController {
     
     @IBAction func sendButtonTapped(_ sender: UIButton) {
         
-//        guard let authorCKRecordID = UserController.shared.currentUser?.cloudKitRecordID else { return }
-//
-//        let authorReference = CKReference(recordID: authorCKRecordID, action: .deleteSelf)
-//
-//        PostController.shared.createPost(author: authorReference, group: <#T##CKReference#>, text: <#T##String#>, completion: <#T##((Error?) -> Void)##((Error?) -> Void)##(Error?) -> Void#>)
+        // what i need to do here is add the author user name to the guard let statement. and unwrap the group. use the group controller stuff that we created.
+        
+        guard let authorCKRecordID = UserController.shared.currentUser?.cloudKitRecordID, let authorName = UserController.shared.currentUser?.firstName else { return }
+
+        let authorReference = CKReference(recordID: authorCKRecordID, action: .deleteSelf)
+
+        PostController.shared.createPost(author: authorReference, authorUserName: authorName, group: <#T##CKReference#>, text: <#T##String#>, completion: <#T##((Error?) -> Void)##((Error?) -> Void)##(Error?) -> Void#>)
     }
     
     // MARK: - Table view data source
@@ -59,19 +61,6 @@ class PostListViewController: UIViewController {
             let post = PostController.shared.posts[indexPath.row]
             PostController.shared.deletePost(post: post)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-        
-    }
-    
-    // MARK: - Navigation
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ToEditPostVC" {
-            guard let destinationVC = segue.destination as? PostDetailViewController else { return }
-            guard let indexPath = postListTableView.indexPathForSelectedRow else { return }
-            let post = PostController.shared.posts[indexPath.row]
-            
-            destinationVC.post = post
         }
     }
 }
