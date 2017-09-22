@@ -203,6 +203,7 @@
                                 <connections>
                                     <action selector="joinGroupButtonTapped:" destination="5Qn-nf-YjP" eventType="touchUpInside" id="eWy-4d-xcq"/>
                                     <action selector="signUpButtonTapped:" destination="LzG-Cr-yRb" eventType="touchUpInside" id="fhj-X9-wyQ"/>
+                                    <segue destination="XOg-o4-6ic" kind="show" id="wxQ-MQ-y5L"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -262,15 +263,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Roomies Apartment 335" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GfY-0c-oQ8">
-                                <rect key="frame" x="51" y="276" width="178.5" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="DbX-cx-KzD"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQg-6G-OkU">
                                 <rect key="frame" x="120" y="356" width="134" height="30"/>
                                 <constraints>
@@ -290,17 +282,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Roomies Apartment 335" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GfY-0c-oQ8">
+                                <rect key="frame" x="98" y="276" width="178.5" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="DbX-cx-KzD"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GfY-0c-oQ8" firstAttribute="top" secondItem="Kte-Ww-4Li" secondAttribute="bottom" constant="8" id="25X-Ub-wb1"/>
                             <constraint firstItem="UQg-6G-OkU" firstAttribute="leading" secondItem="76i-3g-HLT" secondAttribute="leading" constant="120" id="4P5-6V-aHg"/>
                             <constraint firstItem="UQg-6G-OkU" firstAttribute="top" secondItem="GfY-0c-oQ8" secondAttribute="bottom" constant="50" id="AsX-Ur-Vrh"/>
+                            <constraint firstItem="GfY-0c-oQ8" firstAttribute="centerX" secondItem="76i-3g-HLT" secondAttribute="centerX" id="CNb-IA-4dQ"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Kte-Ww-4Li" secondAttribute="trailing" id="D62-RT-e80"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GfY-0c-oQ8" secondAttribute="trailing" id="L8W-HZ-bHq"/>
                             <constraint firstItem="Kte-Ww-4Li" firstAttribute="leading" secondItem="76i-3g-HLT" secondAttribute="leading" constant="119" id="O5M-ra-fjF"/>
                             <constraint firstItem="7cg-iK-RjQ" firstAttribute="top" secondItem="UQg-6G-OkU" secondAttribute="bottom" constant="20" id="QJA-Nj-NL4"/>
-                            <constraint firstItem="GfY-0c-oQ8" firstAttribute="leading" secondItem="76i-3g-HLT" secondAttribute="leading" constant="51" id="a4V-zX-9Fm"/>
                             <constraint firstAttribute="trailing" secondItem="ch7-Eu-YIy" secondAttribute="trailing" constant="110" id="dcQ-e4-KIR"/>
                             <constraint firstItem="ch7-Eu-YIy" firstAttribute="leading" secondItem="76i-3g-HLT" secondAttribute="leading" constant="110" id="fAJ-T3-tOX"/>
                             <constraint firstItem="ch7-Eu-YIy" firstAttribute="top" secondItem="OTF-vd-X92" secondAttribute="bottom" constant="8" id="ivz-4P-goC"/>
@@ -523,6 +523,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fdy-Xb-u7V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1543" y="1000"/>
+        </scene>
+        <!--Join Group-->
+        <scene sceneID="kL3-oI-x1J">
+            <objects>
+                <viewController id="XOg-o4-6ic" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UC5-Th-laS"/>
+                        <viewControllerLayoutGuide type="bottom" id="4Ab-nk-DFC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vd2-E6-HtQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BigGroupIcon" translatesAutoresizingMaskIntoConstraints="NO" id="9gi-Py-ePi">
+                                <rect key="frame" x="110" y="72" width="155" height="155"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="155" id="8vr-YS-YD4"/>
+                                    <constraint firstAttribute="height" constant="155" id="eCc-9p-JwK"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Group Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTx-J3-LqZ">
+                                <rect key="frame" x="119" y="247" width="138" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="OVq-Zr-lr5"/>
+                                    <constraint firstAttribute="height" constant="21" id="a4y-4p-bfz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="6 DIgit Code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Dy-6p-TqJ">
+                                <rect key="frame" x="136.5" y="276" width="102" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="hKh-Y8-rYh"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RTx-J3-LqZ" firstAttribute="top" secondItem="9gi-Py-ePi" secondAttribute="bottom" constant="20" id="FmJ-Z1-zPH"/>
+                            <constraint firstAttribute="trailing" secondItem="9gi-Py-ePi" secondAttribute="trailing" constant="110" id="Ifb-Wp-lpE"/>
+                            <constraint firstItem="1Dy-6p-TqJ" firstAttribute="centerX" secondItem="Vd2-E6-HtQ" secondAttribute="centerX" id="P1J-H1-IJW"/>
+                            <constraint firstItem="RTx-J3-LqZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Vd2-E6-HtQ" secondAttribute="leading" id="UNL-iN-LRV"/>
+                            <constraint firstItem="1Dy-6p-TqJ" firstAttribute="top" secondItem="RTx-J3-LqZ" secondAttribute="bottom" constant="8" id="ewz-5u-7eR"/>
+                            <constraint firstItem="9gi-Py-ePi" firstAttribute="leading" secondItem="Vd2-E6-HtQ" secondAttribute="leading" constant="110" id="gfs-LV-YuJ"/>
+                            <constraint firstItem="9gi-Py-ePi" firstAttribute="top" secondItem="UC5-Th-laS" secondAttribute="bottom" constant="8" id="iF7-0R-DXL"/>
+                            <constraint firstItem="RTx-J3-LqZ" firstAttribute="centerX" secondItem="Vd2-E6-HtQ" secondAttribute="centerX" id="jcj-xU-9Qa"/>
+                            <constraint firstItem="RTx-J3-LqZ" firstAttribute="top" secondItem="9gi-Py-ePi" secondAttribute="bottom" constant="20" id="ro2-y6-QVL"/>
+                            <constraint firstAttribute="trailing" secondItem="RTx-J3-LqZ" secondAttribute="trailing" constant="118" id="vdt-s3-cH3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Join Group" id="dkM-tw-yUS">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="LwZ-p9-77B"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LJC-IC-02m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2310" y="1202"/>
         </scene>
     </scenes>
     <resources>
