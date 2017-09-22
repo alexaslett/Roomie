@@ -25,13 +25,22 @@ class PostListViewController: UIViewController {
     
     @IBAction func sendButtonTapped(_ sender: UIButton) {
         
-        // what i need to do here is add the author user name to the guard let statement. and unwrap the group. use the group controller stuff that we created.
-        
-        guard let authorCKRecordID = UserController.shared.currentUser?.cloudKitRecordID, let authorName = UserController.shared.currentUser?.firstName else { return }
+        guard let authorCKRecordID = UserController.shared.currentUser?.cloudKitRecordID, let authorName = UserController.shared.currentUser?.firstName, let currentGroupCKRecordID = GroupController.shared.currentGroup?.cloudKitRecordID, let postText = postTextField.text else { return }
 
         let authorReference = CKReference(recordID: authorCKRecordID, action: .deleteSelf)
-
-        PostController.shared.createPost(author: authorReference, authorUserName: authorName, group: <#T##CKReference#>, text: <#T##String#>, completion: <#T##((Error?) -> Void)##((Error?) -> Void)##(Error?) -> Void#>)
+        let groupReference = CKReference(recordID: currentGroupCKRecordID, action: .deleteSelf)
+        
+        PostController.shared.createPost(author: authorReference, authorUserName: authorName, group: groupReference, text: postText) { (error) in
+            
+            if let error = error {
+                NSLog("unable to create post \(error.localizedDescription)")
+                return
+            } else {
+                DispatchQueue.main.async {
+                    self.postListTableView.reloadData()
+                }
+            }
+        }
     }
     
     // MARK: - Table view data source
@@ -62,5 +71,12 @@ class PostListViewController: UIViewController {
             PostController.shared.deletePost(post: post)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
+    
+    func presentSimpleAlert(title: String, message: String){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
+        alertController.addAction(dismissAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
