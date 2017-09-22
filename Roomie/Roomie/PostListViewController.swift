@@ -72,11 +72,4 @@ class PostListViewController: UIViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-    
-    func presentSimpleAlert(title: String, message: String){
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
-        alertController.addAction(dismissAction)
-        self.present(alertController, animated: true, completion: nil)
-    }
 }

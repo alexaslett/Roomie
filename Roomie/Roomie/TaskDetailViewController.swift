@@ -21,6 +21,8 @@ class TaskDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = task?.taskName
     }
     
     // MARK: - Actions
