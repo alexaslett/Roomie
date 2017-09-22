@@ -27,18 +27,22 @@ class UserController {
         }
     }
     
-    func createUserWith(firstName: String, lastName: String, email: String, phone: String?, groupID: CKReference?, completion: @escaping(_ success: Bool) -> Void) {
+    func createUserWith(firstName: String, lastName: String, email: String, phone: String?, completion: @escaping(_ success: Bool) -> Void) {
         CKContainer.default().fetchUserRecordID { (appleUsersRecordID, error) in
             guard let appleUsersRecordID = appleUsersRecordID else { completion(false); return }
             
             let appleUserRef = CKReference(recordID: appleUsersRecordID, action: .deleteSelf)
-            let user = User(firstName: firstName, lastName: lastName, email: email, phone: phone, groupID: groupID, appleUserRef: appleUserRef)
+            let user = User(firstName: firstName, lastName: lastName, email: email, phone: phone, appleUserRef: appleUserRef)
             let userRecord = CKRecord(user: user)
             
             CKContainer.default().publicCloudDatabase.save(userRecord) { (record, error) in
-                if let error = error { print(error.localizedDescription) }
-                guard let record = record,
-                    let currentUser = User(cloudKitRecord: record) else { completion(false); return }
+                if let error = error {
+                    print(error.localizedDescription)
+                    completion(false)
+                    return
+                }
+                guard let record = record else { completion(false); return }
+                guard let currentUser = User(cloudKitRecord: record) else { completion(false); return }
                 
                 self.currentUser = currentUser
                 completion(true)

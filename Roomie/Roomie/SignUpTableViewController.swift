@@ -9,10 +9,10 @@
 import UIKit
 
 class SignUpTableViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     //@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -26,30 +26,29 @@ class SignUpTableViewController: UITableViewController {
             return
         }
         
-       // activityIndicator.startAnimating()
+        // activityIndicator.startAnimating()
         
-        UserController.shared.createUserWith(firstName: firstName, lastName: lastName, email: email, phone: phone, groupID: nil) { (success) in
-            DispatchQueue.main.async {
-                //self.activityIndicator.stopAnimating()
-                if !success {
+        UserController.shared.createUserWith(firstName: firstName, lastName: lastName, email: email, phone: phone) { (success) in
+            if !success {
+                DispatchQueue.main.async {
                     self.presentSimpleAlert(title: "Unable to create an account", message: "Make sure you have a network connection, and please try again.")
+                    
                 }
             }
         }
-        
-        
     }
     
-
+    
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     func segueToGroupVC() {
         DispatchQueue.main.async {
@@ -63,5 +62,5 @@ class SignUpTableViewController: UITableViewController {
         alertController.addAction(dismissAction)
         self.present(alertController, animated: true, completion: nil)
     }
-
+    
 }

@@ -124,10 +124,10 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
         </scene>
-        <!--View Controller-->
+        <!--Group List View Controller-->
         <scene sceneID="p4Y-qX-avr">
             <objects>
-                <viewController id="5Qn-nf-YjP" sceneMemberID="viewController">
+                <viewController id="5Qn-nf-YjP" customClass="GroupListViewController" customModule="Roomie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zjp-TU-5Qf"/>
                         <viewControllerLayoutGuide type="bottom" id="pX2-Ed-heV"/>
@@ -174,6 +174,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="5Qn-nf-YjP" id="X60-RE-cU3"/>
+                                    <outlet property="delegate" destination="5Qn-nf-YjP" id="YbN-BF-qRR"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34C-c7-Wnv">
                                 <rect key="frame" x="87" y="566" width="200" height="30"/>
@@ -201,6 +205,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="joinGroupButtonTapped:" destination="5Qn-nf-YjP" eventType="touchUpInside" id="eWy-4d-xcq"/>
                                     <action selector="signUpButtonTapped:" destination="LzG-Cr-yRb" eventType="touchUpInside" id="fhj-X9-wyQ"/>
                                 </connections>
                             </button>
@@ -223,6 +228,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TT1-XT-Zb0"/>
+                    <connections>
+                        <outlet property="tableView" destination="5kt-a8-Wav" id="fLF-gK-28r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VgG-eG-3WF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -306,12 +314,13 @@
                     <navigationItem key="navigationItem" title="Create a group" id="xOB-c6-GJs">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="Mqu-kO-6OB">
                             <connections>
-                                <segue destination="SLm-TJ-fxV" kind="show" id="fVY-bD-5Bl"/>
+                                <action selector="doneButtonTapped:" destination="CNN-nj-WjQ" id="O3G-cu-L7G"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="codeTextField" destination="7cg-iK-RjQ" id="sh9-hD-0QF"/>
+                        <outlet property="groupNameTextField" destination="GfY-0c-oQ8" id="tup-UA-tmZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E5b-Yb-eaR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -416,6 +425,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="signUpButtonTapped:" destination="LzG-Cr-yRb" eventType="touchUpInside" id="nI5-Ty-lCR"/>
+                                                        <segue destination="VZ2-3Y-J11" kind="show" id="Ok2-FM-4cV"/>
                                                     </connections>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="bik-Xg-S4s" userLabel="Full Name Textfield">
@@ -521,6 +531,6 @@
         <image name="profileicon9" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dei-rC-aI3"/>
+        <segue reference="Ok2-FM-4cV"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -18,6 +18,8 @@ class GroupController {
         return CloudKitManager()
     }()
     
+    var groups: [Group] = []
+    
     var newGroup: Group? {
         didSet{
             
@@ -42,18 +44,78 @@ class GroupController {
     
     
     func createNewGroup(groupName: String, passcode: String, completion: @escaping(_ success: Bool) -> Void) {
-        CKContainer.default().fetchUserRecordID { (groupRecordID, error) in
-//            guard let groupRecordID = groupRecordID else { completion(false);
-//                return }
-//
-//
-//            let group = Group
-//            let groupRecord = CKRecord
+        let group = Group(groupName: groupName, passcode: passcode)
+        
+        let groupRecord = CKRecord(group: group)
+        CKContainer.default().publicCloudDatabase.save(groupRecord) { (record, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                completion(false)
+                return
+            }
+            guard let record = record else { completion(false); return }
+            
+            group.cloudKitRecordID = record.recordID
+            
+            self.groups.append(group)
+            
+            // call func to add group
+            self.addGroupRefToUser(record: record, completion: completion)
+        }
+    }
+    
+    
+    func addGroupRefToUser(record: CKRecord, completion: @escaping (_ success: Bool) -> Void) {
+        guard let currentUser = UserController.shared.currentUser else { completion(false); return }
+        let groupRef = CKReference(record: record, action: .none)
+        currentUser.groupsRefs.append(groupRef)
+        let userRecord = CKRecord(user: currentUser)
+        cloudKitManager.modifyRecords([userRecord], perRecordCompletion: nil) { (_, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                completion(false)
+                return
+            }
+            completion(true)
+        }
+        
+        
+    }
+    
+    func fetchGroup(completion: @escaping (_ success: Bool) -> Void = { _ in }){
+        guard let currentUser = UserController.shared.currentUser else { completion(false); return }
+        
+        let groupCKRef = currentUser.groupsRefs
+        
+        var groupsCKID: [CKRecordID] = []
+        
+        for groupRef in groupCKRef {
+            let groupCKID = groupRef.recordID
+            groupsCKID.append(groupCKID)
+        }
+        
+        cloudKitManager.fetchRecords(withIDs: groupsCKID) { (groupCKDict, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                completion(false)
+                return
+            }
+            guard let groupCKDict = groupCKDict else { completion(true); return }
+            var groups1: [Group] = []
+            for groupCKRecord in groupCKDict.values {
+                guard let group = Group(cloudkitRecord: groupCKRecord) else { completion(false); return }
+                groups1.append(group)
+            }
+                self.groups = groups1
+            completion(true)
             
         }
         
-    
+        
+        
     }
+    
+    
     
 }
 
