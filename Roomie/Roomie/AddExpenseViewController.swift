@@ -1,23 +1,28 @@
 //
-//  ExpenseSummaryViewController.swift
+//  AddExpenseViewController.swift
 //  Roomie
 //
-//  Created by macbook pro on 9/22/17.
+//  Created by Alex Aslett on 9/22/17.
 //  Copyright © 2017 One Round Technology. All rights reserved.
 //
 
 import UIKit
 
-class ExpenseSummaryViewController: UIViewController {
+class AddExpenseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
 
-    @IBOutlet weak var youOweLabel: UILabel!
-    @IBOutlet weak var youAreOwedLabel: UILabel!
+    @IBOutlet weak var expenseNameTextField: UITextField!
+    @IBOutlet weak var amountTextField: UITextField!
     
 
+    
+    
+    
+    
     /*
     // MARK: - Navigation
 

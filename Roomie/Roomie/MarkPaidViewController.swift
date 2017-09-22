@@ -1,23 +1,31 @@
 //
-//  ExpenseSummaryViewController.swift
+//  MarkPaidViewController.swift
 //  Roomie
 //
-//  Created by macbook pro on 9/22/17.
+//  Created by Alex Aslett on 9/22/17.
 //  Copyright © 2017 One Round Technology. All rights reserved.
 //
 
 import UIKit
 
-class ExpenseSummaryViewController: UIViewController {
+class MarkPaidViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
     }
-
-    @IBOutlet weak var youOweLabel: UILabel!
-    @IBOutlet weak var youAreOwedLabel: UILabel!
+    @IBOutlet weak var oweLabel: UILabel!
+    @IBOutlet weak var amountOwedLabel: UILabel!
+    @IBOutlet weak var expenseNameLabel: UILabel!
     
-
+    @IBAction func markPaidButtonClicked(_ sender: Any) {
+    }
+    
+    
+    @IBAction func deleteButtonTapped(_ sender: Any) {
+    }
+    
     /*
     // MARK: - Navigation
 
