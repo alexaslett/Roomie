@@ -62,16 +62,4 @@ class PostListViewController: UIViewController {
         }
         
     }
-    
-    // MARK: - Navigation
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ToEditPostVC" {
-            guard let destinationVC = segue.destination as? PostDetailViewController else { return }
-            guard let indexPath = postListTableView.indexPathForSelectedRow else { return }
-            let post = PostController.shared.posts[indexPath.row]
-            
-            destinationVC.post = post
-        }
-    }
 }
