@@ -34,7 +34,7 @@
                                         <rect key="frame" x="323" y="0.0" width="36" height="30"/>
                                         <state key="normal" title="Send"/>
                                         <connections>
-                                            <action selector="sendButtonTapped:" destination="uOi-8u-Ew1" eventType="touchUpInside" id="D39-Bd-gTO"/>
+                                            <action selector="sendButtonTapped:" destination="uOi-8u-Ew1" eventType="touchUpInside" id="ia8-QB-boB"/>
                                         </connections>
                                     </button>
                                 </subviews>
