@@ -28,6 +28,7 @@ class PostListViewController: UIViewController {
         guard let authorCKRecordID = UserController.shared.currentUser?.cloudKitRecordID, let authorName = UserController.shared.currentUser?.firstName, let currentGroupCKRecordID = GroupController.shared.currentGroup?.cloudKitRecordID, let postText = postTextField.text else { return }
 
         let authorReference = CKReference(recordID: authorCKRecordID, action: .deleteSelf)
+
         let groupReference = CKReference(recordID: currentGroupCKRecordID, action: .deleteSelf)
         
         PostController.shared.createPost(author: authorReference, authorUserName: authorName, group: groupReference, text: postText) { (error) in
