@@ -23,9 +23,9 @@ class TaskController {
     
     // MARK: - Create
     
-    func createTask(taskName: String, owner: CKReference, isComplete: Bool = false, dueDate: Date = Date(), group: CKReference, completion: @escaping ((Error?) -> Void) = { _ in }) {
+    func createTask(taskName: String, owner: CKReference, ownerName: String, isComplete: Bool = false, dueDate: Date = Date(), group: CKReference, completion: @escaping ((Error?) -> Void) = { _ in }) {
         
-        let task = Task(taskName: taskName, owner: owner, isComplete: isComplete, dueDate: dueDate, group: group)
+        let task = Task(taskName: taskName, owner: owner, ownerName: ownerName, isComplete: isComplete, dueDate: dueDate, group: group)
         let taskRecord = CKRecord(task: task)
         
         cloudKitManager.saveRecord(taskRecord) { (record, error) in
@@ -60,11 +60,12 @@ class TaskController {
     
     // MARK: - Update
     
-    func updateTask(task: Task?, owner: CKReference, isComplete: Bool = false, dueDate: Date = Date(), group: CKReference, completion: @escaping ((_ success: Bool) -> Void) = { _ in }) {
+    func updateTask(task: Task?, owner: CKReference, ownerName: String, isComplete: Bool = false, dueDate: Date = Date(), group: CKReference, completion: @escaping ((_ success: Bool) -> Void) = { _ in }) {
         
         guard let task = task else { return }
         
         task.owner = owner
+        task.ownerName = ownerName
         task.isComplete = isComplete
         task.dueDate = dueDate
         task.group = group

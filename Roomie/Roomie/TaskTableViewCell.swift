@@ -10,11 +10,25 @@ import UIKit
 
 class TaskTableViewCell: UITableViewCell {
     
-    var task: Task?
+    var task: Task? {
+        didSet {
+            DispatchQueue.main.async {
+                self.updateViews()
+            }
+        }
+    }
     
     // MARK: - Outlets
     
     @IBOutlet weak var ownerNameLabel: UILabel!
     @IBOutlet weak var taskNameLabel: UILabel!
     @IBOutlet weak var dueDateLabel: UILabel!
+    
+    func updateViews() {
+        guard let task = self.task, let date = task.dueDate.formatter else { return }
+        
+        ownerNameLabel.text = task.ownerName
+        taskNameLabel.text = task.taskName
+        dueDateLabel.text = date.string(from: task.dueDate)
+    }
 }
