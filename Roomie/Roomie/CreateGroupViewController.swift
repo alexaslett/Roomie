@@ -17,6 +17,7 @@ class CreateGroupViewController: UIViewController {
     
     
     @IBOutlet weak var codeTextField: UITextField!
+    @IBOutlet weak var groupNameTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +28,28 @@ class CreateGroupViewController: UIViewController {
         codeTextField.isUserInteractionEnabled = false
         codeTextField.text = passcode
     }
+    @IBAction func doneButtonTapped(_ sender: Any) {
+        guard let groupName = groupNameTextField.text, let code = codeTextField.text, groupName != "", code != "" else { self.presentSimpleAlert(title: "Error Creating Group", message: "Please check that no fields are empty"); return }
+        GroupController.shared.createNewGroup(groupName: groupName, passcode: code) { (success) in
+            if success {
+                _ = self.navigationController?.popViewController(animated: true)
+            } else {
+                // present an alertController saying to try and again
+                DispatchQueue.main.async {
+                self.presentSimpleAlert(title: "Error Creating Group", message: "Error creating group, please try again")
+                }
+            }
+        }
+        _ = self.navigationController?.popViewController(animated: true)
+    }
     
-    
+    func presentSimpleAlert(title: String, message: String){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
+        alertController.addAction(dismissAction)
+        present(alertController, animated: true, completion: nil)
+    }
+
     
     
 }

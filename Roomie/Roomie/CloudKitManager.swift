@@ -133,6 +133,11 @@ class CloudKitManager {
         
     }
     
+    func fetchRecords(withIDs recordIDs: [CKRecordID], completion: ((_ records: [CKRecordID: CKRecord]?, _ error: Error?) -> Void)?) {
+        let fetchRecordsOperation = CKFetchRecordsOperation(recordIDs: recordIDs)
+        fetchRecordsOperation.fetchRecordsCompletionBlock = completion
+        publicDatabase.add(fetchRecordsOperation)
+    }
     
     
 }

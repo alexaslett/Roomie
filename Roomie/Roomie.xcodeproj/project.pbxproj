@@ -17,6 +17,7 @@
 		4D055B671F71862800EC7BE7 /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D055B661F71862800EC7BE7 /* Task.storyboard */; };
 		4D055B691F71863A00EC7BE7 /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D055B681F71863A00EC7BE7 /* Post.storyboard */; };
 		4D055B6B1F71865300EC7BE7 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D055B6A1F71865300EC7BE7 /* Settings.storyboard */; };
+		4D2AE3A31F7580740072CC21 /* GroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2AE3A21F7580740072CC21 /* GroupListViewController.swift */; };
 		4DA885651F71D79200C65C4D /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA885641F71D79200C65C4D /* CloudKitManager.swift */; };
 		4DB716621F72BE52004E166B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB716611F72BE52004E166B /* User.swift */; };
 		4DB716641F72CA68004E166B /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB716631F72CA68004E166B /* UserController.swift */; };
@@ -52,6 +53,7 @@
 		4D055B661F71862800EC7BE7 /* Task.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Task.storyboard; sourceTree = "<group>"; };
 		4D055B681F71863A00EC7BE7 /* Post.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Post.storyboard; sourceTree = "<group>"; };
 		4D055B6A1F71865300EC7BE7 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		4D2AE3A21F7580740072CC21 /* GroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewController.swift; sourceTree = "<group>"; };
 		4DA885641F71D79200C65C4D /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		4DB716611F72BE52004E166B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4DB716631F72CA68004E166B /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				711705C21F73176000BB107F /* TaskListTableViewController.swift */,
 				711705C61F7319C700BB107F /* TaskDetailViewController.swift */,
 				52C4BCC11F742C6B00E6BB6C /* CreateGroupViewController.swift */,
+				4D2AE3A21F7580740072CC21 /* GroupListViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D2AE3A31F7580740072CC21 /* GroupListViewController.swift in Sources */,
 				711705BB1F7309DE00BB107F /* PostListViewController.swift in Sources */,
 				4D055B601F717A2300EC7BE7 /* Expense.swift in Sources */,
 				711705C51F7317E800BB107F /* TaskTableViewCell.swift in Sources */,

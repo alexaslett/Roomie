@@ -11,8 +11,8 @@ import CloudKit
 
 class Group {
     
-    fileprivate static let groupNameKey = "groupName"
-    fileprivate static let passcodeKey = "passcode"
+    static let groupNameKey = "groupName"
+    static let passcodeKey = "passcode"
     static let recordTypeKey = "group"
     
     let groupName: String

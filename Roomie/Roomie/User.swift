@@ -15,7 +15,7 @@ class User {
     static let lastNameKey = "lastName"
     static let emailKey = "email"
     static let phoneKey = "phone"
-    static let groupIDKey = "groupID"
+    static let groupsRefsKey = "groupsRefs"
     static let appleUserRefKey = "appleUserRef"
     static let recordTypeKey = "User"
     
@@ -25,18 +25,18 @@ class User {
     var lastName: String
     var email: String
     var phone: String?
-    var groupID: CKReference?
+    var groupsRefs: [CKReference]
     
     let appleUserRef: CKReference
     
     var cloudKitRecordID: CKRecordID?
     
-    init(firstName: String, lastName: String, email: String, phone: String?, groupID: CKReference?, appleUserRef: CKReference){
+    init(firstName: String, lastName: String, email: String, phone: String?, groupsRefs: [CKReference] = [], appleUserRef: CKReference){
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
         self.phone = phone
-        self.groupID = groupID
+        self.groupsRefs = groupsRefs
         self.appleUserRef = appleUserRef
     }
     
@@ -46,14 +46,13 @@ class User {
             let lastName = cloudKitRecord[User.lastNameKey] as? String,
             let email = cloudKitRecord[User.emailKey] as? String,
             let phone = cloudKitRecord[User.phoneKey] as? String,
-            let groupID = cloudKitRecord[User.groupIDKey] as? CKReference,
             let appleUserRef = cloudKitRecord[User.appleUserRefKey] as? CKReference else { return nil }
         
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
         self.phone = phone
-        self.groupID = groupID
+        self.groupsRefs = cloudKitRecord[User.groupsRefsKey] as? [CKReference] ?? []
         self.appleUserRef = appleUserRef
         self.cloudKitRecordID = cloudKitRecord.recordID
         
@@ -71,7 +70,11 @@ extension CKRecord {
         self.setValue(user.lastName, forKey: User.lastNameKey)
         self.setValue(user.email, forKey: User.emailKey)
         self.setValue(user.phone, forKey: User.phoneKey)
-        self.setValue(user.groupID, forKey: User.groupIDKey)
+        if user.groupsRefs == [] {
+        } else {
+            self.setValue(user.groupsRefs, forKey: User.groupsRefsKey)
+            
+        }
         self.setValue(user.appleUserRef, forKey: User.appleUserRefKey)
     }
     
