@@ -31,7 +31,7 @@ class PostListViewController: UIViewController {
 
         let authorReference = CKReference(recordID: authorCKRecordID, action: .deleteSelf)
 
-        PostController.shared.createPost(author: authorReference, authorUserName: authorName, group: <#T##CKReference#>, text: <#T##String#>, completion: <#T##((Error?) -> Void)##((Error?) -> Void)##(Error?) -> Void#>)
+        //PostController.shared.createPost(author: authorReference, authorUserName: authorName, group: <#T##CKReference#>, text: <#T##String#>, completion: <#T##((Error?) -> Void)##((Error?) -> Void)##(Error?) -> Void#>)
     }
     
     // MARK: - Table view data source

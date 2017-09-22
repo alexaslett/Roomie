@@ -1,19 +1,25 @@
 //
-//  ExpenseSummaryViewController.swift
+//  SplitExpensesViewController.swift
 //  Roomie
 //
-//  Created by macbook pro on 9/22/17.
+//  Created by Alex Aslett on 9/22/17.
 //  Copyright © 2017 One Round Technology. All rights reserved.
 //
 
 import UIKit
 
-class ExpenseSummaryViewController: UIViewController {
+class SplitExpensesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
     }
 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
 
     /*

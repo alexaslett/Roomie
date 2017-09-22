@@ -1,20 +1,20 @@
 //
-//  ExpenseSummaryViewController.swift
+//  MarkPaidViewController.swift
 //  Roomie
 //
-//  Created by macbook pro on 9/22/17.
+//  Created by Alex Aslett on 9/22/17.
 //  Copyright © 2017 One Round Technology. All rights reserved.
 //
 
 import UIKit
 
-class ExpenseSummaryViewController: UIViewController {
+class MarkPaidViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
 
-    
+        // Do any additional setup after loading the view.
+    }
 
     /*
     // MARK: - Navigation
