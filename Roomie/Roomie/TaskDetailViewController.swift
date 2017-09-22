@@ -21,6 +21,8 @@ class TaskDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = task?.taskName
     }
     
     // MARK: - Actions
@@ -35,19 +37,21 @@ class TaskDetailViewController: UIViewController {
         guard let taskName = taskNameTextField.text, taskName != "", let ownerName = ownerNameTextField.text, ownerName != "", let owner = UserController.shared.currentUser?.appleUserRef, let group = TaskController.shared.task?.group else { return }
         
         if self.task == nil {
-            TaskController.shared.createTask(taskName: taskName, owner: owner, isComplete: false, dueDate: dueDatePicker.date, group: group)
+            TaskController.shared.createTask(taskName: taskName, owner: owner, ownerName: ownerName, isComplete: false, dueDate: dueDatePicker.date, group: group)
         } else {
             guard let task = self.task else { return }
-            TaskController.shared.updateTask(task: task, owner: owner, isComplete: false, dueDate: dueDatePicker.date, group: group)
+            TaskController.shared.updateTask(task: task, owner: owner, ownerName: ownerName, isComplete: false, dueDate: dueDatePicker.date, group: group)
+            updateViews()
         }
         _ = navigationController?.popViewController(animated: true)
     }
     
     func updateViews() {
-        guard let task = self.task, let owner = UserController.shared.currentUser?.appleUserRef else { return }
-        task.owner = owner
+        guard let task = self.task, let ownerName = UserController.shared.currentUser?.firstName else { return }
+        let dueDate = dueDatePicker.date
         
         taskNameTextField.text = task.taskName
-//        ownerNameTextField.text = task.owner
+        ownerNameTextField.text = ownerName
+        dueDatePicker.date = dueDate
     }
 }
