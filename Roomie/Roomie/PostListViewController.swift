@@ -75,7 +75,7 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
         
-        guard let firstName = UserController.shared.currentUser?.firstName else { return UITableViewCell() }
+        let firstName = PostController.shared.posts[indexPath.row].authorUserName 
         
         let post = PostController.shared.posts[indexPath.row]
         
