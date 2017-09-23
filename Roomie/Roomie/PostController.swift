@@ -54,28 +54,8 @@ class PostController {
             
             self.posts = records.flatMap { Post(ckRecord: $0) }
         }
-     
-        
-        
-        
     }
     
-    /* func fetchPosts(completion: @escaping ((_ success) -> Void) = { _ in }) {
-        let sortDescriptors = [NSSortDescriptor(key: Post.timestampKey, ascending: false)]
-        
-        cloudKitManager.fetchRecords(ofType: Post.recordTypeKey, withSortDescriptors: sortDescriptors) { (records, error) in
-            
-            defer { completion(false) }
-            
-            if let error = error {
-                NSLog("Error fetching data. \(#file) \(#function) \n\(error.localizedDescription)")
-                return
-            }
-            guard let records = records else { return }
-            
-            self.posts = records.flatMap { Post(ckRecord: $0) }
-        }
-    } */
     
     // MARK: - Update
     

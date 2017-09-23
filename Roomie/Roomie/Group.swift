@@ -36,15 +36,13 @@ class Group {
         self.cloudKitRecordID = cloudkitRecord.recordID
         
     }
-    
-//    var cloudKitRecord: CKRecord {
-//        let record = CKRecord(recordType: Group.recordTypeKey)
-//        record.setValue(groupName, forKey: Group.groupNameKey)
-//        record.setValue(passcode, forKey: Group.passcodeKey)
-//        return record
-//    }
-    
 }
+
+//extension Group: Equatable {
+//    static func ==(lhs: Group, rhs: Group) -> Bool {
+//        return lhs.groupName == rhs.groupName && lhs.passcode == rhs.passcode
+//    }
+//}
 
 extension CKRecord {
     

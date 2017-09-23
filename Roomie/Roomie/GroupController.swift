@@ -109,13 +109,18 @@ class GroupController {
             }
                 self.groups = groups1
             completion(true)
-            
         }
-        
-        
-        
     }
     
+    // MARK: - Delete function
+    
+    func deleteGroup(group: Group) {
+        let record = CKRecord(group: group)
+        cloudKitManager.deleteOperation(record) {
+            guard let index = self.groups.index(of: group) else { return }
+            self.groups.remove(at: index)
+        }
+    }
     
     
 }
