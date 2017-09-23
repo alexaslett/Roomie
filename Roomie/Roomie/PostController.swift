@@ -19,8 +19,6 @@ class PostController {
     
     var posts: [Post] = []
     
-    var post: Post?
-    
     // MARK: - Create
     
     func createPost(author: CKReference, authorUserName: String, group: CKReference, timestamp: Date = Date(), text: String, completion: @escaping ((Error?) -> Void) = { _ in }) {
@@ -33,7 +31,9 @@ class PostController {
             
             if let error = error { NSLog("Error saving record \(#file) \(#function) \(error.localizedDescription)"); return }
             
-            guard record != nil else { NSLog("cannot create post"); return }
+            guard let record = record else { completion(error); return }
+            
+            post.ckRecordID = record.recordID
             
             self.posts.append(post)
         }
@@ -41,12 +41,31 @@ class PostController {
     
     // MARK: - Retreive/Fetch
     
-    func fetchPosts(completion: @escaping ((Error?) -> Void) = { _ in }) {
+    func fetchPosts(completion: @escaping (_ success: Bool) -> Void = { _ in }){
         let sortDescriptors = [NSSortDescriptor(key: Post.timestampKey, ascending: false)]
         
-        cloudKitManager.fetchRecords(ofType: Post.recordType, withSortDescriptors: sortDescriptors) { (records, error) in
+        cloudKitManager.fetchRecords(ofType: Post.recordTypeKey, withSortDescriptors: sortDescriptors) { (records, error) in
+            if let error = error {
+                NSLog("Error fetching data. \(#file) \(#function) \n\(error.localizedDescription)")
+                completion(false)
+                return
+            }
+            guard let records = records else { completion(false); return }
             
-            defer { completion(error) }
+            self.posts = records.flatMap { Post(ckRecord: $0) }
+        }
+     
+        
+        
+        
+    }
+    
+    /* func fetchPosts(completion: @escaping ((_ success) -> Void) = { _ in }) {
+        let sortDescriptors = [NSSortDescriptor(key: Post.timestampKey, ascending: false)]
+        
+        cloudKitManager.fetchRecords(ofType: Post.recordTypeKey, withSortDescriptors: sortDescriptors) { (records, error) in
+            
+            defer { completion(false) }
             
             if let error = error {
                 NSLog("Error fetching data. \(#file) \(#function) \n\(error.localizedDescription)")
@@ -56,7 +75,7 @@ class PostController {
             
             self.posts = records.flatMap { Post(ckRecord: $0) }
         }
-    }
+    } */
     
     // MARK: - Update
     

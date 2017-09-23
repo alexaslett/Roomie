@@ -11,12 +11,12 @@ import CloudKit
 
 class Post {
     
-    fileprivate static var authorKey: String { return "author" }
-    fileprivate static var authorUserNameKey: String { return "authorUserName" }
-    fileprivate static var groupKey: String { return "group" }
-    static var timestampKey: String { return "timestamp" }
-    fileprivate static var textKey: String { return "text" }
-    static var recordType: String { return "Post" }
+    static let authorKey = "author"
+    static let authorUserNameKey = "authorUserName"
+    static let groupKey = "group"
+    static let timestampKey = "timestamp"
+    static let textKey = "text"
+    static let recordTypeKey = "Post"
     
     var author: CKReference
     var authorUserName: String
@@ -37,8 +37,8 @@ class Post {
     init?(ckRecord: CKRecord) {
         guard let author = ckRecord[Post.authorKey] as? CKReference,
             let authorUserName = ckRecord[Post.authorUserNameKey] as? String,
-        let group = ckRecord[Post.groupKey] as? CKReference,
-        let timestamp = ckRecord[Post.timestampKey] as? Date,
+            let group = ckRecord[Post.groupKey] as? CKReference,
+            let timestamp = ckRecord[Post.timestampKey] as? Date,
             let text = ckRecord[Post.textKey] as? String else { return nil }
         
         self.author = author
@@ -60,7 +60,8 @@ extension CKRecord {
     convenience init(post: Post) {
         let recordID = post.ckRecordID ?? CKRecordID(recordName: UUID().uuidString)
         
-        self.init(recordType: Post.recordType, recordID: recordID)
+        self.init(recordType: Post.recordTypeKey, recordID: recordID)
+        
         self.setValue(post.authorUserName, forKey: Post.authorUserNameKey)
         self.setValue(post.author, forKey: Post.authorKey)
         self.setValue(post.group, forKey: Post.groupKey)

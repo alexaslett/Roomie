@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 
-class PostListViewController: UIViewController {
+class PostListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Outlets
     
@@ -19,13 +19,34 @@ class PostListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        PostController.shared.fetchPosts { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    self.postListTableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        PostController.shared.fetchPosts { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    self.postListTableView.reloadData()
+                }
+            }
+        }
     }
     
     // MARK: - Actions
     
     @IBAction func sendButtonTapped(_ sender: UIButton) {
         
-        guard let authorCKRecordID = UserController.shared.currentUser?.cloudKitRecordID, let authorName = UserController.shared.currentUser?.firstName, let currentGroupCKRecordID = GroupController.shared.currentGroup?.cloudKitRecordID, let postText = postTextField.text else { return }
+        guard let authorCKRecordID = UserController.shared.currentUser?.cloudKitRecordID,
+            let authorName = UserController.shared.currentUser?.firstName,
+            let currentGroupCKRecordID = GroupController.shared.currentGroup?.cloudKitRecordID,
+            let postText = postTextField.text else { return }
 
         let authorReference = CKReference(recordID: authorCKRecordID, action: .deleteSelf)
 
@@ -39,6 +60,7 @@ class PostListViewController: UIViewController {
             } else {
                 DispatchQueue.main.async {
                     self.postListTableView.reloadData()
+                    self.postTextField.text = ""
                 }
             }
         }
