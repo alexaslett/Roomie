@@ -17,8 +17,9 @@ class GroupController {
     let cloudKitManager: CloudKitManager = {
         return CloudKitManager()
     }()
-    
     var groups: [Group] = []
+    var UsersGroups: [Group] = []
+    
     var currentGroup: Group?
     
     var newGroup: Group? {
@@ -58,7 +59,7 @@ class GroupController {
             
             group.cloudKitRecordID = record.recordID
             
-            self.groups.append(group)
+            self.UsersGroups.append(group)
             
             // call func to add group
             self.addGroupRefToUser(record: record, completion: completion)
@@ -66,7 +67,7 @@ class GroupController {
     }
     
     
-    func addGroupRefToUser(record: CKRecord, completion: @escaping (_ success: Bool) -> Void) {
+    func addGroupRefToUser(record: CKRecord, completion: @escaping (_ success: Bool) -> Void = { _ in }) {
         guard let currentUser = UserController.shared.currentUser else { completion(false); return }
         let groupRef = CKReference(record: record, action: .none)
         currentUser.groupsRefs.append(groupRef)
@@ -83,7 +84,7 @@ class GroupController {
         
     }
     
-    func fetchGroup(completion: @escaping (_ success: Bool) -> Void = { _ in }){
+    func fetchGroupsForUser(completion: @escaping (_ success: Bool) -> Void = { _ in }){
         guard let currentUser = UserController.shared.currentUser else { completion(false); return }
         
         let groupCKRef = currentUser.groupsRefs
@@ -107,15 +108,39 @@ class GroupController {
                 guard let group = Group(cloudkitRecord: groupCKRecord) else { completion(false); return }
                 groups1.append(group)
             }
-                self.groups = groups1
+                self.UsersGroups = groups1
             completion(true)
-            
         }
-        
-        
-        
     }
     
+    // Function to fetch a list of all groups in the app so we can compare the passcode to them
+    
+    func fetchAllGroups(completion: @escaping (_ success: Bool) -> Void = { _ in }) {
+        
+        let sortDescriptors = [NSSortDescriptor(key: Group.groupNameKey, ascending: false)]
+        
+        cloudKitManager.fetchRecords(ofType: Group.recordTypeKey, withSortDescriptors: sortDescriptors) { (records, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                completion(false)
+                return
+            }
+            guard let records = records else { completion(false); return }
+            
+            self.groups = records.flatMap { Group(cloudkitRecord: $0) }
+            completion(true)
+        }
+    }
+    
+    // MARK: - Delete function
+    
+//    func deleteGroup(group: Group) {
+//        let record = CKRecord(group: group)
+//        cloudKitManager.deleteOperation(record) {
+//            guard let index = self.groups.index(of: group) else { return }
+//            self.groups.remove(at: index)
+//        }
+//    }
     
     
 }

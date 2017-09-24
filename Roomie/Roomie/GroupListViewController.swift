@@ -14,7 +14,7 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        GroupController.shared.fetchGroup { (success) in
+        GroupController.shared.fetchGroupsForUser { (success) in
             if success {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -26,7 +26,7 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        GroupController.shared.fetchGroup { (success) in
+        GroupController.shared.fetchGroupsForUser { (success) in
             if success {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -42,18 +42,26 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return GroupController.shared.groups.count
+        return GroupController.shared.UsersGroups.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath)
-        let group = GroupController.shared.groups[indexPath.row]
+        let group = GroupController.shared.UsersGroups[indexPath.row]
         cell.textLabel?.text = "\(group.groupName)"
         cell.detailTextLabel?.text = "\(group.passcode)"
         
         return cell
     }
-    
+    /*
+    // Override to support editing the table view.
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let group = GroupController.shared.groups[indexPath.row]
+            GroupController.shared.deleteGroup(group: group)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    } */
     
 
      // MARK: - Navigation
@@ -62,7 +70,7 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toTabBar" {
             guard let indexpath = tableView.indexPathForSelectedRow else { return }
-            let group = GroupController.shared.groups[indexpath.row]
+            let group = GroupController.shared.UsersGroups[indexpath.row]
             // Fix me for MVC
             GroupController.shared.currentGroup = group
             

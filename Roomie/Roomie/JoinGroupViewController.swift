@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class JoinGroupViewController: UIViewController {
 
@@ -14,19 +15,37 @@ class JoinGroupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        GroupController.shared.fetchAllGroups()
 
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        GroupController.shared.fetchAllGroups()
     }
     
-    @IBAction func joinGroupButtonTapped(_ sender: Any) {
+    @IBAction func joinButtonTapped(_ sender: Any) {
+        guard let passcode = passcodeTextfield.text, passcode != "" else { return }
+        var success: Bool = false
+        for x in 0..<GroupController.shared.groups.count {
+            if GroupController.shared.groups[x].passcode == passcode {
+                let record = CKRecord(group: GroupController.shared.groups[x])
+                GroupController.shared.addGroupRefToUser(record: record)
+                success = true
+            }
+        }
+        if success {
+            // navigate back to the group list screen
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            // present error alert controller
+            presentSimpleAlert(title: "No Found", message: "That group could not be found, check your code and try again")
+        }
         
     }
-    
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 
@@ -37,4 +56,11 @@ class JoinGroupViewController: UIViewController {
     }
     */
 
+    func presentSimpleAlert(title: String, message: String){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
+        alertController.addAction(dismissAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
 }

@@ -19,6 +19,8 @@ class UserController {
         return CloudKitManager()
     }()
     
+    var usersInCurrentGroup: [User] = []
+    
     var currentUser: User? {
         didSet {
             DispatchQueue.main.async {
@@ -77,6 +79,24 @@ class UserController {
         }
         
     }
-    
-    
+ 
+    func usersInGroup(group: Group, completion: @escaping (_ success: Bool) -> Void = { _ in }) {
+        
+        guard let groupCKID = group.cloudKitRecordID else { completion(true); return }
+        
+        
+        let predicate = NSPredicate(format: "groupsRefs CONTAINS %@", groupCKID)
+        
+        cloudKitManager.fetchRecordsWithType(User.recordTypeKey, predicate: predicate, recordFetchedBlock: nil) { (records, error) in
+            if let error = error {
+                print("error fetching users in group \(error.localizedDescription)")
+                completion(false)
+                return
+            }
+            guard let records = records else { completion(false); return }
+            
+            self.usersInCurrentGroup = records.flatMap { User(cloudKitRecord: $0) }
+            completion(true)
+        }
+    }
 }

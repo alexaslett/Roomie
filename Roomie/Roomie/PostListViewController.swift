@@ -19,7 +19,7 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        PostController.shared.fetchPosts { (success) in
+        PostController.shared.fetchPostsByGroup { (success) in
             if success {
                 DispatchQueue.main.async {
                     self.postListTableView.reloadData()
@@ -30,7 +30,7 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        PostController.shared.fetchPosts { (success) in
+        PostController.shared.fetchPostsByGroup { (success) in
             if success {
                 DispatchQueue.main.async {
                     self.postListTableView.reloadData()
@@ -75,7 +75,7 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
         
-        guard let firstName = UserController.shared.currentUser?.firstName else { return UITableViewCell() }
+        let firstName = PostController.shared.posts[indexPath.row].authorUserName 
         
         let post = PostController.shared.posts[indexPath.row]
         

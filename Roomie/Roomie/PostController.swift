@@ -53,29 +53,34 @@ class PostController {
             guard let records = records else { completion(false); return }
             
             self.posts = records.flatMap { Post(ckRecord: $0) }
+            completion(true)
         }
-     
-        
-        
-        
     }
     
-    /* func fetchPosts(completion: @escaping ((_ success) -> Void) = { _ in }) {
-        let sortDescriptors = [NSSortDescriptor(key: Post.timestampKey, ascending: false)]
+    func fetchPostsByGroup(completion: @escaping (_ success: Bool) -> Void = { _ in }){
         
-        cloudKitManager.fetchRecords(ofType: Post.recordTypeKey, withSortDescriptors: sortDescriptors) { (records, error) in
-            
-            defer { completion(false) }
-            
+        guard let groupRecID = GroupController.shared.currentGroup?.cloudKitRecordID else { completion(false); return}
+        
+        let groupRef = CKReference(recordID: groupRecID, action: .none)
+        
+        let predicate = NSPredicate(format: "group == %@", groupRef)
+        
+        
+        cloudKitManager.fetchRecordsWithType(Post.recordTypeKey, predicate: predicate, recordFetchedBlock: nil) { (records, error) in
             if let error = error {
-                NSLog("Error fetching data. \(#file) \(#function) \n\(error.localizedDescription)")
-                return
+                print(error.localizedDescription)
             }
-            guard let records = records else { return }
-            
-            self.posts = records.flatMap { Post(ckRecord: $0) }
+            guard let groupPosts = records else { completion(false); return }
+            var posts: [Post] = []
+            for groupPost in groupPosts {
+                guard let post = Post(ckRecord: groupPost) else { completion(false); return }
+                posts.append(post)
+            }
+            self.posts = posts
+            completion(true)
         }
-    } */
+    }
+    
     
     // MARK: - Update
     
