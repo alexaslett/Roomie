@@ -35,11 +35,15 @@ class ExpenseController {
 //            <#code#>
 //        }
         
-        
-
-        
+    }
+    
+    func deleteExpense(expense: Expense){
         
     }
+    
+    
+    
+    
     
     
     

@@ -19,7 +19,7 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        PostController.shared.fetchPosts { (success) in
+        PostController.shared.fetchPostsByGroup { (success) in
             if success {
                 DispatchQueue.main.async {
                     self.postListTableView.reloadData()
@@ -30,7 +30,7 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        PostController.shared.fetchPosts { (success) in
+        PostController.shared.fetchPostsByGroup { (success) in
             if success {
                 DispatchQueue.main.async {
                     self.postListTableView.reloadData()
