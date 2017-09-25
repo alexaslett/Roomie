@@ -13,24 +13,29 @@ class AddExpenseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        amountTextField.keyboardType = .decimalPad
     }
 
     @IBOutlet weak var expenseNameTextField: UITextField!
     @IBOutlet weak var amountTextField: UITextField!
     
-
+  
     
     
     
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "toChooseSplit" {
+            guard let destinationVC = segue.destination as? SplitExpensesViewController else { return }
+            guard let expenseAmount = Double(amountTextField.text!) else { return }
+            destinationVC.splitAmount = expenseAmount
+            
+        }
     }
-    */
+    
 
 }
