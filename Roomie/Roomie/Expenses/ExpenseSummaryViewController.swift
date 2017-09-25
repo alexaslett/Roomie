@@ -55,14 +55,19 @@ class ExpenseSummaryViewController: UIViewController, UITableViewDataSource, UIT
     
     
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "toMarkPaid" {
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            let expense = ExpenseController.shared.oweExpenses[indexPath.row]
+            let destinationVC = segue.destination as? MarkPaidViewController
+            destinationVC?.expense = expense
+            
+        }
     }
-    */
+    
 
 }

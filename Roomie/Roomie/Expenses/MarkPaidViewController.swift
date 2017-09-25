@@ -14,16 +14,27 @@ class MarkPaidViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        updateViews()
     }
     @IBOutlet weak var oweLabel: UILabel!
     @IBOutlet weak var amountOwedLabel: UILabel!
     @IBOutlet weak var expenseNameLabel: UILabel!
     
+    var expense: Expense?
+    
+    func updateViews(){
+        guard let expense = expense else { return }
+        amountOwedLabel.text = "\(expense.amount)"
+        expenseNameLabel.text = expense.title
+    }
+    
     @IBAction func markPaidButtonClicked(_ sender: Any) {
+        
     }
     
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
+        
     }
     
     /*

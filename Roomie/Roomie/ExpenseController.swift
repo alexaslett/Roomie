@@ -21,6 +21,7 @@ class ExpenseController {
     
     var oweExpenses: [Expense] = []
     var owedExpenses: [Expense] = []
+    var paidExpenses: [Expense] = []
     
     
     //FIXME: need to add lots of CRUD functions
@@ -56,8 +57,9 @@ class ExpenseController {
         
         let predicate1 = NSPredicate(format: "groupID == %@", groupRef)
         let predicate2 = NSPredicate(format: "payee == %@", userRef)
+        let predicate3 = NSPredicate(format: "isPaid == false")
         
-        let compoundPredicate = NSCompoundPredicate.init(andPredicateWithSubpredicates: [predicate1, predicate2])
+        let compoundPredicate = NSCompoundPredicate.init(andPredicateWithSubpredicates: [predicate1, predicate2, predicate3])
         
         cloudKitManager.fetchRecordsWithType(Expense.recordTypeKey, predicate: compoundPredicate, recordFetchedBlock: nil) { (records, error) in
             if let error = error {
@@ -72,6 +74,32 @@ class ExpenseController {
         }
     }
     
+    func fetchOweExpensesByGroupPaid(completion: @escaping (_ success: Bool) -> Void = { _ in }){
+        
+        guard let groupRecID = GroupController.shared.currentGroup?.cloudKitRecordID,
+            let userRecID = UserController.shared.currentUser?.cloudKitRecordID else { completion(false); return}
+        
+        let groupRef = CKReference(recordID: groupRecID, action: .none)
+        let userRef = CKReference(recordID: userRecID, action: .none)
+        
+        let predicate1 = NSPredicate(format: "groupID == %@", groupRef)
+        let predicate2 = NSPredicate(format: "payee == %@", userRef)
+        let predicate3 = NSPredicate(format: "isPaid == true")
+        
+        let compoundPredicate = NSCompoundPredicate.init(andPredicateWithSubpredicates: [predicate1, predicate2, predicate3])
+        
+        cloudKitManager.fetchRecordsWithType(Expense.recordTypeKey, predicate: compoundPredicate, recordFetchedBlock: nil) { (records, error) in
+            if let error = error {
+                print("Error fetching paid expenses \(error.localizedDescription)")
+                completion(false)
+                return
+            }
+            guard let paidExpenses1 = records else { completion(false); return }
+            
+            self.paidExpenses = paidExpenses1.flatMap { Expense(cloudKitRecord: $0) }
+            completion(true)
+        }
+    }
     
     
     

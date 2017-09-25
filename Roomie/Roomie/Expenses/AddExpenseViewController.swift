@@ -33,6 +33,7 @@ class AddExpenseViewController: UIViewController {
             guard let destinationVC = segue.destination as? SplitExpensesViewController else { return }
             guard let expenseAmount = Double(amountTextField.text!) else { return }
             destinationVC.splitAmount = expenseAmount
+            destinationVC.itemName = expenseNameTextField.text 
             
         }
     }
