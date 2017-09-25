@@ -19,24 +19,17 @@ class SettingProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         guard let user = UserController.shared.currentUser else { return }
         firstNameTextfield.text = user.firstName
         lastNameTextfield.text = user.lastName
         emailTextfield.text = user.email
         phoneTextfield.text = user.phone
-        
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

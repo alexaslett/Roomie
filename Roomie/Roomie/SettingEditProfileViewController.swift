@@ -9,7 +9,7 @@
 import UIKit
 
 class SettingEditProfileViewController: UIViewController {
-
+    
     @IBOutlet weak var firstNameTextfield: UITextField!
     @IBOutlet weak var lastNameTextfield: UITextField!
     @IBOutlet weak var emailTextfield: UITextField!
@@ -25,14 +25,24 @@ class SettingEditProfileViewController: UIViewController {
         lastNameTextfield.text = user.lastName
         emailTextfield.text = user.email
         phoneTextfield.text = user.phone
-
-    }
-
-    @IBAction func saveButtonTapped(_ sender: Any) {
-
         
+    }
+    
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        
+        guard let user = UserController.shared.currentUser,
+            let firstName = firstNameTextfield.text,
+            let lastName = lastNameTextfield.text,
+            let email = emailTextfield.text,
+            let phone = phoneTextfield.text
+        else { return }
+        
+        UserController.shared.editProfile(firstName: firstName, lastName: lastName, email: email, phone: phone, user: user) { (success) in
+            
+        }
         navigationController?.popViewController(animated: true)
     }
     
-
+    
 }

@@ -100,10 +100,37 @@ class UserController {
         }
     }
     
-    func editProfile(firstName: String, lastName: String, email: String, phone: String?, completion: @escaping(_ success: Bool) -> Void) {
-
+    func editProfile(firstName: String, lastName: String, email: String, phone: String?, user: User, completion: @escaping(_ success: Bool) -> Void) {
+        
+        user.firstName = firstName
+        user.lastName = lastName
+        user.email = email
+        user.phone = phone
+        
+        let userRecord = CKRecord(user: user)
+        
+        cloudKitManager.modifyRecords([userRecord], perRecordCompletion: nil) { (records, error) in
+            if let error = error {
+                print("Error modifying records, \(error.localizedDescription)")
+                completion(false)
+                return
+            }
+            
+            guard let records = records?.first else { completion(false); return}
+            self.currentUser = User(cloudKitRecord: records)
+            
+        }
     }
 }
+
+
+
+
+
+
+
+
+
 
 
 
