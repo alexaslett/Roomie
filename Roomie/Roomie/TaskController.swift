@@ -41,7 +41,7 @@ class TaskController {
     
     // MARK: - Retreive/Fetch
     
-    func fetchChoresTasks(completion: @escaping (_ success: Bool) -> Void = { _ in }) {
+    func fetchTasks(completion: @escaping (_ success: Bool) -> Void = { _ in }) {
         guard let groupCKRecordID = GroupController.shared.currentGroup?.cloudKitRecordID else { completion(false); return }
         
         let groupRef = CKReference(recordID: groupCKRecordID, action: .none)

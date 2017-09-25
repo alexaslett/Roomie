@@ -8,16 +8,30 @@
 
 import UIKit
 
-class TaskListTableViewController: UITableViewController, TaskTableViewCellDelegate {
+class TaskListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        TaskController.shared.fetchTasks { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.tableView.reloadData()
+        TaskController.shared.fetchTasks { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -28,8 +42,6 @@ class TaskListTableViewController: UITableViewController, TaskTableViewCellDeleg
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskTableViewCell else { return UITableViewCell() }
-        
-        cell.delegate = self
         
         let task = TaskController.shared.tasks[indexPath.row]
         
@@ -56,14 +68,6 @@ class TaskListTableViewController: UITableViewController, TaskTableViewCellDeleg
             let task = TaskController.shared.tasks[indexPath.row]
             
             destinationVC.task = task
-        }
-    }
-    
-    // MARK: - TaskTableViewCellDelegate
-    
-    func taskWasCreated(cell: TaskTableViewCell) {
-        DispatchQueue.main.async {
-            cell.updateViews()
         }
     }
 }

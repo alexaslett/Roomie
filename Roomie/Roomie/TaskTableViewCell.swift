@@ -10,8 +10,6 @@ import UIKit
 
 class TaskTableViewCell: UITableViewCell {
     
-    weak var delegate: TaskTableViewCellDelegate?
-    
     var task: Task? {
         didSet {
             DispatchQueue.main.async {
@@ -33,8 +31,4 @@ class TaskTableViewCell: UITableViewCell {
         taskNameLabel.text = task.taskName
         dueDateLabel.text = date.string(from: task.dueDate)
     }
-}
-
-protocol TaskTableViewCellDelegate: class {
-    func taskWasCreated(cell: TaskTableViewCell)
 }
