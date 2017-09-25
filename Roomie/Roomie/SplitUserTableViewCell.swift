@@ -10,15 +10,31 @@ import UIKit
 
 class SplitUserTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var user: User? {
+        didSet {
+            updateViews()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    var userIsSelected: Bool = true
+    
+    
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var isSelectedButton: UIButton!
+    
+    @IBAction func isSelectedButtonTapped(_ sender: Any){
+        if userIsSelected {
+            isSelectedButton.setImage(#imageLiteral(resourceName: "incomplete"), for: .normal)
+            userIsSelected = false
+        } else {
+            isSelectedButton.setImage(#imageLiteral(resourceName: "complete"), for: .normal)
+            userIsSelected = true
+        }
     }
-
+    
+    func updateViews(){
+        guard let user = user else { return }
+        fullNameLabel.text = "\(user.firstName) \(user.lastName)"
+    }
+    
 }

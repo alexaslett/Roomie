@@ -34,9 +34,9 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as? SplitUserTableViewCell else { return UITableViewCell() }
         let user = UserController.shared.usersInCurrentGroup[indexPath.row]
-        cell.textLabel?.text = "\(user.firstName) \(user.lastName)"
+        cell.user = user
         return cell
     }
     
