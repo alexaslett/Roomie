@@ -16,7 +16,8 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var postListTableView: UITableView!
     @IBOutlet weak var postTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
-
+    @IBOutlet weak var postStackView: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         PostController.shared.fetchPostsByGroup { (success) in
