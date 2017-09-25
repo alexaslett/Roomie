@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class TaskDetailViewController: UIViewController {
     
@@ -23,6 +24,7 @@ class TaskDetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = task?.taskName
+        self.updateViews()
     }
     
     // MARK: - Actions
@@ -34,14 +36,12 @@ class TaskDetailViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        guard let taskName = taskNameTextField.text, taskName != "", let ownerName = ownerNameTextField.text, ownerName != "", let owner = UserController.shared.currentUser?.appleUserRef, let group = TaskController.shared.task?.group else { return }
+        guard let taskName = taskNameTextField.text, taskName != "", let ownerName = ownerNameTextField.text, ownerName != "", let owner = UserController.shared.currentUser?.appleUserRef, let groupCKRecordID = GroupController.shared.currentGroup?.cloudKitRecordID else { return }
+        
+        let group = CKReference(recordID: groupCKRecordID, action: .deleteSelf)
         
         if self.task == nil {
-            TaskController.shared.createTask(taskName: taskName, owner: owner, ownerName: ownerName, isComplete: false, dueDate: dueDatePicker.date, group: group)
-        } else {
-            guard let task = self.task else { return }
-            TaskController.shared.updateTask(task: task, owner: owner, ownerName: ownerName, isComplete: false, dueDate: dueDatePicker.date, group: group)
-            updateViews()
+            TaskController.shared.createTask(taskName: taskName, owner: owner, ownerName: ownerName, dueDate: dueDatePicker.date, group: group)
         }
         _ = navigationController?.popViewController(animated: true)
     }

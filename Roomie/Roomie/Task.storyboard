@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="i3N-bZ-sXF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dBd-cu-36m">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,59 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tasks-->
-        <scene sceneID="au6-MQ-aoy">
-            <objects>
-                <viewController id="i3N-bZ-sXF" customClass="TaskOptionsViewController" customModule="Roomie" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="sJC-Ss-NkI"/>
-                        <viewControllerLayoutGuide type="bottom" id="Rb8-NI-H6k"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="22G-vQ-nqX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="49" translatesAutoresizingMaskIntoConstraints="NO" id="VyP-1a-Kh6">
-                                <rect key="frame" x="112.5" y="266.5" width="149" height="133"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CFU-7a-Xfc">
-                                        <rect key="frame" x="35.5" y="0.0" width="78" height="42"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <state key="normal" title="Chores"/>
-                                        <connections>
-                                            <action selector="choresButtonTapped:" destination="i3N-bZ-sXF" eventType="touchUpInside" id="V1B-dy-WgA"/>
-                                            <segue destination="dBd-cu-36m" kind="show" identifier="ToChoresListVC" id="7yF-IH-0lX"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4T-1W-8ir">
-                                        <rect key="frame" x="0.0" y="91" width="149" height="42"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <state key="normal" title="Shopping List"/>
-                                        <connections>
-                                            <action selector="shoppingListButtonTapped:" destination="i3N-bZ-sXF" eventType="touchUpInside" id="h29-YX-4Rd"/>
-                                            <segue destination="dBd-cu-36m" kind="show" identifier="ToShoppingListVC" id="eYC-FO-eQR"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="VyP-1a-Kh6" firstAttribute="centerX" secondItem="22G-vQ-nqX" secondAttribute="centerX" id="GCP-Df-Xd2"/>
-                            <constraint firstItem="VyP-1a-Kh6" firstAttribute="centerY" secondItem="22G-vQ-nqX" secondAttribute="centerY" id="rIF-30-MMC"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Tasks" id="gIm-f1-UIi"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="choresButton" destination="CFU-7a-Xfc" id="Rjj-95-F28"/>
-                        <outlet property="shoppingListButton" destination="a4T-1W-8ir" id="Aq8-rd-5nq"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IdU-pO-apT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="992.79999999999995" y="121.88905547226388"/>
-        </scene>
         <!--Title-->
         <scene sceneID="sE9-Sb-1tx">
             <objects>
@@ -126,7 +73,6 @@
                     <navigationItem key="navigationItem" title="Title" id="AGg-Qd-R6V">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="keL-Xu-72k">
                             <connections>
-                                <action selector="addTaskButtonTapped:" destination="dBd-cu-36m" id="72s-bD-t6w"/>
                                 <segue destination="lkw-6Z-soc" kind="show" identifier="ToNewTaskVC" id="DlK-kK-sWx"/>
                             </connections>
                         </barButtonItem>
@@ -262,16 +208,15 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="i3N-bZ-sXF" kind="relationship" relationship="rootViewController" id="GZd-87-8Wb"/>
+                        <segue destination="dBd-cu-36m" kind="relationship" relationship="rootViewController" id="kip-UF-zbW"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SCh-5T-E42" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53.600000000000001" y="121.88905547226388"/>
+            <point key="canvasLocation" x="942" y="122"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qzH-eH-4XB"/>
-        <segue reference="7yF-IH-0lX"/>
+        <segue reference="DlK-kK-sWx"/>
     </inferredMetricsTieBreakers>
 </document>

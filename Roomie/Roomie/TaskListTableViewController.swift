@@ -8,19 +8,16 @@
 
 import UIKit
 
-class TaskListTableViewController: UITableViewController {
+class TaskListTableViewController: UITableViewController, TaskTableViewCellDelegate {
     
-    // MARK: - Outlets
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    // MARK: - Actions
-    
-    @IBAction func addTaskButtonTapped(_ sender: UIBarButtonItem) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -31,6 +28,8 @@ class TaskListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskTableViewCell else { return UITableViewCell() }
+        
+        cell.delegate = self
         
         let task = TaskController.shared.tasks[indexPath.row]
         
@@ -57,6 +56,14 @@ class TaskListTableViewController: UITableViewController {
             let task = TaskController.shared.tasks[indexPath.row]
             
             destinationVC.task = task
+        }
+    }
+    
+    // MARK: - TaskTableViewCellDelegate
+    
+    func taskWasCreated(cell: TaskTableViewCell) {
+        DispatchQueue.main.async {
+            cell.updateViews()
         }
     }
 }
