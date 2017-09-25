@@ -190,23 +190,11 @@
 		4D055B6F1F71898C00EC7BE7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				4DB716691F72E76C004E166B /* SignUpTableViewController.swift */,
-				4DB7166B1F73029B004E166B /* LaunchScreenViewController.swift */,
-				711705BA1F7309DE00BB107F /* PostListViewController.swift */,
-				711705C21F73176000BB107F /* TaskListTableViewController.swift */,
-				711705C61F7319C700BB107F /* TaskDetailViewController.swift */,
-				52C4BCC11F742C6B00E6BB6C /* CreateGroupViewController.swift */,
-				4D2AE3A21F7580740072CC21 /* GroupListViewController.swift */,
-				52C4BCC31F75AD1000E6BB6C /* ExpenseSummaryViewController.swift */,
-				4D2AE3A41F75B3EA0072CC21 /* MarkPaidViewController.swift */,
-				4D2AE3A61F75B45A0072CC21 /* ExpenseHistoryTableViewController.swift */,
-				4D2AE3A81F75B6540072CC21 /* AddExpenseViewController.swift */,
-				4D2AE3AA1F75B6AE0072CC21 /* SplitExpensesViewController.swift */,
-				52C4BCC51F75BA0E00E6BB6C /* JoinGroupViewController.swift */,
-				52C4BCC71F78AC1100E6BB6C /* SettingsViewController.swift */,
-				522AB55C1F78C9C70026EF22 /* SettingEditProfileViewController.swift */,
-				522AB55A1F78BF090026EF22 /* SettingProfileViewController.swift */,
-				528647071F79713300DCECB1 /* SettingsContactUsTableViewController.swift */,
+				4D0898D11F79A64200AB9743 /* Login */,
+				4D0898D01F79A62C00AB9743 /* Settings */,
+				4D0898CF1F79A61A00AB9743 /* Task */,
+				4D0898CE1F79A60900AB9743 /* Expenses */,
+				4D0898D21F79A68D00AB9743 /* Post */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -229,6 +217,59 @@
 				7181BC421F75C7C600EBD6C9 /* DateHelper.swift */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		4D0898CE1F79A60900AB9743 /* Expenses */ = {
+			isa = PBXGroup;
+			children = (
+				4D2AE3A41F75B3EA0072CC21 /* MarkPaidViewController.swift */,
+				4D2AE3AA1F75B6AE0072CC21 /* SplitExpensesViewController.swift */,
+				4D2AE3A81F75B6540072CC21 /* AddExpenseViewController.swift */,
+				4D2AE3A61F75B45A0072CC21 /* ExpenseHistoryTableViewController.swift */,
+				52C4BCC31F75AD1000E6BB6C /* ExpenseSummaryViewController.swift */,
+			);
+			path = Expenses;
+			sourceTree = "<group>";
+		};
+		4D0898CF1F79A61A00AB9743 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				711705C21F73176000BB107F /* TaskListTableViewController.swift */,
+				711705C61F7319C700BB107F /* TaskDetailViewController.swift */,
+			);
+			name = Task;
+			path = Expenses;
+			sourceTree = "<group>";
+		};
+		4D0898D01F79A62C00AB9743 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				52C4BCC71F78AC1100E6BB6C /* SettingsViewController.swift */,
+				522AB55C1F78C9C70026EF22 /* SettingEditProfileViewController.swift */,
+				522AB55A1F78BF090026EF22 /* SettingProfileViewController.swift */,
+				528647071F79713300DCECB1 /* SettingsContactUsTableViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		4D0898D11F79A64200AB9743 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4DB716691F72E76C004E166B /* SignUpTableViewController.swift */,
+				4DB7166B1F73029B004E166B /* LaunchScreenViewController.swift */,
+				52C4BCC11F742C6B00E6BB6C /* CreateGroupViewController.swift */,
+				52C4BCC51F75BA0E00E6BB6C /* JoinGroupViewController.swift */,
+				4D2AE3A21F7580740072CC21 /* GroupListViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		4D0898D21F79A68D00AB9743 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				711705BA1F7309DE00BB107F /* PostListViewController.swift */,
+			);
+			path = Post;
 			sourceTree = "<group>";
 		};
 		4DB716661F72D09D004E166B /* Frameworks */ = {
