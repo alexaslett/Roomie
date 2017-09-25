@@ -10,17 +10,28 @@ import UIKit
 
 class TaskListTableViewController: UITableViewController {
     
-    // MARK: - Outlets
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        TaskController.shared.fetchTasks { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
     
-    // MARK: - Actions
-    
-    @IBAction func addTaskButtonTapped(_ sender: UIBarButtonItem) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        TaskController.shared.fetchTasks { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
 
     // MARK: - Table view data source
