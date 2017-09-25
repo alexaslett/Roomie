@@ -101,20 +101,7 @@ class UserController {
     }
     
     func editProfile(firstName: String, lastName: String, email: String, phone: String?, completion: @escaping(_ success: Bool) -> Void) {
-//        guard let user = User(firstName: firstName, lastName: lastName, email: email, phone: phone, appleUserRef: <#T##CKReference#>)
 
-//
-//        CKContainer.default().fetchUserRecordID { (appleUsersRecordID, error) in
-//            guard let appleUsersRecordID = appleUsersRecordID else { completion(false); return }
-//
-//            let appleUserRef = CKReference(recordID: appleUsersRecordID, action: .deleteSelf)
-//            let user = User(firstName: firstName, lastName: lastName, email: email, phone: phone, appleUserRef: appleUserRef)
-//            let userRecord = CKRecord(user: user)
-//
-//            cloudKitManager.modifyRecords(userRecord, perRecordCompletion: nil, completion: { (<#[CKRecord]?#>, <#Error?#>) in
-//                <#code#>
-//            })
-//        }
     }
 }
 
