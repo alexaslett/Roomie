@@ -30,6 +30,7 @@
 		4DB7166A1F72E76C004E166B /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB716691F72E76C004E166B /* SignUpTableViewController.swift */; };
 		4DB7166C1F73029B004E166B /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB7166B1F73029B004E166B /* LaunchScreenViewController.swift */; };
 		4DB7166E1F730D6A004E166B /* ExpenseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB7166D1F730D6A004E166B /* ExpenseController.swift */; };
+		522AB55B1F78BF090026EF22 /* SettingProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB55A1F78BF090026EF22 /* SettingProfileViewController.swift */; };
 		52A82D8A1F72C95F00264906 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A82D891F72C95F00264906 /* Group.swift */; };
 		52A82D8C1F72CF3B00264906 /* GroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A82D8B1F72CF3B00264906 /* GroupController.swift */; };
 		52C4BCC21F742C6B00E6BB6C /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C4BCC11F742C6B00E6BB6C /* CreateGroupViewController.swift */; };
@@ -75,6 +76,7 @@
 		4DB716691F72E76C004E166B /* SignUpTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTableViewController.swift; sourceTree = "<group>"; };
 		4DB7166B1F73029B004E166B /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		4DB7166D1F730D6A004E166B /* ExpenseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseController.swift; sourceTree = "<group>"; };
+		522AB55A1F78BF090026EF22 /* SettingProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileViewController.swift; sourceTree = "<group>"; };
 		52A82D891F72C95F00264906 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		52A82D8B1F72CF3B00264906 /* GroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupController.swift; sourceTree = "<group>"; };
 		52C4BCC11F742C6B00E6BB6C /* CreateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				4D2AE3AA1F75B6AE0072CC21 /* SplitExpensesViewController.swift */,
 				52C4BCC51F75BA0E00E6BB6C /* JoinGroupViewController.swift */,
 				52C4BCC71F78AC1100E6BB6C /* SettingsViewController.swift */,
+				522AB55A1F78BF090026EF22 /* SettingProfileViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				52C4BCC61F75BA0E00E6BB6C /* JoinGroupViewController.swift in Sources */,
 				4D055B601F717A2300EC7BE7 /* Expense.swift in Sources */,
 				711705C51F7317E800BB107F /* TaskTableViewCell.swift in Sources */,
+				522AB55B1F78BF090026EF22 /* SettingProfileViewController.swift in Sources */,
 				711705AF1F71ADBD00BB107F /* Task.swift in Sources */,
 				711705C71F7319C700BB107F /* TaskDetailViewController.swift in Sources */,
 				4DB716621F72BE52004E166B /* User.swift in Sources */,
