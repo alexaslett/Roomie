@@ -216,7 +216,7 @@
         <!--Edit Profile-->
         <scene sceneID="bMP-ea-lEi">
             <objects>
-                <viewController id="Nkn-zH-hZC" sceneMemberID="viewController">
+                <viewController id="Nkn-zH-hZC" customClass="SettingEditProfileViewController" customModule="Roomie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Htq-kS-rHs"/>
                         <viewControllerLayoutGuide type="bottom" id="lC2-2w-5nw"/>
@@ -240,6 +240,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="firstNameTextfield:" destination="43x-pZ-BIP" eventType="editingDidEnd" id="ipP-1S-zDO"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wr0-et-zwr">
                                         <rect key="frame" x="0.0" y="40" width="200" height="30"/>
@@ -312,10 +315,21 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Profile" id="WeM-tN-tm9">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="MB8-T9-MOZ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="MB8-T9-MOZ">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="Nkn-zH-hZC" id="KJf-bq-QCC"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emailTextfield" destination="h7S-3L-ae0" id="Hgo-h1-MgE"/>
+                        <outlet property="firstNameTextfield" destination="Dwm-KZ-1jh" id="uow-UU-2uG"/>
+                        <outlet property="lastNameTextfield" destination="wr0-et-zwr" id="FZt-iH-YdG"/>
+                        <outlet property="phoneTextfield" destination="bpT-a1-CPQ" id="k8e-dX-bIx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="beq-c7-oZr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="43x-pZ-BIP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1324" y="609.44527736131943"/>
         </scene>
