@@ -29,10 +29,12 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
         super.viewWillAppear(animated)
     }
     
+    @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var splitAmountLabel: UILabel!
     var splitAmount: Double?
+    var itemName: String?
     
-    @IBAction func doneButtonTapped(_ sender: Any) {
+    @IBAction func saveButtonTapped(_ sender: Any) {
         guard let splitAmount1 = splitAmount else { return }
         let usersInGroupCnt = UserController.shared.usersInCurrentGroup.count
         let perPersonAmount = splitAmount1/Double(usersInGroupCnt)
@@ -42,21 +44,26 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
         
         let payorRef = CKReference(recordID: payor, action: .none)
         let groupRef = CKReference(recordID: currentGroupCKRecordID, action: .none)
-        
+        guard let itemTitle = itemName else { return }
         
         for x in 0..<usersInGroupCnt {
             guard let payeeID = UserController.shared.usersInCurrentGroup[x].cloudKitRecordID else { return }
             let payeeRef = CKReference(recordID: payeeID, action: .none)
-            ExpenseController.shared.createExpense(title: "Another thing", amount: perPersonAmount, payor: payorRef, payee: payeeRef, groupID: groupRef, completion: { (success) in
-                //might need somthing here
+            ExpenseController.shared.createExpense(title: itemTitle, amount: perPersonAmount, payor: payorRef, payee: payeeRef, groupID: groupRef, completion: { (success) in
             })
         }
-        
-        
+        self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     func updateLabel() {
-        guard let splitAmount1 = splitAmount else { return }
+        guard let splitAmount1 = splitAmount, let itemName = itemName else { return }
         splitAmountLabel.text = "\(splitAmount1)"
+        itemNameLabel.text = itemName
     }
     
     
