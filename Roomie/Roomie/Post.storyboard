@@ -91,6 +91,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="postListTableView" destination="aaL-q6-3ue" id="kop-WD-yWc"/>
+                        <outlet property="postStackView" destination="Rg7-Nh-3g1" id="aCq-8I-eyJ"/>
                         <outlet property="postTextField" destination="hzQ-AX-L2W" id="t1S-gH-kpy"/>
                         <outlet property="sendButton" destination="Hyg-QP-WA2" id="aKW-NV-T2X"/>
                     </connections>
