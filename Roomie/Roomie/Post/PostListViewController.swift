@@ -26,6 +26,9 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
                 }
             }
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +49,7 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
         guard let authorCKRecordID = UserController.shared.currentUser?.cloudKitRecordID,
             let authorName = UserController.shared.currentUser?.firstName,
             let currentGroupCKRecordID = GroupController.shared.currentGroup?.cloudKitRecordID,
-            let postText = postTextField.text else { return }
+            let postText = postTextField.text, postText != "" else { return }
 
         let authorReference = CKReference(recordID: authorCKRecordID, action: .deleteSelf)
 
@@ -61,6 +64,7 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
                 DispatchQueue.main.async {
                     self.postListTableView.reloadData()
                     self.postTextField.text = ""
+                    self.postTextField.resignFirstResponder()
                 }
             }
         }
@@ -93,6 +97,24 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
             let post = PostController.shared.posts[indexPath.row]
             PostController.shared.deletePost(post: post)
             tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    // MARK: - Keyboard functions
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0 {
+                self.view.frame.origin.y += keyboardSize.height
+            }
         }
     }
 }
