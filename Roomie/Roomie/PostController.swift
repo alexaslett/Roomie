@@ -21,6 +21,8 @@ class PostController {
     
     // MARK: - Create
     
+    //FIXME: Do we need to fix this to be a success completion instead of error?
+    
     func createPost(author: CKReference, authorUserName: String, group: CKReference, timestamp: Date = Date(), text: String, completion: @escaping ((Error?) -> Void) = { _ in }) {
         
         let post = Post(author: author, authorUserName: authorUserName, group: group, timestamp: timestamp, text: text)
@@ -41,6 +43,7 @@ class PostController {
     
     // MARK: - Retreive/Fetch
     
+    //FIXME: I think we can get rid of this function, since we always fetch by group
     func fetchPosts(completion: @escaping (_ success: Bool) -> Void = { _ in }){
         let sortDescriptors = [NSSortDescriptor(key: Post.timestampKey, ascending: false)]
         

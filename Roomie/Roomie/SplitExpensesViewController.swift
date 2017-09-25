@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import CloudKit
 
 class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,13 +21,44 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-            
         }
+        updateLabel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
+    
+    @IBOutlet weak var splitAmountLabel: UILabel!
+    var splitAmount: Double?
+    
+    @IBAction func doneButtonTapped(_ sender: Any) {
+        guard let splitAmount1 = splitAmount else { return }
+        let usersInGroupCnt = UserController.shared.usersInCurrentGroup.count
+        let perPersonAmount = splitAmount1/Double(usersInGroupCnt)
+        
+        guard let payor = UserController.shared.currentUser?.cloudKitRecordID,
+            let currentGroupCKRecordID = GroupController.shared.currentGroup?.cloudKitRecordID else { return }
+        
+        let payorRef = CKReference(recordID: payor, action: .none)
+        let groupRef = CKReference(recordID: currentGroupCKRecordID, action: .none)
+        
+        
+        for x in 0..<usersInGroupCnt {
+            guard let payeeID = UserController.shared.usersInCurrentGroup[x].cloudKitRecordID else { return }
+            let payeeRef = CKReference(recordID: payeeID, action: .none)
+            ExpenseController.shared.createExpense(title: "Another thing", amount: perPersonAmount, payor: payorRef, payee: payeeRef, groupID: groupRef, completion: { (success) in
+                //might need somthing here
+            })
+        }
+        
+        
+    }
+    func updateLabel() {
+        guard let splitAmount1 = splitAmount else { return }
+        splitAmountLabel.text = "\(splitAmount1)"
+    }
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -34,9 +67,9 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as? SplitUserTableViewCell else { return UITableViewCell() }
         let user = UserController.shared.usersInCurrentGroup[indexPath.row]
-        cell.textLabel?.text = "\(user.firstName) \(user.lastName)"
+        cell.user = user
         return cell
     }
     

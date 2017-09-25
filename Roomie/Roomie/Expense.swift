@@ -15,46 +15,51 @@ class Expense {
     
     static let titleKey = "title"
     static let amountKey = "amount"
-    static let paidDateKey = "paidDate"
     static let payorKey = "payor"
     static let payeeKey = "payee"
     static let groupIDKey = "groupID"
+    static let isPaidKey = "isPaid"
+    static let isDeletedKey = "isDeleted"
     static let recordTypeKey = "Expense"
     
     var cloudKitRecordID: CKRecordID?
     
     var title: String
     var amount: Double
-    var paidDate: Date?
     var payor: CKReference
     var payee: CKReference
     var groupID: CKReference
+    var isPaid: Bool
+    var isDeleted: Bool
     
     
-    init(title: String, amount: Double, paidDate: Date?, payor: CKReference, payee: CKReference, groupID: CKReference){
+    init(title: String, amount: Double, payor: CKReference, payee: CKReference, groupID: CKReference, isPaid: Bool = false, isDeleted: Bool = false){
         self.title = title
         self.amount = amount
-        self.paidDate = paidDate
         self.payor = payor
         self.payee = payee
         self.groupID = groupID
+        self.isPaid = isPaid
+        self.isDeleted = isDeleted
     }
     
     init?(cloudKitRecord: CKRecord) {
         guard cloudKitRecord.recordType == Expense.recordTypeKey,
             let title = cloudKitRecord[Expense.titleKey] as? String,
             let amount = cloudKitRecord[Expense.amountKey] as? Double,
-            let paidDate = cloudKitRecord[Expense.paidDateKey] as? Date,
             let payor = cloudKitRecord[Expense.payorKey] as? CKReference,
             let payee = cloudKitRecord[Expense.payeeKey] as? CKReference,
-            let groupID = cloudKitRecord[Expense.groupIDKey] as? CKReference else { return nil }
+            let groupID = cloudKitRecord[Expense.groupIDKey] as? CKReference,
+            let isPaid = cloudKitRecord[Expense.isPaidKey] as? Bool,
+            let isDeleted = cloudKitRecord[Expense.isDeletedKey] as? Bool  else { return nil }
         
         self.title = title
         self.amount = amount
-        self.paidDate = paidDate
         self.payor = payor
         self.payee = payee
         self.groupID = groupID
+        self.isPaid = isPaid
+        self.isDeleted = isDeleted
         
     }
 }
@@ -68,10 +73,11 @@ extension CKRecord {
         
         self.setValue(expense.title, forKey: Expense.titleKey)
         self.setValue(expense.amount, forKey: Expense.amountKey)
-        self.setValue(expense.paidDate, forKey: Expense.paidDateKey)
         self.setValue(expense.payor, forKey: Expense.payorKey)
         self.setValue(expense.payee, forKey: Expense.payeeKey)
         self.setValue(expense.groupID, forKey: Expense.groupIDKey)
+        self.setValue(expense.isPaid, forKey: Expense.isPaidKey)
+        self.setValue(expense.isDeleted, forKey: Expense.isDeletedKey)
         
     }
 }
