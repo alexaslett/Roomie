@@ -99,4 +99,12 @@ class UserController {
             completion(true)
         }
     }
+    
+    func editProfile(firstName: String, lastName: String, email: String, phone: String?, completion: @escaping(_ success: Bool) -> Void) {
+
+    }
 }
+
+
+
+
