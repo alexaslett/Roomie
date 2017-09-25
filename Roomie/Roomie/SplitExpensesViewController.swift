@@ -15,12 +15,11 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
         self.tableView.delegate = self
         self.tableView.dataSource = self
         //FIXME: Might need to unwrap the currentGroup first to get rid of this bang
-        if UserController.shared.usersInCurrentGroup.isEmpty == true {
-            UserController.shared.usersInGroup(group: GroupController.shared.currentGroup!) { (_) in
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+        UserController.shared.usersInGroup(group: GroupController.shared.currentGroup!) { (_) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
+            
         }
     }
     
