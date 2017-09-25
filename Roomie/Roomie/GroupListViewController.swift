@@ -53,15 +53,15 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         
         return cell
     }
-    /*
+    
     // Override to support editing the table view.
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let group = GroupController.shared.groups[indexPath.row]
-            GroupController.shared.deleteGroup(group: group)
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
-    } */
+    }
     
 
      // MARK: - Navigation
