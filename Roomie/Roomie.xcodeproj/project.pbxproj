@@ -32,6 +32,7 @@
 		4DB7166E1F730D6A004E166B /* ExpenseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB7166D1F730D6A004E166B /* ExpenseController.swift */; };
 		522AB55B1F78BF090026EF22 /* SettingProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB55A1F78BF090026EF22 /* SettingProfileViewController.swift */; };
 		522AB55D1F78C9C70026EF22 /* SettingEditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB55C1F78C9C70026EF22 /* SettingEditProfileViewController.swift */; };
+		528647081F79713300DCECB1 /* SettingsContactUsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528647071F79713300DCECB1 /* SettingsContactUsTableViewController.swift */; };
 		52A82D8A1F72C95F00264906 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A82D891F72C95F00264906 /* Group.swift */; };
 		52A82D8C1F72CF3B00264906 /* GroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A82D8B1F72CF3B00264906 /* GroupController.swift */; };
 		52C4BCC21F742C6B00E6BB6C /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C4BCC11F742C6B00E6BB6C /* CreateGroupViewController.swift */; };
@@ -78,6 +79,7 @@
 		4DB7166D1F730D6A004E166B /* ExpenseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseController.swift; sourceTree = "<group>"; };
 		522AB55A1F78BF090026EF22 /* SettingProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileViewController.swift; sourceTree = "<group>"; };
 		522AB55C1F78C9C70026EF22 /* SettingEditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingEditProfileViewController.swift; sourceTree = "<group>"; };
+		528647071F79713300DCECB1 /* SettingsContactUsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContactUsTableViewController.swift; sourceTree = "<group>"; };
 		52A82D891F72C95F00264906 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		52A82D8B1F72CF3B00264906 /* GroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupController.swift; sourceTree = "<group>"; };
 		52C4BCC11F742C6B00E6BB6C /* CreateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				52C4BCC71F78AC1100E6BB6C /* SettingsViewController.swift */,
 				522AB55C1F78C9C70026EF22 /* SettingEditProfileViewController.swift */,
 				522AB55A1F78BF090026EF22 /* SettingProfileViewController.swift */,
+				528647071F79713300DCECB1 /* SettingsContactUsTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				4DB7166C1F73029B004E166B /* LaunchScreenViewController.swift in Sources */,
 				7181BC431F75C7C600EBD6C9 /* DateHelper.swift in Sources */,
 				4DA885651F71D79200C65C4D /* CloudKitManager.swift in Sources */,
+				528647081F79713300DCECB1 /* SettingsContactUsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
