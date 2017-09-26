@@ -12,7 +12,7 @@
         <!--Expenses-->
         <scene sceneID="nb4-4c-SMq">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Mdk-HO-Xy6" customClass="ExpenseSummaryViewController" customModule="Roomie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ExpenseSummaryViewController" automaticallyAdjustsScrollViewInsets="NO" id="Mdk-HO-Xy6" customClass="ExpenseSummaryViewController" customModule="Roomie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I57-Lk-qal"/>
                         <viewControllerLayoutGuide type="bottom" id="g5S-cB-LIP"/>
@@ -402,7 +402,7 @@
         <!--Expenses-->
         <scene sceneID="EVb-Ha-GeS">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MJ3-Gi-k73" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ExpenseNavController" automaticallyAdjustsScrollViewInsets="NO" id="MJ3-Gi-k73" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Expenses" id="A98-Oh-UQ5"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WRZ-79-Hlg">
