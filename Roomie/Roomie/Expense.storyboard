@@ -184,6 +184,7 @@
                             <constraint firstItem="ePv-ld-Wvr" firstAttribute="leading" secondItem="RRg-Qn-Cum" secondAttribute="leading" constant="98" id="xNE-hK-TSw"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Expense" image="Icon8Expense" id="2sK-Ep-pcR"/>
                     <navigationItem key="navigationItem" title="Expenses" id="BX9-eG-idR"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -519,6 +520,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Icon8Expense" width="25" height="25"/>
         <image name="complete" width="512" height="512"/>
         <image name="history" width="338" height="338"/>
     </resources>
