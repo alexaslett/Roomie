@@ -52,7 +52,9 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
             ExpenseController.shared.createExpense(title: itemTitle, amount: perPersonAmount, payor: payorRef, payee: payeeRef, groupID: groupRef, completion: { (success) in
             })
         }
-        self.dismiss(animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "Expense", bundle: nil)
+        let expenseSummary = storyboard.instantiateViewController(withIdentifier: "ExpenseNavController") as! UINavigationController
+        self.present(expenseSummary, animated: true, completion: nil)
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
