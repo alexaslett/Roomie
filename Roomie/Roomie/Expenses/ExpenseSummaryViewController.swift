@@ -96,6 +96,7 @@ class ExpenseSummaryViewController: UIViewController, UITableViewDataSource, UIT
             let expense = ExpenseController.shared.owedExpenses[indexPath.row]
             let destinationVC = segue.destination as? MarkPaidViewController
             destinationVC?.expense = expense
+            destinationVC?.isOwed = true
         }
     }
     

@@ -70,6 +70,7 @@ class Expense {
         self.isDeleted = isDeleted
         self.payorName = payorName
         self.payeeName = payeeName
+        self.cloudKitRecordID = cloudKitRecord.recordID
         
     }
 }

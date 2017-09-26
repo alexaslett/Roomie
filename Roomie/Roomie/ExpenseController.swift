@@ -111,7 +111,8 @@ class ExpenseController {
         let userRef = CKReference(recordID: userRecID, action: .none)
         
         let predicate1 = NSPredicate(format: "groupID == %@", groupRef)
-        let predicate2 = NSPredicate(format: "payee == %@", userRef)
+        //FIXME: Really need to an OR operator here for both payor and payee
+        let predicate2 = NSPredicate(format: "payor == %@", userRef)
         let predicate3 = NSPredicate(format: "isPaid == true")
         
         let compoundPredicate = NSCompoundPredicate.init(andPredicateWithSubpredicates: [predicate1, predicate2, predicate3])
@@ -129,7 +130,28 @@ class ExpenseController {
         }
     }
     
+    func editExpense(expense: Expense, completion: @escaping (_ success: Bool) -> Void = { _ in }) {
+        
+        expense.isPaid = true
+        
+        let expenseRecord = CKRecord(expense)
+        
+        cloudKitManager.modifyRecords([expenseRecord], perRecordCompletion: nil) { (records, error) in
+            if let error = error {
+                print("Error modifying records, \(error.localizedDescription)")
+                completion(false)
+                return
+            }
+        }
+        completion(true)
+    }
     
-    
-    
+    func deleteExpense(expense: Expense, completion: @escaping (_ success: Bool) -> Void = { _ in }) {
+        let expenseRecord = CKRecord(expense)
+        
+        cloudKitManager.deleteOperation(expenseRecord) {
+        
+        }
+        completion(true)
+    }
 }
