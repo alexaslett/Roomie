@@ -14,6 +14,10 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let user = UserController.shared.currentUser?.firstName else { return }
+        navigationController?.navigationBar.topItem?.title = "Welcome \(user)!"
+        
         GroupController.shared.fetchGroupsForUser { (success) in
             if success {
                 DispatchQueue.main.async {
@@ -27,6 +31,9 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+
+        
         GroupController.shared.fetchGroupsForUser { (success) in
             if success {
                 DispatchQueue.main.async {
