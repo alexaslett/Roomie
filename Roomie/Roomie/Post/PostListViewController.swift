@@ -17,9 +17,9 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var postTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var postStackView: UIStackView!
-    @IBOutlet weak var stackViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var stackViewsView: UIView!
     @IBOutlet weak var viewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var superviewBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,11 +122,12 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
             let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
             let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIViewAnimationOptions.curveEaseInOut.rawValue
             let animationCurve: UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
+            guard let tabBarHeight = tabBarController?.tabBar.frame.size.height else { return }
             
             if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
-                self.viewBottomConstraint.constant = 8.0
+                self.superviewBottomConstraint.constant = tabBarHeight
             } else {
-                self.viewBottomConstraint.constant = endFrame?.size.height ?? 8.0
+                self.superviewBottomConstraint.constant = endFrame?.size.height ?? 8.0
             }
             
             UIView.animate(withDuration: duration, delay: TimeInterval(0), options: animationCurve, animations: {
