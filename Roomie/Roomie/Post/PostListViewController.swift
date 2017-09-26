@@ -30,6 +30,8 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        
+        self.hideKeyboardWhenViewIsTapped()
     }
     
     deinit {
@@ -125,8 +127,21 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
                 self.stackViewBottomConstraint.constant = endFrame?.size.height ?? 8.0
             }
             
+//            if self.postListTableView.isFirstResponder
+            
             UIView.animate(withDuration: duration, delay: TimeInterval(0), options: animationCurve, animations: {
                 self.view.layoutIfNeeded() }, completion: nil)
         }
+    }
+}
+
+extension UIViewController {
+    func hideKeyboardWhenViewIsTapped() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
     }
 }
