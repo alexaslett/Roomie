@@ -31,11 +31,11 @@ class ExpenseHistoryTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as? ExpenseHistoryTableViewCell else { return UITableViewCell() }
 
         let histExpense = ExpenseController.shared.paidExpenses[indexPath.row]
-        cell.textLabel?.text = histExpense.title
-        cell.detailTextLabel?.text = "\(histExpense.amount)"
+        cell.histExpense = histExpense
+        cell.updateTable()
 
         return cell
     }
