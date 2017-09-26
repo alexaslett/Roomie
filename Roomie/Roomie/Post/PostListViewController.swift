@@ -18,6 +18,8 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var postStackView: UIStackView!
     @IBOutlet weak var stackViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var stackViewsView: UIView!
+    @IBOutlet weak var viewBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,12 +124,10 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
             let animationCurve: UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
             
             if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
-                self.stackViewBottomConstraint.constant = 8.0
+                self.viewBottomConstraint.constant = 8.0
             } else {
-                self.stackViewBottomConstraint.constant = endFrame?.size.height ?? 8.0
+                self.viewBottomConstraint.constant = endFrame?.size.height ?? 8.0
             }
-            
-//            if self.postListTableView.isFirstResponder
             
             UIView.animate(withDuration: duration, delay: TimeInterval(0), options: animationCurve, animations: {
                 self.view.layoutIfNeeded() }, completion: nil)
