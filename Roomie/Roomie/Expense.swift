@@ -20,6 +20,8 @@ class Expense {
     static let groupIDKey = "groupID"
     static let isPaidKey = "isPaid"
     static let isDeletedKey = "isDeleted"
+    static let payorNameKey = "payorName"
+    static let payeeNameKey = "payeeName"
     static let recordTypeKey = "Expense"
     
     var cloudKitRecordID: CKRecordID?
@@ -31,9 +33,11 @@ class Expense {
     var groupID: CKReference
     var isPaid: Bool
     var isDeleted: Bool
+    var payorName: String
+    var payeeName: String
     
     
-    init(title: String, amount: Double, payor: CKReference, payee: CKReference, groupID: CKReference, isPaid: Bool = false, isDeleted: Bool = false){
+    init(title: String, amount: Double, payor: CKReference, payee: CKReference, groupID: CKReference, isPaid: Bool = false, isDeleted: Bool = false, payorName: String, payeeName: String){
         self.title = title
         self.amount = amount
         self.payor = payor
@@ -41,6 +45,8 @@ class Expense {
         self.groupID = groupID
         self.isPaid = isPaid
         self.isDeleted = isDeleted
+        self.payorName = payorName
+        self.payeeName = payeeName
     }
     
     init?(cloudKitRecord: CKRecord) {
@@ -51,7 +57,9 @@ class Expense {
             let payee = cloudKitRecord[Expense.payeeKey] as? CKReference,
             let groupID = cloudKitRecord[Expense.groupIDKey] as? CKReference,
             let isPaid = cloudKitRecord[Expense.isPaidKey] as? Bool,
-            let isDeleted = cloudKitRecord[Expense.isDeletedKey] as? Bool  else { return nil }
+            let isDeleted = cloudKitRecord[Expense.isDeletedKey] as? Bool,
+            let payorName = cloudKitRecord[Expense.payorNameKey] as? String,
+            let payeeName = cloudKitRecord[Expense.payeeNameKey] as? String else { return nil }
         
         self.title = title
         self.amount = amount
@@ -60,6 +68,9 @@ class Expense {
         self.groupID = groupID
         self.isPaid = isPaid
         self.isDeleted = isDeleted
+        self.payorName = payorName
+        self.payeeName = payeeName
+        self.cloudKitRecordID = cloudKitRecord.recordID
         
     }
 }
@@ -78,6 +89,8 @@ extension CKRecord {
         self.setValue(expense.groupID, forKey: Expense.groupIDKey)
         self.setValue(expense.isPaid, forKey: Expense.isPaidKey)
         self.setValue(expense.isDeleted, forKey: Expense.isDeletedKey)
+        self.setValue(expense.payorName, forKey: Expense.payorNameKey)
+        self.setValue(expense.payeeName, forKey: Expense.payeeNameKey)
         
     }
 }

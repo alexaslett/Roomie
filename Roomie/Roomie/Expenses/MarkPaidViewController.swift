@@ -17,24 +17,45 @@ class MarkPaidViewController: UIViewController {
         updateViews()
     }
     @IBOutlet weak var oweLabel: UILabel!
+    @IBOutlet weak var personLabel: UILabel!
     @IBOutlet weak var amountOwedLabel: UILabel!
     @IBOutlet weak var expenseNameLabel: UILabel!
+    @IBOutlet weak var owesYouLabel: UILabel!
     
     var expense: Expense?
+    var isOwed: Bool = false
     
     func updateViews(){
         guard let expense = expense else { return }
+        
         amountOwedLabel.text = "\(expense.amount)"
         expenseNameLabel.text = expense.title
+        if isOwed {
+            personLabel.text = expense.payeeName
+            oweLabel.isHidden = true
+        } else {
+            personLabel.text = expense.payorName
+            owesYouLabel.isHidden = true
+        }
     }
     
     @IBAction func markPaidButtonClicked(_ sender: Any) {
-        
+        guard let expense = expense else { return }
+        ExpenseController.shared.editExpense(expense: expense) { (success) in
+            if success {
+                let expenseSummeryVC = self.navigationController?.viewControllers[0] as! ExpenseSummaryViewController
+                self.navigationController?.popToViewController(expenseSummeryVC, animated: true)
+            }
+        }
     }
     
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
-        
+        guard let expense = expense else { return }
+        ExpenseController.shared.deleteExpense(expense: expense) { (success) in
+            let expenseSummeryVC = self.navigationController?.viewControllers[0] as! ExpenseSummaryViewController
+            self.navigationController?.popToViewController(expenseSummeryVC, animated: true)
+        }
     }
     
     /*

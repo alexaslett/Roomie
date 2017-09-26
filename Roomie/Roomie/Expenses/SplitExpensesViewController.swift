@@ -33,9 +33,11 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var splitAmountLabel: UILabel!
     var splitAmount: Double?
     var itemName: String?
+    let expenseWasSaved = Notification.Name("expenseWasSaved")
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        guard let splitAmount1 = splitAmount else { return }
+        guard let splitAmount1 = splitAmount
+            else { return }
         let usersInGroupCnt = UserController.shared.usersInCurrentGroup.count
         let perPersonAmount = splitAmount1/Double(usersInGroupCnt)
         
@@ -44,22 +46,25 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
         
         let payorRef = CKReference(recordID: payor, action: .none)
         let groupRef = CKReference(recordID: currentGroupCKRecordID, action: .none)
+        guard let payorName = UserController.shared.currentUser?.firstName else { return }
         guard let itemTitle = itemName else { return }
         
         for x in 0..<usersInGroupCnt {
             guard let payeeID = UserController.shared.usersInCurrentGroup[x].cloudKitRecordID else { return }
+            let payeeName = UserController.shared.usersInCurrentGroup[x].firstName
             let payeeRef = CKReference(recordID: payeeID, action: .none)
-            ExpenseController.shared.createExpense(title: itemTitle, amount: perPersonAmount, payor: payorRef, payee: payeeRef, groupID: groupRef, completion: { (success) in
+            if payeeID != UserController.shared.currentUser?.cloudKitRecordID {
+            ExpenseController.shared.createExpense(title: itemTitle, amount: perPersonAmount, payor: payorRef, payee: payeeRef, groupID: groupRef, payorName: payorName, payeeName: payeeName, completion: { (success) in
             })
+            }
         }
-        let storyboard = UIStoryboard(name: "Expense", bundle: nil)
-        let expenseSummary = storyboard.instantiateViewController(withIdentifier: "ExpenseNavController") as! UINavigationController
-        self.present(expenseSummary, animated: true, completion: nil)
+        
+//        let expenseSummeryVC = self.navigationController?.viewControllers[0] as! ExpenseSummaryViewController
+//        self.navigationController?.popToViewController(expenseSummeryVC, animated: true)
+        presentExpenseSaved()
     }
     
-    @IBAction func cancelButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
+   
     
     
     func updateLabel() {
@@ -82,15 +87,15 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
         return cell
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func presentExpenseSaved(){
+        let alert = UIAlertController(title: "Expense Saved", message: nil, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Cool!", style: .default) { (_) in
+            let expenseSummeryVC = self.navigationController?.viewControllers[0] as! ExpenseSummaryViewController
+            self.navigationController?.popToViewController(expenseSummeryVC, animated: true)
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
     
 }
