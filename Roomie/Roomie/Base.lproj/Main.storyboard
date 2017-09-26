@@ -141,14 +141,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5kt-a8-Wav">
-                                <rect key="frame" x="0.0" y="101" width="375" height="457"/>
+                                <rect key="frame" x="8" y="101" width="359" height="457"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" textLabel="E6s-Wi-4qv" detailTextLabel="pn4-pM-DKX" style="IBUITableViewCellStyleValue1" id="2fe-rq-yvL">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="359" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2fe-rq-yvL" id="vt9-UF-dMN">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="E6s-Wi-4qv">
@@ -159,7 +159,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pn4-pM-DKX">
-                                                    <rect key="frame" x="316" y="12" width="44" height="20.5"/>
+                                                    <rect key="frame" x="300" y="12" width="44" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -167,6 +167,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <segue destination="SLm-TJ-fxV" kind="presentation" identifier="toTabBar" id="dei-rC-aI3"/>
                                         </connections>
@@ -220,14 +221,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5kt-a8-Wav" firstAttribute="leading" secondItem="Cia-rq-nHB" secondAttribute="leading" id="08X-K4-XAl"/>
+                            <constraint firstItem="5kt-a8-Wav" firstAttribute="leading" secondItem="Cia-rq-nHB" secondAttribute="leading" constant="8" id="08X-K4-XAl"/>
                             <constraint firstItem="XR2-Fw-CUh" firstAttribute="top" secondItem="34C-c7-Wnv" secondAttribute="bottom" constant="8" id="9en-9j-BHA"/>
                             <constraint firstItem="5kt-a8-Wav" firstAttribute="top" secondItem="nGE-sP-Ari" secondAttribute="bottom" constant="8" id="GLe-WO-7UC"/>
                             <constraint firstItem="pX2-Ed-heV" firstAttribute="top" secondItem="XR2-Fw-CUh" secondAttribute="bottom" constant="33" id="JLZ-b5-grA"/>
                             <constraint firstItem="XR2-Fw-CUh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Cia-rq-nHB" secondAttribute="leading" id="Kdt-dE-NJh"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="34C-c7-Wnv" secondAttribute="trailing" id="Mjd-D2-d9O"/>
                             <constraint firstItem="34C-c7-Wnv" firstAttribute="leading" secondItem="Cia-rq-nHB" secondAttribute="leading" constant="87" id="OuY-md-9WZ"/>
-                            <constraint firstAttribute="trailing" secondItem="5kt-a8-Wav" secondAttribute="trailing" id="ThQ-0R-Pu1"/>
+                            <constraint firstAttribute="trailing" secondItem="5kt-a8-Wav" secondAttribute="trailing" constant="8" id="ThQ-0R-Pu1"/>
                             <constraint firstItem="XR2-Fw-CUh" firstAttribute="centerX" secondItem="Cia-rq-nHB" secondAttribute="centerX" id="W5o-wp-8O6"/>
                             <constraint firstItem="34C-c7-Wnv" firstAttribute="top" secondItem="5kt-a8-Wav" secondAttribute="bottom" constant="8" id="Zbe-9T-tJb"/>
                             <constraint firstAttribute="trailing" secondItem="nGE-sP-Ari" secondAttribute="trailing" constant="80" id="eJo-g1-wEz"/>
@@ -240,6 +241,7 @@
                     <navigationItem key="navigationItem" title="Welcome" id="JtB-5v-Jnp"/>
                     <connections>
                         <outlet property="tableView" destination="5kt-a8-Wav" id="fLF-gK-28r"/>
+                        <outlet property="viewBG" destination="Cia-rq-nHB" id="Clj-Df-Xn8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VgG-eG-3WF" userLabel="First Responder" sceneMemberID="firstResponder"/>
