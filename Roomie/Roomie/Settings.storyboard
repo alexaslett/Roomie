@@ -84,6 +84,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pXm-9s-bgP" firstAttribute="centerX" secondItem="Xc4-P8-Muw" secondAttribute="centerX" id="O5k-xt-xtb"/>
                             <constraint firstItem="pXm-9s-bgP" firstAttribute="centerY" secondItem="Xc4-P8-Muw" secondAttribute="centerY" id="Q6F-Sy-tg6"/>
@@ -91,6 +92,7 @@
                             <constraint firstAttribute="trailing" secondItem="pXm-9s-bgP" secondAttribute="trailing" constant="100" id="YGs-hU-ZeF"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="Icon8Settings" id="k2b-aQ-VFW"/>
                     <navigationItem key="navigationItem" title="Settings" id="Y24-F3-qi3"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -98,6 +100,7 @@
                         <outlet property="contactButton" destination="fWd-fq-ICI" id="0LM-A3-vVL"/>
                         <outlet property="profileButton" destination="EBK-SK-zKm" id="uzb-lc-BPE"/>
                         <outlet property="rateButton" destination="O0C-we-b8U" id="Ose-ps-qSU"/>
+                        <outlet property="viewBG" destination="Xc4-P8-Muw" id="cFX-JH-8AM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OaE-y5-BSD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -164,13 +167,13 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="NXd-GF-bPg">
-                                <rect key="frame" x="137" y="72" width="100" height="100"/>
+                                <rect key="frame" x="137" y="94" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="gPC-RL-cxq"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cWf-qc-Qjs">
-                                <rect key="frame" x="137" y="222" width="200" height="150"/>
+                                <rect key="frame" x="137" y="224" width="200" height="150"/>
                                 <subviews>
                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ajj-g0-0qI" userLabel="First Name Textfield">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
@@ -238,9 +241,9 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="NXd-GF-bPg" firstAttribute="centerX" secondItem="3hP-dD-ZMa" secondAttribute="centerX" id="3I1-DI-vHk"/>
-                            <constraint firstItem="cWf-qc-Qjs" firstAttribute="top" secondItem="NXd-GF-bPg" secondAttribute="bottom" constant="50" id="AZv-jS-UV1"/>
+                            <constraint firstItem="cWf-qc-Qjs" firstAttribute="top" secondItem="NXd-GF-bPg" secondAttribute="bottom" constant="30" id="AZv-jS-UV1"/>
                             <constraint firstItem="dHp-TW-hVt" firstAttribute="top" secondItem="xvt-pB-kNJ" secondAttribute="bottom" constant="161" id="HeF-wK-HYF"/>
-                            <constraint firstItem="NXd-GF-bPg" firstAttribute="top" secondItem="xvt-pB-kNJ" secondAttribute="bottom" constant="8" id="Mlp-VO-fR3"/>
+                            <constraint firstItem="NXd-GF-bPg" firstAttribute="top" secondItem="xvt-pB-kNJ" secondAttribute="bottom" constant="30" id="Mlp-VO-fR3"/>
                             <constraint firstItem="dHp-TW-hVt" firstAttribute="leading" secondItem="3hP-dD-ZMa" secondAttribute="leading" constant="71" id="fQE-s8-Pqb"/>
                             <constraint firstItem="cWf-qc-Qjs" firstAttribute="leading" secondItem="dHp-TW-hVt" secondAttribute="trailing" constant="8" id="hHE-xX-7iW"/>
                             <constraint firstItem="NXd-GF-bPg" firstAttribute="leading" secondItem="3hP-dD-ZMa" secondAttribute="leading" constant="137" id="iBg-xa-WPm"/>
@@ -397,14 +400,14 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="1f4-bQ-sPd">
-                                <rect key="frame" x="137" y="72" width="100" height="100"/>
+                                <rect key="frame" x="137" y="94" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="8bk-FV-jiC"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="IAV-eb-0cg"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="adQ-jI-e62">
-                                <rect key="frame" x="137" y="222" width="200" height="150"/>
+                                <rect key="frame" x="137" y="224" width="200" height="150"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dwm-KZ-1jh">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
@@ -445,25 +448,25 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xm-vp-x0i">
                                         <rect key="frame" x="15.5" y="0.0" width="42.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVX-fr-z8o">
                                         <rect key="frame" x="16" y="41.5" width="42" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQb-9a-LUI">
                                         <rect key="frame" x="8" y="83" width="50" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n03-LE-vHG">
                                         <rect key="frame" x="0.0" y="124.5" width="58" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -472,11 +475,11 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="adQ-jI-e62" firstAttribute="top" secondItem="1f4-bQ-sPd" secondAttribute="bottom" constant="50" id="5d5-eR-VFc"/>
+                            <constraint firstItem="adQ-jI-e62" firstAttribute="top" secondItem="1f4-bQ-sPd" secondAttribute="bottom" constant="30" id="5d5-eR-VFc"/>
                             <constraint firstItem="mNi-qI-eii" firstAttribute="top" secondItem="Htq-kS-rHs" secondAttribute="bottom" constant="161" id="9FM-SJ-2li"/>
-                            <constraint firstItem="1f4-bQ-sPd" firstAttribute="top" secondItem="Htq-kS-rHs" secondAttribute="bottom" constant="8" id="GZv-wd-nzr"/>
+                            <constraint firstItem="1f4-bQ-sPd" firstAttribute="top" secondItem="Htq-kS-rHs" secondAttribute="bottom" constant="30" id="GZv-wd-nzr"/>
                             <constraint firstItem="mNi-qI-eii" firstAttribute="leading" secondItem="jan-Lg-Tpc" secondAttribute="leading" constant="71" id="JYE-bq-Hny"/>
                             <constraint firstItem="1f4-bQ-sPd" firstAttribute="leading" secondItem="jan-Lg-Tpc" secondAttribute="leading" constant="137" id="UAH-sn-pg2"/>
                             <constraint firstItem="adQ-jI-e62" firstAttribute="leading" secondItem="mNi-qI-eii" secondAttribute="trailing" constant="8" id="pCe-8B-PUX"/>
@@ -513,6 +516,11 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fgE-tb-yHF">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.40443294759999998" green="0.83409646599999998" blue="0.88384175409999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -525,6 +533,7 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
         </scene>
     </scenes>
     <resources>
+        <image name="Icon8Settings" width="25" height="25"/>
         <image name="avatar" width="512" height="512"/>
         <image name="devMountain" width="2000" height="1123"/>
     </resources>
