@@ -12,6 +12,11 @@ class ExpenseSummaryViewController: UIViewController, UITableViewDataSource, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refetch), for: .valueChanged)
+        
+        tableView.refreshControl = refreshControl
+        
         ExpenseController.shared.fetchOwedExpensesByGroup()
         ExpenseController.shared.fetchOweExpensesByGroup { (success) in
             if success {
@@ -77,6 +82,19 @@ class ExpenseSummaryViewController: UIViewController, UITableViewDataSource, UIT
         }
     }
     
+    @objc func refetch(){
+        ExpenseController.shared.fetchOwedExpensesByGroup()
+        ExpenseController.shared.fetchOweExpensesByGroup { (success) in
+            if success {
+                ExpenseController.shared.fetchOwedExpensesByGroup(completion: { (_) in
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                        self.tableView.refreshControl?.endRefreshing()
+                    }
+                })
+            }
+        }
+    }
     
     
     
