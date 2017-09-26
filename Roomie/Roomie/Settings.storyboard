@@ -92,6 +92,7 @@
                             <constraint firstAttribute="trailing" secondItem="pXm-9s-bgP" secondAttribute="trailing" constant="100" id="YGs-hU-ZeF"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="Icon8Settings" id="k2b-aQ-VFW"/>
                     <navigationItem key="navigationItem" title="Settings" id="Y24-F3-qi3"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -532,6 +533,7 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
         </scene>
     </scenes>
     <resources>
+        <image name="Icon8Settings" width="25" height="25"/>
         <image name="avatar" width="512" height="512"/>
         <image name="devMountain" width="2000" height="1123"/>
     </resources>
