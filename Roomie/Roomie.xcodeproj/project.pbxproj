@@ -35,6 +35,7 @@
 		528647081F79713300DCECB1 /* SettingsContactUsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528647071F79713300DCECB1 /* SettingsContactUsTableViewController.swift */; };
 		52A82D8A1F72C95F00264906 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A82D891F72C95F00264906 /* Group.swift */; };
 		52A82D8C1F72CF3B00264906 /* GroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A82D8B1F72CF3B00264906 /* GroupController.swift */; };
+		52C0DED41F7AA9FB0026A1B6 /* MainLaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0DED31F7AA9FB0026A1B6 /* MainLaunchScreenViewController.swift */; };
 		52C4BCC21F742C6B00E6BB6C /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C4BCC11F742C6B00E6BB6C /* CreateGroupViewController.swift */; };
 		52C4BCC41F75AD1000E6BB6C /* ExpenseSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C4BCC31F75AD1000E6BB6C /* ExpenseSummaryViewController.swift */; };
 		52C4BCC61F75BA0E00E6BB6C /* JoinGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C4BCC51F75BA0E00E6BB6C /* JoinGroupViewController.swift */; };
@@ -82,6 +83,7 @@
 		528647071F79713300DCECB1 /* SettingsContactUsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContactUsTableViewController.swift; sourceTree = "<group>"; };
 		52A82D891F72C95F00264906 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		52A82D8B1F72CF3B00264906 /* GroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupController.swift; sourceTree = "<group>"; };
+		52C0DED31F7AA9FB0026A1B6 /* MainLaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLaunchScreenViewController.swift; sourceTree = "<group>"; };
 		52C4BCC11F742C6B00E6BB6C /* CreateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
 		52C4BCC31F75AD1000E6BB6C /* ExpenseSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseSummaryViewController.swift; sourceTree = "<group>"; };
 		52C4BCC51F75BA0E00E6BB6C /* JoinGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroupViewController.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				52C4BCC11F742C6B00E6BB6C /* CreateGroupViewController.swift */,
 				52C4BCC51F75BA0E00E6BB6C /* JoinGroupViewController.swift */,
 				4D2AE3A21F7580740072CC21 /* GroupListViewController.swift */,
+				52C0DED31F7AA9FB0026A1B6 /* MainLaunchScreenViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				52C4BCC41F75AD1000E6BB6C /* ExpenseSummaryViewController.swift in Sources */,
 				52A82D8A1F72C95F00264906 /* Group.swift in Sources */,
 				4D2AE3A71F75B45A0072CC21 /* ExpenseHistoryTableViewController.swift in Sources */,
+				52C0DED41F7AA9FB0026A1B6 /* MainLaunchScreenViewController.swift in Sources */,
 				52C4BCC81F78AC1100E6BB6C /* SettingsViewController.swift in Sources */,
 				4D055B4E1F70245D00EC7BE7 /* AppDelegate.swift in Sources */,
 				4D2AE3A51F75B3EA0072CC21 /* MarkPaidViewController.swift in Sources */,

@@ -22,6 +22,7 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
             }
         }
         
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,9 +36,7 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
-    @IBAction func joinGroupButtonTapped(_ sender: Any) {
-        
-    }
+
     
     
     
@@ -53,6 +52,9 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         
         return cell
     }
+    
+    
+    
     
 //   // Override to support editing the table view.
 //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

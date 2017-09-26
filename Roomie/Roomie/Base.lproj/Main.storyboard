@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vTv-Nf-fqw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main Launch Screen View Controller-->
         <scene sceneID="uoN-Qx-i4t">
             <objects>
-                <viewController id="vTv-Nf-fqw" sceneMemberID="viewController">
+                <viewController id="vTv-Nf-fqw" customClass="MainLaunchScreenViewController" customModule="Roomie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IUJ-5m-SVp"/>
                         <viewControllerLayoutGuide type="bottom" id="iNu-3s-mCc"/>
@@ -44,7 +44,7 @@
         <!--Launch Screen View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LaunchScreenViewController" customModule="Roomie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LaunchScreenViewController" id="BYZ-38-t0r" customClass="LaunchScreenViewController" customModule="Roomie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -112,15 +112,12 @@
                             <constraint firstItem="LAx-WI-GxA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="yna-tz-eU5"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <segue destination="VZ2-3Y-J11" kind="show" identifier="toGroupScreen" id="moU-P4-R9J"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
         </scene>
-        <!--Group List View Controller-->
+        <!--Welcome-->
         <scene sceneID="p4Y-qX-avr">
             <objects>
                 <viewController storyboardIdentifier="GroupListViewController" id="5Qn-nf-YjP" customClass="GroupListViewController" customModule="Roomie" customModuleProvider="target" sceneMemberID="viewController">
@@ -132,7 +129,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FirstName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGE-sP-Ari">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Groups" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGE-sP-Ari">
                                 <rect key="frame" x="79" y="64" width="216" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -201,7 +198,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="joinGroupButtonTapped:" destination="5Qn-nf-YjP" eventType="touchUpInside" id="eWy-4d-xcq"/>
                                     <action selector="signUpButtonTapped:" destination="LzG-Cr-yRb" eventType="touchUpInside" id="fhj-X9-wyQ"/>
                                     <segue destination="XOg-o4-6ic" kind="presentation" id="liX-qw-bqg"/>
                                 </connections>
@@ -227,7 +223,7 @@
                             <constraint firstAttribute="trailing" secondItem="XR2-Fw-CUh" secondAttribute="trailing" constant="88" id="zm8-0e-LpV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="TT1-XT-Zb0"/>
+                    <navigationItem key="navigationItem" title="Welcome" id="JtB-5v-Jnp"/>
                     <connections>
                         <outlet property="tableView" destination="5kt-a8-Wav" id="fLF-gK-28r"/>
                     </connections>
@@ -504,16 +500,20 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1sM-NK-fyq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="820" y="463"/>
+            <point key="canvasLocation" x="1215" y="73"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BHU-f1-lXw">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VZ2-3Y-J11" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavGroupList" automaticallyAdjustsScrollViewInsets="NO" id="VZ2-3Y-J11" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Yfz-Si-pok">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.40443294759999998" green="0.83409646599999998" blue="0.88384175409999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -612,7 +612,4 @@
         <image name="phone512" width="512" height="512"/>
         <image name="profileicon9" width="512" height="512"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="moU-P4-R9J"/>
-    </inferredMetricsTieBreakers>
 </document>
