@@ -99,6 +99,7 @@
                         <outlet property="contactButton" destination="fWd-fq-ICI" id="0LM-A3-vVL"/>
                         <outlet property="profileButton" destination="EBK-SK-zKm" id="uzb-lc-BPE"/>
                         <outlet property="rateButton" destination="O0C-we-b8U" id="Ose-ps-qSU"/>
+                        <outlet property="viewBG" destination="Xc4-P8-Muw" id="cFX-JH-8AM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OaE-y5-BSD" userLabel="First Responder" sceneMemberID="firstResponder"/>

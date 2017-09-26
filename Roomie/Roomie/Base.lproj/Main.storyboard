@@ -73,6 +73,11 @@
                                         <state key="normal" title="Sign-Up">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="LzG-Cr-yRb" kind="show" id="fDa-25-7Rm"/>
                                         </connections>
@@ -130,13 +135,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Groups" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGE-sP-Ari">
-                                <rect key="frame" x="79" y="64" width="216" height="21"/>
+                                <rect key="frame" x="79" y="72" width="216" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5kt-a8-Wav">
-                                <rect key="frame" x="0.0" y="93" width="375" height="465"/>
+                                <rect key="frame" x="0.0" y="101" width="375" height="457"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" textLabel="E6s-Wi-4qv" detailTextLabel="pn4-pM-DKX" style="IBUITableViewCellStyleValue1" id="2fe-rq-yvL">
@@ -182,6 +187,11 @@
                                 <state key="normal" title="Create New Group">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="signUpButtonTapped:" destination="LzG-Cr-yRb" eventType="touchUpInside" id="hAw-IG-Bdx"/>
                                     <segue destination="CNN-nj-WjQ" kind="show" id="3xh-SB-Pgg"/>
@@ -197,6 +207,11 @@
                                 <state key="normal" title="Join Group">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="signUpButtonTapped:" destination="LzG-Cr-yRb" eventType="touchUpInside" id="fhj-X9-wyQ"/>
                                     <segue destination="XOg-o4-6ic" kind="presentation" id="liX-qw-bqg"/>
@@ -207,19 +222,18 @@
                         <constraints>
                             <constraint firstItem="5kt-a8-Wav" firstAttribute="leading" secondItem="Cia-rq-nHB" secondAttribute="leading" id="08X-K4-XAl"/>
                             <constraint firstItem="XR2-Fw-CUh" firstAttribute="top" secondItem="34C-c7-Wnv" secondAttribute="bottom" constant="8" id="9en-9j-BHA"/>
-                            <constraint firstItem="nGE-sP-Ari" firstAttribute="centerX" secondItem="Cia-rq-nHB" secondAttribute="centerX" id="FV1-Pi-heP"/>
+                            <constraint firstItem="5kt-a8-Wav" firstAttribute="top" secondItem="nGE-sP-Ari" secondAttribute="bottom" constant="8" id="GLe-WO-7UC"/>
                             <constraint firstItem="pX2-Ed-heV" firstAttribute="top" secondItem="XR2-Fw-CUh" secondAttribute="bottom" constant="33" id="JLZ-b5-grA"/>
                             <constraint firstItem="XR2-Fw-CUh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Cia-rq-nHB" secondAttribute="leading" id="Kdt-dE-NJh"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nGE-sP-Ari" secondAttribute="trailing" id="LKi-ig-0gy"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="34C-c7-Wnv" secondAttribute="trailing" id="Mjd-D2-d9O"/>
                             <constraint firstItem="34C-c7-Wnv" firstAttribute="leading" secondItem="Cia-rq-nHB" secondAttribute="leading" constant="87" id="OuY-md-9WZ"/>
                             <constraint firstAttribute="trailing" secondItem="5kt-a8-Wav" secondAttribute="trailing" id="ThQ-0R-Pu1"/>
                             <constraint firstItem="XR2-Fw-CUh" firstAttribute="centerX" secondItem="Cia-rq-nHB" secondAttribute="centerX" id="W5o-wp-8O6"/>
-                            <constraint firstItem="5kt-a8-Wav" firstAttribute="top" secondItem="nGE-sP-Ari" secondAttribute="bottom" constant="8" id="ZaZ-p6-b0z"/>
                             <constraint firstItem="34C-c7-Wnv" firstAttribute="top" secondItem="5kt-a8-Wav" secondAttribute="bottom" constant="8" id="Zbe-9T-tJb"/>
-                            <constraint firstItem="nGE-sP-Ari" firstAttribute="top" secondItem="zjp-TU-5Qf" secondAttribute="bottom" id="i3g-fC-MXi"/>
+                            <constraint firstAttribute="trailing" secondItem="nGE-sP-Ari" secondAttribute="trailing" constant="80" id="eJo-g1-wEz"/>
                             <constraint firstItem="34C-c7-Wnv" firstAttribute="centerX" secondItem="Cia-rq-nHB" secondAttribute="centerX" id="kGa-SG-xR9"/>
-                            <constraint firstItem="nGE-sP-Ari" firstAttribute="leading" secondItem="Cia-rq-nHB" secondAttribute="leading" constant="79" id="yBs-AQ-nbj"/>
+                            <constraint firstItem="nGE-sP-Ari" firstAttribute="leading" secondItem="Cia-rq-nHB" secondAttribute="leading" constant="79" id="uIq-fI-wZw"/>
+                            <constraint firstItem="nGE-sP-Ari" firstAttribute="top" secondItem="zjp-TU-5Qf" secondAttribute="bottom" constant="8" id="vI3-YM-d0f"/>
                             <constraint firstAttribute="trailing" secondItem="XR2-Fw-CUh" secondAttribute="trailing" constant="88" id="zm8-0e-LpV"/>
                         </constraints>
                     </view>
@@ -418,6 +432,11 @@
                                                     <state key="normal" title="Sign-Up">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="signUpButtonTapped:" destination="LzG-Cr-yRb" eventType="touchUpInside" id="nI5-Ty-lCR"/>
                                                         <segue destination="VZ2-3Y-J11" kind="show" id="Ok2-FM-4cV"/>
