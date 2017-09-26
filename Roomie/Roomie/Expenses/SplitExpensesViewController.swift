@@ -35,7 +35,8 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
     var itemName: String?
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        guard let splitAmount1 = splitAmount else { return }
+        guard let splitAmount1 = splitAmount
+            else { return }
         let usersInGroupCnt = UserController.shared.usersInCurrentGroup.count
         let perPersonAmount = splitAmount1/Double(usersInGroupCnt)
         
@@ -44,22 +45,24 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
         
         let payorRef = CKReference(recordID: payor, action: .none)
         let groupRef = CKReference(recordID: currentGroupCKRecordID, action: .none)
+        guard let payorName = UserController.shared.currentUser?.firstName else { return }
         guard let itemTitle = itemName else { return }
         
         for x in 0..<usersInGroupCnt {
             guard let payeeID = UserController.shared.usersInCurrentGroup[x].cloudKitRecordID else { return }
+            let payeeName = UserController.shared.usersInCurrentGroup[x].firstName
             let payeeRef = CKReference(recordID: payeeID, action: .none)
-            ExpenseController.shared.createExpense(title: itemTitle, amount: perPersonAmount, payor: payorRef, payee: payeeRef, groupID: groupRef, completion: { (success) in
+            ExpenseController.shared.createExpense(title: itemTitle, amount: perPersonAmount, payor: payorRef, payee: payeeRef, groupID: groupRef, payorName: payorName, payeeName: payeeName, completion: { (success) in
+                
             })
         }
-        let storyboard = UIStoryboard(name: "Expense", bundle: nil)
-        let expenseSummary = storyboard.instantiateViewController(withIdentifier: "ExpenseNavController") as! UINavigationController
-        self.present(expenseSummary, animated: true, completion: nil)
+        
+        let expenseSummeryVC = self.navigationController?.viewControllers[0] as! ExpenseSummaryViewController
+        self.navigationController?.popToViewController(expenseSummeryVC, animated: true)
+        
     }
     
-    @IBAction func cancelButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
+   
     
     
     func updateLabel() {

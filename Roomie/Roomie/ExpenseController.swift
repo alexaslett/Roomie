@@ -29,8 +29,8 @@ class ExpenseController {
     
     // Need functions to create a new expense and delete expenses
   
-    func createExpense(title: String, amount: Double, payor: CKReference, payee: CKReference, groupID: CKReference, completion: @escaping (_ success: Bool) -> Void = { _ in })  {
-        let expense = Expense(title: title, amount: amount, payor: payor, payee: payee, groupID: groupID)
+    func createExpense(title: String, amount: Double, payor: CKReference, payee: CKReference, groupID: CKReference, payorName: String, payeeName: String, completion: @escaping (_ success: Bool) -> Void = { _ in })  {
+        let expense = Expense(title: title, amount: amount, payor: payor, payee: payee, groupID: groupID, payorName: payorName, payeeName: payeeName)
         let expenseRecord = CKRecord(expense)
         
         cloudKitManager.saveRecord(expenseRecord) { (record, error) in

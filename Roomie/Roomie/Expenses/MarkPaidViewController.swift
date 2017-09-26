@@ -26,6 +26,7 @@ class MarkPaidViewController: UIViewController {
         guard let expense = expense else { return }
         amountOwedLabel.text = "\(expense.amount)"
         expenseNameLabel.text = expense.title
+        oweLabel.text = expense.payeeName
     }
     
     @IBAction func markPaidButtonClicked(_ sender: Any) {

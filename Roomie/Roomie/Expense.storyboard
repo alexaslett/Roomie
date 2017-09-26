@@ -72,8 +72,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePv-ld-Wvr">
-                                <rect key="frame" x="98" y="143" width="125" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePv-ld-Wvr">
+                                <rect key="frame" x="98" y="121" width="125" height="30"/>
                                 <state key="normal" title="Add New Expense"/>
                                 <connections>
                                     <segue destination="1qM-vk-mN0" kind="show" id="oQd-0o-U9a"/>
@@ -147,8 +147,8 @@
                                     <action selector="deleteButtonTapped:" destination="lM5-qv-hAB" eventType="touchUpInside" id="IbU-8q-yNP"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alex" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gt8-0W-5nM">
-                                <rect key="frame" x="158" y="141" width="33" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gt8-0W-5nM">
+                                <rect key="frame" x="158" y="141" width="116" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -197,7 +197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f5O-Yg-piu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1003" y="907"/>
+            <point key="canvasLocation" x="1001.25" y="906.33802816901414"/>
         </scene>
         <!--Add Expense-->
         <scene sceneID="DHV-hX-QPn">
@@ -230,7 +230,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Choose Split"/>
                                 <connections>
-                                    <segue destination="nPl-Ns-5Ad" kind="presentation" identifier="toChooseSplit" id="sK7-29-afV"/>
+                                    <segue destination="nPl-Ns-5Ad" kind="show" identifier="toChooseSplit" id="bYX-j5-P9t"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -266,7 +266,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tz4-7J-Nqh">
-                                <rect key="frame" x="0.0" y="110" width="320" height="458"/>
+                                <rect key="frame" x="0.0" y="154" width="320" height="365"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userCell" id="wCe-9J-oIA" customClass="SplitUserTableViewCell" customModule="Roomie" customModuleProvider="target">
@@ -314,24 +314,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M8p-o0-xCj">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Title" id="Myx-Ys-qbf">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dWU-ES-JOZ">
-                                            <connections>
-                                                <action selector="cancelButtonTapped:" destination="nPl-Ns-5Ad" id="KLF-KY-6Yk"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="L0M-Ch-Vfb">
-                                            <connections>
-                                                <action selector="saveButtonTapped:" destination="nPl-Ns-5Ad" id="3uX-GV-OBY"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -342,7 +324,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Choose split options" id="t3i-Am-iab">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="O9Q-7e-G9a"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="O9Q-7e-G9a">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="nPl-Ns-5Ad" id="els-m1-XEE"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="itemNameLabel" destination="IKy-mR-TXd" id="3xU-pF-SVS"/>
