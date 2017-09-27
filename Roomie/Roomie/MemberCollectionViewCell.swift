@@ -10,16 +10,15 @@ import UIKit
 
 class MemberCollectionViewCell: UICollectionViewCell {
     
-    var membersCollection: User?
+    var user: User?
+
+    @IBOutlet weak var nameButton: UIButton!
     
-    @IBOutlet weak var nameLabel: UILabel!
-    
-    func updateCells() {
+    func updateCells(first: Character, last: Character) {
         
-        guard let membersCollection = membersCollection else { return }
+        let nameIntial = "\(first)\(last)"
         
-        //nameLabel.text = membersCollection.firstName.characters.first
-        
+        nameButton.setTitle(nameIntial, for: .normal)
     }
     
     
