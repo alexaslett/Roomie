@@ -93,7 +93,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="Icon8Settings" id="k2b-aQ-VFW"/>
-                    <navigationItem key="navigationItem" title="Settings" id="Y24-F3-qi3"/>
+                    <navigationItem key="navigationItem" title="Settings" id="Y24-F3-qi3">
+                        <barButtonItem key="leftBarButtonItem" title="Groups" id="AGG-LI-XLB"/>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="aboutButton" destination="5vu-ia-eAV" id="mGO-js-8Fr"/>
