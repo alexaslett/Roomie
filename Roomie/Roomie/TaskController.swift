@@ -68,7 +68,7 @@ class TaskController {
     
     func updateTasks(task: Task?, taskName: String, owner: CKReference, ownerName: String, dueDate: Date = Date(), group: CKReference, completion: @escaping ((_ success: Bool) -> Void) = { _ in }) {
         
-        guard let task = self.task else { return }
+        guard let task = task else { completion(false); return }
         
         task.taskName = taskName
         task.owner = owner

@@ -25,6 +25,7 @@ class TaskDetailViewController: UIViewController {
         
         self.title = task?.taskName
         self.updateViews()
+        self.hideKeyboardWhenViewIsTapped()
     }
     
     // MARK: - Actions
@@ -51,15 +52,11 @@ class TaskDetailViewController: UIViewController {
     }
     
     func updateViews() {
-        guard let task = self.task, let ownerName = UserController.shared.currentUser?.firstName else { return }
+        guard let task = self.task else { return }
         let dueDate = dueDatePicker.date
         
         taskNameTextField.text = task.taskName
-        ownerNameTextField.text = ownerName
+        ownerNameTextField.text = task.ownerName
         dueDatePicker.date = dueDate
-    }
-    
-    override func hideKeyboardWhenViewIsTapped() {
-        
     }
 }
