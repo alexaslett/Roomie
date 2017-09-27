@@ -7,30 +7,37 @@
 //
 
 import UIKit
+import CloudKit
 
 class LaunchScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(segueToGroupVC), name: UserController.shared.currentUserWasSetNotification, object: nil)
+        checkIfICloudIsAvailabe()
         
     }
     
-    @objc func segueToGroupVC() {
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "toGroupScreen", sender: self)
+    @IBOutlet weak var signUpButton: UIButton!
+    
+    func checkIfICloudIsAvailabe(){
+        CKContainer.default().accountStatus { (accountStat, error) in
+            if case .available = accountStat {
+                print("iCloud is available")
+            } else {
+                self.signUpButton.isHidden = true
+                self.presentNoICloudAccount()
+            }
         }
     }
+    func presentNoICloudAccount(){
+        let alert = UIAlertController(title: "No iCloud Account Detected", message: "Please check your settings and make sure you are logged into iCloud", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        
+        alert.addAction(okAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

@@ -117,6 +117,9 @@
                             <constraint firstItem="LAx-WI-GxA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="yna-tz-eU5"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="signUpButton" destination="hMT-A9-Jph" id="eKO-tB-hKx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -526,7 +529,6 @@
         <!--Navigation Controller-->
         <scene sceneID="BHU-f1-lXw">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fdy-Xb-u7V" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="NavGroupList" automaticallyAdjustsScrollViewInsets="NO" id="VZ2-3Y-J11" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Yfz-Si-pok">
@@ -542,6 +544,7 @@
                         <segue destination="5Qn-nf-YjP" kind="relationship" relationship="rootViewController" id="Xoj-a7-vP7"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fdy-Xb-u7V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1543" y="1000"/>
         </scene>
