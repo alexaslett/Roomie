@@ -40,6 +40,9 @@ class TaskListTableViewController: UITableViewController {
     
     // MARK: - Refresh func
     
+    @IBAction func groupButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     @objc func refresh() {
         TaskController.shared.fetchTasks { (success) in
             if success {

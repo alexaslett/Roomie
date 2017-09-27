@@ -57,6 +57,10 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
     
     // MARK: - Actions
     
+    @IBAction func groupsButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func sendButtonTapped(_ sender: UIButton) {
         
         guard let authorCKRecordID = UserController.shared.currentUser?.cloudKitRecordID,

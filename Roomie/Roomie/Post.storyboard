@@ -104,7 +104,13 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Post" image="Icon8Message" id="jfQ-f9-Ivc"/>
-                    <navigationItem key="navigationItem" title="Messages" id="H1Y-qJ-zWr"/>
+                    <navigationItem key="navigationItem" title="Messages" id="H1Y-qJ-zWr">
+                        <barButtonItem key="leftBarButtonItem" title="Groups" id="3TF-il-rTW">
+                            <connections>
+                                <action selector="groupsButtonTapped:" destination="uOi-8u-Ew1" id="jvb-iL-laK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="postListTableView" destination="aaL-q6-3ue" id="kop-WD-yWc"/>
