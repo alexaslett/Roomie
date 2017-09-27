@@ -158,7 +158,11 @@
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePv-ld-Wvr">
-                                <rect key="frame" x="98" y="98" width="125" height="30"/>
+                                <rect key="frame" x="72.5" y="98" width="175" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="MrJ-ge-pia"/>
+                                    <constraint firstAttribute="height" constant="30" id="uTu-z3-Ets"/>
+                                </constraints>
                                 <state key="normal" title="Add New Expense"/>
                                 <connections>
                                     <segue destination="1qM-vk-mN0" kind="show" id="oQd-0o-U9a"/>
@@ -183,11 +187,16 @@
                             <constraint firstAttribute="bottom" secondItem="cuC-WW-DVP" secondAttribute="bottom" id="aWy-Y3-n6r"/>
                             <constraint firstItem="MLi-yW-IM6" firstAttribute="top" secondItem="I57-Lk-qal" secondAttribute="bottom" constant="81" id="eIa-wm-ATe"/>
                             <constraint firstItem="ePv-ld-Wvr" firstAttribute="centerX" secondItem="RRg-Qn-Cum" secondAttribute="centerX" id="jai-PZ-0h5"/>
-                            <constraint firstItem="ePv-ld-Wvr" firstAttribute="leading" secondItem="RRg-Qn-Cum" secondAttribute="leading" constant="98" id="xNE-hK-TSw"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Expense" image="Icon8Expense" id="2sK-Ep-pcR"/>
-                    <navigationItem key="navigationItem" title="Expenses" id="BX9-eG-idR"/>
+                    <navigationItem key="navigationItem" title="Expenses" id="BX9-eG-idR">
+                        <barButtonItem key="leftBarButtonItem" title="Groups" id="SAz-1f-1Ha">
+                            <connections>
+                                <action selector="groupButtonTapped:" destination="Mdk-HO-Xy6" id="Vxn-7v-jYH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="segmentSwitch" destination="MLi-yW-IM6" id="jwo-nN-Vtv"/>

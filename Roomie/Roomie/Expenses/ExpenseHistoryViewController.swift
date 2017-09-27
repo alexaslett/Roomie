@@ -12,6 +12,12 @@ class ExpenseHistoryViewController: UIViewController, UITableViewDataSource, UIT
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refetch), for: .valueChanged)
+        
+        tableView.refreshControl = refreshControl
+        
         ExpenseController.shared.fetchOthersPaidExpensesByGroup()
         ExpenseController.shared.fetchPaidExpensesByGroup { (success) in
             if success {
@@ -73,5 +79,19 @@ class ExpenseHistoryViewController: UIViewController, UITableViewDataSource, UIT
     }
  
 
+    @objc func refetch(){
+        ExpenseController.shared.fetchOthersPaidExpensesByGroup()
+        ExpenseController.shared.fetchPaidExpensesByGroup { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.tableView.refreshControl?.endRefreshing()
+                }
+            }
+        }
+        
+        
+    }
+    
 
 }

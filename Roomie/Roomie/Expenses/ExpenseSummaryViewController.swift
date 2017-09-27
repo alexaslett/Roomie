@@ -42,6 +42,9 @@ class ExpenseSummaryViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentSwitch: UISegmentedControl!
     
+    @IBAction func groupButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         self.tableView.reloadData()
     }
