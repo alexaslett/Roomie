@@ -64,6 +64,31 @@ class TaskController {
         }
     }
     
+    // MARK: - Update
+    
+    func updateTasks(task: Task?, taskName: String, owner: CKReference, ownerName: String, dueDate: Date = Date(), group: CKReference, completion: @escaping ((_ success: Bool) -> Void) = { _ in }) {
+        
+        guard let task = self.task else { return }
+        
+        task.taskName = taskName
+        task.owner = owner
+        task.ownerName = ownerName
+        task.dueDate = dueDate
+        task.group = group
+        
+        let taskRecord = CKRecord(task: task)
+        
+        cloudKitManager.saveRecords([taskRecord], perRecordCompletion: { (_, error) in
+            if let error = error {
+                NSLog("Error updating task. \(#file) \(#function) \n\(error.localizedDescription)")
+                return
+            }
+        }) { (records, error) in
+            let success = records != nil
+            completion(success)
+        }
+    }
+    
     // MARK: - Delete
     
     func delete(recordID: CKRecordID, completion: @escaping ((Error?) -> Void) = { _ in }) {

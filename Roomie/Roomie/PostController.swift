@@ -84,32 +84,6 @@ class PostController {
         }
     }
     
-    
-    // MARK: - Update
-    
-    func updatePosts(post: Post?, author: CKReference, authorUserName: String, group: CKReference, timestamp: Date = Date(), text: String, completion: @escaping ((_ success: Bool) -> Void) = { _ in }) {
-        
-        guard let post = post else { return }
-        
-        post.author = author
-        post.authorUserName = authorUserName
-        post.group = group
-        post.timestamp = timestamp
-        post.text = text
-        
-        let postRecord = CKRecord(post: post)
-        
-        cloudKitManager.saveRecords([postRecord], perRecordCompletion: { (_, error) in
-            if let error = error {
-                NSLog("Error updating post. \(#file) \(#function) \n\(error.localizedDescription)")
-                return
-            }
-        }) { (records, error) in
-            let success = records != nil
-            completion(success)
-        }
-    }
-    
     // MARK: - Delete
     
     func delete(recordID: CKRecordID, completion: @escaping ((Error?) -> Void) = { _ in }) {
