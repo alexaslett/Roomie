@@ -57,9 +57,6 @@ class ExpenseSummaryViewController: UIViewController, UITableViewDataSource, UIT
         default:
             return 0
         }
-        
-        
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

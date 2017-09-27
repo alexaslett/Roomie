@@ -19,11 +19,13 @@
 		4D055B6B1F71865300EC7BE7 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D055B6A1F71865300EC7BE7 /* Settings.storyboard */; };
 		4D2AE3A31F7580740072CC21 /* GroupListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2AE3A21F7580740072CC21 /* GroupListViewController.swift */; };
 		4D2AE3A51F75B3EA0072CC21 /* MarkPaidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2AE3A41F75B3EA0072CC21 /* MarkPaidViewController.swift */; };
-		4D2AE3A71F75B45A0072CC21 /* ExpenseHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2AE3A61F75B45A0072CC21 /* ExpenseHistoryTableViewController.swift */; };
 		4D2AE3A91F75B6540072CC21 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2AE3A81F75B6540072CC21 /* AddExpenseViewController.swift */; };
 		4D2AE3AB1F75B6AF0072CC21 /* SplitExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2AE3AA1F75B6AE0072CC21 /* SplitExpensesViewController.swift */; };
 		4D2AE3AD1F75C8920072CC21 /* SplitUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2AE3AC1F75C8920072CC21 /* SplitUserTableViewCell.swift */; };
 		4D2DBD791F7B122400252649 /* MainLaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2DBD781F7B122400252649 /* MainLaunchScreenViewController.swift */; };
+		4D2DBD7B1F7BFEA700252649 /* ExpenseHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2DBD7A1F7BFEA700252649 /* ExpenseHistoryViewController.swift */; };
+		4D2DBD7D1F7C08F800252649 /* WerePaidTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2DBD7C1F7C08F800252649 /* WerePaidTableViewCell.swift */; };
+		4D2DBD7F1F7C091100252649 /* PaidOthersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2DBD7E1F7C091100252649 /* PaidOthersTableViewCell.swift */; };
 		4D3150D81F7AC35A00FF0EDE /* ExpenseHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3150D71F7AC35A00FF0EDE /* ExpenseHistoryTableViewCell.swift */; };
 		4D3150DC1F7AD04600FF0EDE /* oweExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3150DB1F7AD04600FF0EDE /* oweExpenseTableViewCell.swift */; };
 		4D3150DE1F7AD05C00FF0EDE /* owedExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3150DD1F7AD05C00FF0EDE /* owedExpenseTableViewCell.swift */; };
@@ -72,11 +74,13 @@
 		4D055B6A1F71865300EC7BE7 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		4D2AE3A21F7580740072CC21 /* GroupListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListViewController.swift; sourceTree = "<group>"; };
 		4D2AE3A41F75B3EA0072CC21 /* MarkPaidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkPaidViewController.swift; sourceTree = "<group>"; };
-		4D2AE3A61F75B45A0072CC21 /* ExpenseHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseHistoryTableViewController.swift; sourceTree = "<group>"; };
 		4D2AE3A81F75B6540072CC21 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
 		4D2AE3AA1F75B6AE0072CC21 /* SplitExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitExpensesViewController.swift; sourceTree = "<group>"; };
 		4D2AE3AC1F75C8920072CC21 /* SplitUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitUserTableViewCell.swift; sourceTree = "<group>"; };
 		4D2DBD781F7B122400252649 /* MainLaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLaunchScreenViewController.swift; sourceTree = "<group>"; };
+		4D2DBD7A1F7BFEA700252649 /* ExpenseHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseHistoryViewController.swift; sourceTree = "<group>"; };
+		4D2DBD7C1F7C08F800252649 /* WerePaidTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WerePaidTableViewCell.swift; sourceTree = "<group>"; };
+		4D2DBD7E1F7C091100252649 /* PaidOthersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidOthersTableViewCell.swift; sourceTree = "<group>"; };
 		4D3150D71F7AC35A00FF0EDE /* ExpenseHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		4D3150DB1F7AD04600FF0EDE /* oweExpenseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oweExpenseTableViewCell.swift; sourceTree = "<group>"; };
 		4D3150DD1F7AD05C00FF0EDE /* owedExpenseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = owedExpenseTableViewCell.swift; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 				4D3150D71F7AC35A00FF0EDE /* ExpenseHistoryTableViewCell.swift */,
 				4D3150DB1F7AD04600FF0EDE /* oweExpenseTableViewCell.swift */,
 				4D3150DD1F7AD05C00FF0EDE /* owedExpenseTableViewCell.swift */,
+				4D2DBD7C1F7C08F800252649 /* WerePaidTableViewCell.swift */,
+				4D2DBD7E1F7C091100252649 /* PaidOthersTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -245,8 +251,8 @@
 				4D2AE3A41F75B3EA0072CC21 /* MarkPaidViewController.swift */,
 				4D2AE3AA1F75B6AE0072CC21 /* SplitExpensesViewController.swift */,
 				4D2AE3A81F75B6540072CC21 /* AddExpenseViewController.swift */,
-				4D2AE3A61F75B45A0072CC21 /* ExpenseHistoryTableViewController.swift */,
 				52C4BCC31F75AD1000E6BB6C /* ExpenseSummaryViewController.swift */,
+				4D2DBD7A1F7BFEA700252649 /* ExpenseHistoryViewController.swift */,
 			);
 			path = Expenses;
 			sourceTree = "<group>";
@@ -413,13 +419,15 @@
 				4D2AE3AB1F75B6AF0072CC21 /* SplitExpensesViewController.swift in Sources */,
 				711705B31F72C30F00BB107F /* Post.swift in Sources */,
 				711705B51F72D07A00BB107F /* PostController.swift in Sources */,
+				4D2DBD7B1F7BFEA700252649 /* ExpenseHistoryViewController.swift in Sources */,
 				711705B91F72E3E900BB107F /* TaskController.swift in Sources */,
 				522AB55D1F78C9C70026EF22 /* SettingEditProfileViewController.swift in Sources */,
 				52C4BCC41F75AD1000E6BB6C /* ExpenseSummaryViewController.swift in Sources */,
 				52A82D8A1F72C95F00264906 /* Group.swift in Sources */,
-				4D2AE3A71F75B45A0072CC21 /* ExpenseHistoryTableViewController.swift in Sources */,
+				4D2DBD7D1F7C08F800252649 /* WerePaidTableViewCell.swift in Sources */,
 				52C4BCC81F78AC1100E6BB6C /* SettingsViewController.swift in Sources */,
 				4D055B4E1F70245D00EC7BE7 /* AppDelegate.swift in Sources */,
+				4D2DBD7F1F7C091100252649 /* PaidOthersTableViewCell.swift in Sources */,
 				4D2AE3A51F75B3EA0072CC21 /* MarkPaidViewController.swift in Sources */,
 				4D2DBD791F7B122400252649 /* MainLaunchScreenViewController.swift in Sources */,
 				4D2AE3A91F75B6540072CC21 /* AddExpenseViewController.swift in Sources */,
