@@ -12,6 +12,10 @@ class TaskListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        
+        tableView.refreshControl = refreshControl
         
         TaskController.shared.fetchTasks { (success) in
             if success {
@@ -29,6 +33,19 @@ class TaskListTableViewController: UITableViewController {
             if success {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    // MARK: - Refresh func
+    
+    @objc func refresh() {
+        TaskController.shared.fetchTasks { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.tableView.refreshControl?.endRefreshing()
                 }
             }
         }

@@ -25,6 +25,7 @@ class TaskDetailViewController: UIViewController {
         
         self.title = task?.taskName
         self.updateViews()
+        self.hideKeyboardWhenViewIsTapped()
     }
     
     // MARK: - Actions
@@ -42,16 +43,20 @@ class TaskDetailViewController: UIViewController {
         
         if self.task == nil {
             TaskController.shared.createTask(taskName: taskName, owner: owner, ownerName: ownerName, dueDate: dueDatePicker.date, group: group)
+        } else {
+            guard let task = self.task else { return }
+            TaskController.shared.updateTasks(task: task, taskName: taskName, owner: owner, ownerName: ownerName, group: group)
+            updateViews()
         }
         _ = navigationController?.popViewController(animated: true)
     }
     
     func updateViews() {
-        guard let task = self.task, let ownerName = UserController.shared.currentUser?.firstName else { return }
+        guard let task = self.task else { return }
         let dueDate = dueDatePicker.date
         
         taskNameTextField.text = task.taskName
-        ownerNameTextField.text = ownerName
+        ownerNameTextField.text = task.ownerName
         dueDatePicker.date = dueDate
     }
 }
