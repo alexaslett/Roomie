@@ -16,22 +16,31 @@ class MembersCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
+        
+        // Find group with members inside
+        guard let group = GroupController.shared.currentGroup else { return }
+        UserController.shared.usersInGroup(group: group) { (_) in
+            DispatchQueue.main.async {
+                self.collectionView?.reloadData()
+            }
+        }
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.collectionView?.reloadData()
     }
 
     @IBAction func groupsButtonTapped(_ sender: Any) {
         
         self.dismiss(animated: true, completion: nil)
-//        let groupStoryboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NavGroupList")
-//        navigationController?.popToViewController(groupStoryboard, animated: true)
-        //present(groupStoryboard, animated: true, completion: nil)
-        //navigationController?.pushViewController(groupStoryboard, animated: true)
+
     }
     
     
@@ -55,7 +64,7 @@ class MembersCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return GroupController.shared.UsersGroups.count
+        return UserController.shared.usersInCurrentGroup.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
