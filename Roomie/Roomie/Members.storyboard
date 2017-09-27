@@ -25,32 +25,31 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="XT1-Fh-1ES" customClass="MemberCollectionViewCell" customModule="Roomie" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemberCell" id="XT1-Fh-1ES" customClass="MemberCollectionViewCell" customModule="Roomie" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="108" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="108" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tft-zj-b43">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LsO-Ht-iIh">
                                             <rect key="frame" x="0.0" y="0.0" width="108" height="100"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="Tft-zj-b43" secondAttribute="height" multiplier="27:25" id="UhX-Ul-D77"/>
+                                                <constraint firstAttribute="width" secondItem="LsO-Ht-iIh" secondAttribute="height" multiplier="27:25" id="ffL-pH-aeq"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                            <state key="normal" title="CB"/>
+                                        </button>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="Tft-zj-b43" firstAttribute="top" secondItem="XT1-Fh-1ES" secondAttribute="top" id="LGI-gN-QAx"/>
-                                    <constraint firstAttribute="bottom" secondItem="Tft-zj-b43" secondAttribute="bottom" id="Lw9-cj-Y2D"/>
-                                    <constraint firstAttribute="trailing" secondItem="Tft-zj-b43" secondAttribute="trailing" id="OgI-qd-RtS"/>
-                                    <constraint firstItem="Tft-zj-b43" firstAttribute="leading" secondItem="XT1-Fh-1ES" secondAttribute="leading" id="S0e-2m-OPT"/>
+                                    <constraint firstAttribute="bottom" secondItem="LsO-Ht-iIh" secondAttribute="bottom" id="0gg-Wb-b01"/>
+                                    <constraint firstItem="LsO-Ht-iIh" firstAttribute="top" secondItem="XT1-Fh-1ES" secondAttribute="top" id="3G8-qW-iPl"/>
+                                    <constraint firstItem="LsO-Ht-iIh" firstAttribute="leading" secondItem="XT1-Fh-1ES" secondAttribute="leading" id="A6G-5c-m8V"/>
+                                    <constraint firstAttribute="trailing" secondItem="LsO-Ht-iIh" secondAttribute="trailing" id="Gij-44-l7s"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="nameLabel" destination="Tft-zj-b43" id="fnA-zB-Yw6"/>
+                                    <outlet property="nameButton" destination="LsO-Ht-iIh" id="nUL-Ap-FiV"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
