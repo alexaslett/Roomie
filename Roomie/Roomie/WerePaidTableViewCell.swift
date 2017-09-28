@@ -22,7 +22,7 @@ class WerePaidTableViewCell: UITableViewCell {
         guard let expense = expense else { return }
         personWhoPaidLabel.text = expense.payeeName
         expenseTitleLabel.text = expense.title
-        amountLabel.text = "\(expense.amount)"
+        amountLabel.text = "$\(String(format: "%.2f", expense.amount))"
         
     }
     

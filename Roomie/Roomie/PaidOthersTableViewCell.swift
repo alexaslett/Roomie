@@ -22,6 +22,6 @@ class PaidOthersTableViewCell: UITableViewCell {
         guard let expense = expense else { return }
         personPaidLabel.text = expense.payorName
         expenseTitleLabel.text = expense.title
-        amountLabel.text = "\(expense.amount)"
+        amountLabel.text = "$\(String(format: "%.2f", expense.amount))"
     }
 }

@@ -28,7 +28,7 @@ class MarkPaidViewController: UIViewController {
     func updateViews(){
         guard let expense = expense else { return }
         
-        amountOwedLabel.text = "\(expense.amount)"
+        amountOwedLabel.text = "$\(String(format: "%.2f", expense.amount))"
         expenseNameLabel.text = expense.title
         if isOwed {
             personLabel.text = expense.payeeName
