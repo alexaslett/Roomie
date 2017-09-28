@@ -43,15 +43,24 @@ class MembersCollectionViewController: UICollectionViewController {
     }
     
     
-    /*
+    
      // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using [segue destinationViewController].
-     // Pass the selected object to the new view controller.
+//        if segue.identifier == "toProfile" {
+//
+//            let destinationVC = segue.destination as? MemberProfileViewController
+//            let selectedCell = sender as! MemberCollectionViewCell
+//            let indexPath = collectionView?.indexPath(for: selectedCell)
+//
+//            let profile = UserController.shared.usersInCurrentGroup[indexPath!.row]
+//
+//            destinationVC?.profileName.text = "\(profile.firstName) \(profile.lastName)"
+//            destinationVC?.phoneNumber.text = profile.phone
+//            destinationVC?.emailLabel.text = profile.email
+//        }
      }
-     */
+ 
     
     // MARK: UICollectionViewDataSource
     

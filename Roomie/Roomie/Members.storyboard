@@ -40,7 +40,7 @@
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <segue destination="avV-n1-dTE" kind="presentation" id="MIS-zE-lGk"/>
+                                                <segue destination="avV-n1-dTE" kind="presentation" identifier="toProfile" id="MIS-zE-lGk"/>
                                             </connections>
                                         </button>
                                     </subviews>
