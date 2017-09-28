@@ -23,6 +23,11 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        postListTableView.separatorStyle = .none
+        postListTableView.rowHeight = UITableViewAutomaticDimension
+        postListTableView.estimatedRowHeight = 60
+        
         PostController.shared.fetchPostsByGroup { (success) in
             if success {
                 DispatchQueue.main.async {
@@ -36,8 +41,6 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
         self.hideKeyboardWhenViewIsTapped()
         self.stackViewsView.backgroundColor = UIColor.blue30
 
-        self.postListTableView.rowHeight = UITableViewAutomaticDimension
-        self.postListTableView.estimatedRowHeight = 101
     }
     
     deinit {
@@ -100,7 +103,10 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as? PostTableViewCell else { return UITableViewCell() }
         
+        let firstName = PostController.shared.posts[indexPath.row].authorUserName
         let post = PostController.shared.posts[indexPath.row]
+        
+        post.authorUserName = firstName
         
         cell.post = post
         
