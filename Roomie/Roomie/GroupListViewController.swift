@@ -27,6 +27,7 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         
         self.navigationController?.navigationBar.backgroundColor = UIColor.clear
         
+        
         // Welcome in navigation
         guard let user = UserController.shared.currentUser?.firstName else { return }
         navigationController?.navigationBar.topItem?.title = "Welcome \(user)!"
@@ -79,18 +80,11 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         cell.textLabel?.text = "\(group.groupName)"
         cell.detailTextLabel?.text = "Passcode: \(group.passcode)"
         
-        //Border Code
-        cell.layer.borderWidth = 2.0
-        cell.layer.borderColor = UIColor.blue.cgColor
-        
-        //Round Corners
-        cell.layer.cornerRadius = 5
-        
         // add border and color
         cell.backgroundColor = UIColor.white
-        cell.layer.borderColor = UIColor.black.cgColor
-        cell.layer.borderWidth = 1
-        cell.layer.cornerRadius = 8
+        //cell.layer.borderColor = UIColor.black.cgColor
+        //cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 20
         cell.clipsToBounds = true
         
         return cell

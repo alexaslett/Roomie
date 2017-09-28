@@ -23,6 +23,8 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
             }
         }
         updateLabel()
+        
+        self.view.gradientBackGround(colorOne: .blue, colorTwo: .purple)
     }
     
     override func viewWillAppear(_ animated: Bool) {

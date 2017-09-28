@@ -168,14 +168,6 @@
                                     <segue destination="1qM-vk-mN0" kind="show" id="oQd-0o-U9a"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LhW-FS-7Nn">
-                                <rect key="frame" x="264" y="72" width="46" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="history"/>
-                                <connections>
-                                    <segue destination="yKj-fW-QfK" kind="show" id="Cb1-PA-fc4"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -194,6 +186,11 @@
                         <barButtonItem key="leftBarButtonItem" title="Groups" id="SAz-1f-1Ha">
                             <connections>
                                 <action selector="groupButtonTapped:" destination="Mdk-HO-Xy6" id="Vxn-7v-jYH"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="icons8clock" id="Bgf-lD-Uuw">
+                            <connections>
+                                <segue destination="yKj-fW-QfK" kind="show" id="Pid-ny-npH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -675,7 +672,7 @@
     <resources>
         <image name="Icon8Expense" width="25" height="25"/>
         <image name="complete" width="512" height="512"/>
-        <image name="history" width="338" height="338"/>
+        <image name="icons8clock" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="QMQ-as-nca"/>
