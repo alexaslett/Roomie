@@ -122,12 +122,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FbZ-e8-jTw">
-                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                                <rect key="frame" x="67" y="272" width="240" height="125"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="82d-a3-aHr"/>
-                                    <constraint firstAttribute="height" constant="128" id="CgB-wW-zcG"/>
-                                </constraints>
                                 <string key="text">Welcome to Roomies! 
 We are called One Round Tech and we’re dedicated to making your busy life a little bit easier.  
 Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
@@ -143,11 +139,13 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FbZ-e8-jTw" firstAttribute="centerY" secondItem="z6z-js-Ipn" secondAttribute="centerY" id="3bz-Fk-edH"/>
+                            <constraint firstItem="FbZ-e8-jTw" firstAttribute="top" secondItem="ovt-7S-vlu" secondAttribute="bottom" constant="8" id="6Gi-LO-4FV"/>
                             <constraint firstItem="ovt-7S-vlu" firstAttribute="leading" secondItem="z6z-js-Ipn" secondAttribute="leading" id="C7d-cm-Qu7"/>
+                            <constraint firstItem="fCo-4j-PdX" firstAttribute="top" secondItem="FbZ-e8-jTw" secondAttribute="bottom" constant="221" id="F6T-RY-9Nc"/>
                             <constraint firstAttribute="trailing" secondItem="ovt-7S-vlu" secondAttribute="trailing" id="QlK-uF-Htl"/>
-                            <constraint firstItem="FbZ-e8-jTw" firstAttribute="centerX" secondItem="z6z-js-Ipn" secondAttribute="centerX" id="dal-Jw-8GV"/>
+                            <constraint firstItem="FbZ-e8-jTw" firstAttribute="leading" secondItem="z6z-js-Ipn" secondAttribute="leading" constant="67" id="geL-pd-lLK"/>
                             <constraint firstItem="ovt-7S-vlu" firstAttribute="top" secondItem="WGP-Ll-V9K" secondAttribute="bottom" id="lPD-cs-fa1"/>
+                            <constraint firstAttribute="trailing" secondItem="FbZ-e8-jTw" secondAttribute="trailing" constant="68" id="rPx-Xd-SBw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="About Us" id="eYU-eW-HRz"/>
