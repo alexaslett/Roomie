@@ -38,6 +38,7 @@
 		4DB7166E1F730D6A004E166B /* ExpenseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB7166D1F730D6A004E166B /* ExpenseController.swift */; };
 		522AB55B1F78BF090026EF22 /* SettingProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB55A1F78BF090026EF22 /* SettingProfileViewController.swift */; };
 		522AB55D1F78C9C70026EF22 /* SettingEditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB55C1F78C9C70026EF22 /* SettingEditProfileViewController.swift */; };
+		524154D91F7CB4E80003A6ED /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524154D81F7CB4E80003A6ED /* AboutViewController.swift */; };
 		528647081F79713300DCECB1 /* SettingsContactUsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528647071F79713300DCECB1 /* SettingsContactUsTableViewController.swift */; };
 		5297A8A11F7C069D00DB8BF7 /* Members.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5297A8A01F7C069D00DB8BF7 /* Members.storyboard */; };
 		5297A8A51F7C145500DB8BF7 /* MembersCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5297A8A41F7C145500DB8BF7 /* MembersCollectionViewController.swift */; };
@@ -94,6 +95,7 @@
 		4DB7166D1F730D6A004E166B /* ExpenseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseController.swift; sourceTree = "<group>"; };
 		522AB55A1F78BF090026EF22 /* SettingProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProfileViewController.swift; sourceTree = "<group>"; };
 		522AB55C1F78C9C70026EF22 /* SettingEditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingEditProfileViewController.swift; sourceTree = "<group>"; };
+		524154D81F7CB4E80003A6ED /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		528647071F79713300DCECB1 /* SettingsContactUsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContactUsTableViewController.swift; sourceTree = "<group>"; };
 		5297A8A01F7C069D00DB8BF7 /* Members.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Members.storyboard; sourceTree = "<group>"; };
 		5297A8A41F7C145500DB8BF7 /* MembersCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersCollectionViewController.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				522AB55C1F78C9C70026EF22 /* SettingEditProfileViewController.swift */,
 				522AB55A1F78BF090026EF22 /* SettingProfileViewController.swift */,
 				528647071F79713300DCECB1 /* SettingsContactUsTableViewController.swift */,
+				524154D81F7CB4E80003A6ED /* AboutViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				4D055B4E1F70245D00EC7BE7 /* AppDelegate.swift in Sources */,
 				4D2DBD7F1F7C091100252649 /* PaidOthersTableViewCell.swift in Sources */,
 				4D2AE3A51F75B3EA0072CC21 /* MarkPaidViewController.swift in Sources */,
+				524154D91F7CB4E80003A6ED /* AboutViewController.swift in Sources */,
 				4D2DBD791F7B122400252649 /* MainLaunchScreenViewController.swift in Sources */,
 				4D2AE3A91F75B6540072CC21 /* AddExpenseViewController.swift in Sources */,
 				4DB7166C1F73029B004E166B /* LaunchScreenViewController.swift in Sources */,

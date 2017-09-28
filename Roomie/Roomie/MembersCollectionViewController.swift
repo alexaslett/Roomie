@@ -22,6 +22,10 @@ class MembersCollectionViewController: UICollectionViewController {
                 self.collectionView?.reloadData()
             }
         }
+        
+        //self.collectionView?.gradientBackGround(colorOne: .blue, colorTwo: .purple)
+    
+        //self.navigationController?.navigationBar.backgroundColor = UIColor.clear
 
     }
 

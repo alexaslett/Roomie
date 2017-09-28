@@ -20,11 +20,12 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         
         // Changing background colors
-        self.viewBG.gradientBackGround(colorOne: .cyan, colorTwo: .blue)
+        self.viewBG.gradientBackGround(colorOne: .blue, colorTwo: .purple)
         self.tableView.backgroundColor = UIColor.clear
         
         self.tableView.separatorStyle = .none
         
+        self.navigationController?.navigationBar.backgroundColor = UIColor.clear
         
         // Welcome in navigation
         guard let user = UserController.shared.currentUser?.firstName else { return }
@@ -53,7 +54,6 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
-    
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return GroupController.shared.UsersGroups.count
@@ -77,7 +77,7 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath)
         let group = GroupController.shared.UsersGroups[indexPath.section]
         cell.textLabel?.text = "\(group.groupName)"
-        cell.detailTextLabel?.text = "\(group.passcode)"
+        cell.detailTextLabel?.text = "Passcode: \(group.passcode)"
         
         //Border Code
         cell.layer.borderWidth = 2.0

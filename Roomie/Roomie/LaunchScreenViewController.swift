@@ -13,13 +13,13 @@ class LaunchScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkIfICloudIsAvailabe()
-        
+        checkIfICloudIsAvailable()
+        self.view.gradientBackGround(colorOne: .blue, colorTwo: .purple)
     }
     
     @IBOutlet weak var signUpButton: UIButton!
     
-    func checkIfICloudIsAvailabe(){
+    func checkIfICloudIsAvailable(){
         CKContainer.default().accountStatus { (accountStat, error) in
             if case .available = accountStat {
                 print("iCloud is available")

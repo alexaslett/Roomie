@@ -12,8 +12,10 @@ class SignUpTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         phoneNumberField.keyboardType = .numberPad
+        
         
     }
     

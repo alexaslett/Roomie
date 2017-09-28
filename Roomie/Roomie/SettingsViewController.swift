@@ -17,17 +17,19 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var aboutButton: UIButton!
     
     @IBOutlet var viewBG: UIView!
-    
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.gradientBackGround(colorOne: .blue, colorTwo: .cyan)
-
+        view.gradientBackGround(colorOne: .blue, colorTwo: .purple)
+        
+        navigationController?.navigationBar.backgroundColor = UIColor.clear
     }
 
+    @IBAction func groupsButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 extension UIView {

@@ -17,6 +17,8 @@ class JoinGroupViewController: UIViewController {
         super.viewDidLoad()
         GroupController.shared.fetchAllGroups()
 
+        self.view.gradientBackGround(colorOne: .blue, colorTwo: .purple)
+
     }
 
     override func viewWillAppear(_ animated: Bool) {

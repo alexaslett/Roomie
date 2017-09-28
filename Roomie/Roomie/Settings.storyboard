@@ -94,7 +94,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="Icon8Settings" id="k2b-aQ-VFW"/>
                     <navigationItem key="navigationItem" title="Settings" id="Y24-F3-qi3">
-                        <barButtonItem key="leftBarButtonItem" title="Groups" id="AGG-LI-XLB"/>
+                        <barButtonItem key="leftBarButtonItem" title="Groups" id="AGG-LI-XLB">
+                            <connections>
+                                <action selector="groupsButtonTapped:" destination="OCM-tC-rCW" id="Dlh-vi-ab7"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -112,7 +116,7 @@
         <!--About Us-->
         <scene sceneID="jiW-vo-hwE">
             <objects>
-                <viewController id="DvO-Uc-oif" sceneMemberID="viewController">
+                <viewController id="DvO-Uc-oif" customClass="AboutViewController" customModule="Roomie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WGP-Ll-V9K"/>
                         <viewControllerLayoutGuide type="bottom" id="fCo-4j-PdX"/>
@@ -127,6 +131,7 @@
                                 <string key="text">Welcome to Roomies! 
 We are called One Round Tech and we’re dedicated to making your busy life a little bit easier.  
 Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -137,7 +142,7 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="FbZ-e8-jTw" firstAttribute="top" secondItem="ovt-7S-vlu" secondAttribute="bottom" constant="8" id="6Gi-LO-4FV"/>
                             <constraint firstItem="ovt-7S-vlu" firstAttribute="leading" secondItem="z6z-js-Ipn" secondAttribute="leading" id="C7d-cm-Qu7"/>
@@ -149,6 +154,9 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="About Us" id="eYU-eW-HRz"/>
+                    <connections>
+                        <outlet property="aboutTextView" destination="FbZ-e8-jTw" id="sxH-lM-7H0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vsv-Il-luq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -516,7 +524,6 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fgE-tb-yHF">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.40443294759999998" green="0.83409646599999998" blue="0.88384175409999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="textShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
