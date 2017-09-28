@@ -34,6 +34,10 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         
         self.hideKeyboardWhenViewIsTapped()
+        self.stackViewsView.backgroundColor = UIColor.blue30
+
+        self.postListTableView.rowHeight = UITableViewAutomaticDimension
+        self.postListTableView.estimatedRowHeight = 101
     }
     
     deinit {
