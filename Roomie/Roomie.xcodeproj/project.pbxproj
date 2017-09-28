@@ -57,6 +57,7 @@
 		711705C51F7317E800BB107F /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705C41F7317E800BB107F /* TaskTableViewCell.swift */; };
 		711705C71F7319C700BB107F /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705C61F7319C700BB107F /* TaskDetailViewController.swift */; };
 		7181BC431F75C7C600EBD6C9 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7181BC421F75C7C600EBD6C9 /* DateHelper.swift */; };
+		719C38C01F7D55BF00EA6C41 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719C38BF1F7D55BF00EA6C41 /* PostTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +114,7 @@
 		711705C41F7317E800BB107F /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		711705C61F7319C700BB107F /* TaskDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		7181BC421F75C7C600EBD6C9 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		719C38BF1F7D55BF00EA6C41 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 				4D3150DD1F7AD05C00FF0EDE /* owedExpenseTableViewCell.swift */,
 				4D2DBD7C1F7C08F800252649 /* WerePaidTableViewCell.swift */,
 				4D2DBD7E1F7C091100252649 /* PaidOthersTableViewCell.swift */,
+				719C38BF1F7D55BF00EA6C41 /* PostTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				4D2DBD7D1F7C08F800252649 /* WerePaidTableViewCell.swift in Sources */,
 				52C4BCC81F78AC1100E6BB6C /* SettingsViewController.swift in Sources */,
 				4D055B4E1F70245D00EC7BE7 /* AppDelegate.swift in Sources */,
+				719C38C01F7D55BF00EA6C41 /* PostTableViewCell.swift in Sources */,
 				4D2DBD7F1F7C091100252649 /* PaidOthersTableViewCell.swift in Sources */,
 				4D2AE3A51F75B3EA0072CC21 /* MarkPaidViewController.swift in Sources */,
 				4D2DBD791F7B122400252649 /* MainLaunchScreenViewController.swift in Sources */,
