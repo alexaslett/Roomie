@@ -26,6 +26,9 @@ class ExpenseHistoryViewController: UIViewController, UITableViewDataSource, UIT
                 }
             }
         }
+        
+        self.view.gradientBackGround(colorOne: .blue, colorTwo: .purple)
+        self.tableView.backgroundColor = UIColor.clear
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,12 +69,14 @@ class ExpenseHistoryViewController: UIViewController, UITableViewDataSource, UIT
             let youPaidExpense = ExpenseController.shared.paidExpenses[indexPath.row]
             youPaidCell.expense = youPaidExpense
             youPaidCell.updateYouPaidCell()
+            youPaidCell.layer.cornerRadius = 10
             return youPaidCell
         case 1:
             guard let werePaidCell = tableView.dequeueReusableCell(withIdentifier: "werePaidCell", for: indexPath) as? WerePaidTableViewCell else { return UITableViewCell() }
             let werePaidExpense = ExpenseController.shared.othersPaidExpenses[indexPath.row]
             werePaidCell.expense = werePaidExpense
             werePaidCell.updateWerePaidCell()
+            werePaidCell.layer.cornerRadius = 10
             return werePaidCell
         default:
             return UITableViewCell()

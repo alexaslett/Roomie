@@ -12,8 +12,12 @@ class AddExpenseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.view.gradientBackGround(colorOne: .blue, colorTwo: .purple)
         amountTextField.keyboardType = .decimalPad
+        
+        hideKeyboardWhenViewIsTapped()
+
     }
 
     @IBOutlet weak var expenseNameTextField: UITextField!

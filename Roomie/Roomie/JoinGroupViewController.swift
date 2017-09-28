@@ -12,10 +12,13 @@ import CloudKit
 class JoinGroupViewController: UIViewController {
 
     @IBOutlet weak var passcodeTextfield: UITextField!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         GroupController.shared.fetchAllGroups()
+
+        self.view.gradientBackGround(colorOne: .blue, colorTwo: .purple)
 
     }
 
@@ -25,6 +28,9 @@ class JoinGroupViewController: UIViewController {
     }
     
     @IBAction func joinButtonTapped(_ sender: Any) {
+        
+        
+        
         guard let passcode = passcodeTextfield.text, passcode != "" else { return }
         var success: Bool = false
         for x in 0..<GroupController.shared.groups.count {

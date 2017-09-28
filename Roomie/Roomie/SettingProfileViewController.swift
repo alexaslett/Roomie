@@ -19,6 +19,8 @@ class SettingProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.gradientBackGround(colorOne: .blue, colorTwo: .purple)
 
     }
     

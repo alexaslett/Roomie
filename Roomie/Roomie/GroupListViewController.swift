@@ -20,10 +20,12 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         
         // Changing background colors
-        self.viewBG.gradientBackGround(colorOne: .cyan, colorTwo: .blue)
+        self.viewBG.gradientBackGround(colorOne: .blue, colorTwo: .purple)
         self.tableView.backgroundColor = UIColor.clear
         
         self.tableView.separatorStyle = .none
+        
+        self.navigationController?.navigationBar.backgroundColor = UIColor.clear
         
         
         // Welcome in navigation
@@ -53,7 +55,6 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
-    
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return GroupController.shared.UsersGroups.count
@@ -77,20 +78,13 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath)
         let group = GroupController.shared.UsersGroups[indexPath.section]
         cell.textLabel?.text = "\(group.groupName)"
-        cell.detailTextLabel?.text = "\(group.passcode)"
-        
-        //Border Code
-        cell.layer.borderWidth = 2.0
-        cell.layer.borderColor = UIColor.blue.cgColor
-        
-        //Round Corners
-        cell.layer.cornerRadius = 5
+        cell.detailTextLabel?.text = "Passcode: \(group.passcode)"
         
         // add border and color
         cell.backgroundColor = UIColor.white
-        cell.layer.borderColor = UIColor.black.cgColor
-        cell.layer.borderWidth = 1
-        cell.layer.cornerRadius = 8
+        //cell.layer.borderColor = UIColor.black.cgColor
+        //cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 20
         cell.clipsToBounds = true
         
         return cell

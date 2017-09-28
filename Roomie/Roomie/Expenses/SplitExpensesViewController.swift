@@ -23,6 +23,10 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
             }
         }
         updateLabel()
+        
+        self.view.gradientBackGround(colorOne: .blue, colorTwo: .purple)
+        self.itemNameLabel.textColor = UIColor.white
+        self.splitAmountLabel.textColor = UIColor.white
     }
     
     override func viewWillAppear(_ animated: Bool) {

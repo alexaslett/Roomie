@@ -26,6 +26,7 @@ class SettingEditProfileViewController: UIViewController {
         emailTextfield.text = user.email
         phoneTextfield.text = user.phone
         
+        hideKeyboardWhenViewIsTapped()
     }
     
     
@@ -43,6 +44,5 @@ class SettingEditProfileViewController: UIViewController {
         }
         navigationController?.popViewController(animated: true)
     }
-    
     
 }

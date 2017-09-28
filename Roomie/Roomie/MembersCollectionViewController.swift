@@ -8,17 +8,12 @@
 
 import UIKit
 
-//private let reuseIdentifier = "Cell"
 
 class MembersCollectionViewController: UICollectionViewController {
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//
-//        // Register cell classes
-//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
         
         // Find group with members inside
         guard let group = GroupController.shared.currentGroup else { return }
@@ -28,9 +23,12 @@ class MembersCollectionViewController: UICollectionViewController {
             }
         }
         
-        // Do any additional setup after loading the view.
-    }
+        //self.collectionView?.gradientBackGround(colorOne: .blue, colorTwo: .purple)
     
+        //self.navigationController?.navigationBar.backgroundColor = UIColor.clear
+
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        DispatchQueue.main.async {
@@ -64,7 +62,6 @@ class MembersCollectionViewController: UICollectionViewController {
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return UserController.shared.usersInCurrentGroup.count
     }
     
@@ -72,20 +69,21 @@ class MembersCollectionViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemberCell", for: indexPath) as? MemberCollectionViewCell else { return UICollectionViewCell() }
         
         let member = UserController.shared.usersInCurrentGroup[indexPath.row]
-        
+
         guard let first = member.firstName.characters.first,
             let last = member.lastName.characters.first
             else { return UICollectionViewCell() }
-        
-        
-        cell.backgroundColor = UIColor.blue
-        cell.layer.cornerRadius = 50
-        //cell.layer.masksToBounds = true
-        
+
+        cell.backgroundColor = UIColor.cyan
+        cell.layer.cornerRadius = cell.frame.width / 2
+
         cell.updateCells(first: first, last: last)
         
         return cell
     }
+    
+    
+    
     
     // MARK: UICollectionViewDelegate
     

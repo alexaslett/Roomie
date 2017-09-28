@@ -20,7 +20,7 @@ class owedExpenseTableViewCell: UITableViewCell {
         guard let owedExpense = owedExpense else { return }
         personWhoOwesYouLabel.text = owedExpense.payeeName
         expenseTitleLabel.text = owedExpense.title
-        amountLabel.text = "\(owedExpense.amount)"
+        amountLabel.text = "$\(String(format: "%.2f", owedExpense.amount))"
     }
     
 }
