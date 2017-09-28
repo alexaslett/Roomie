@@ -41,7 +41,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rva-Dc-Jcv">
-                                                    <rect key="frame" x="16" y="30.5" width="42" height="21"/>
+                                                    <rect key="frame" x="10" y="24.5" width="54" height="33"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QoK-Tc-nqg">
@@ -56,11 +56,11 @@
                                                 <constraint firstAttribute="bottom" secondItem="QoK-Tc-nqg" secondAttribute="bottom" constant="8" id="0aR-0G-gQe"/>
                                                 <constraint firstItem="xX6-oc-1EC" firstAttribute="top" secondItem="4Hq-sf-btO" secondAttribute="top" constant="8" id="1Uh-jN-siS"/>
                                                 <constraint firstItem="xX6-oc-1EC" firstAttribute="leading" secondItem="4Hq-sf-btO" secondAttribute="leading" constant="16" id="JdO-R9-iZ7"/>
-                                                <constraint firstItem="Rva-Dc-Jcv" firstAttribute="top" secondItem="QoK-Tc-nqg" secondAttribute="top" id="Xni-QJ-UCr"/>
+                                                <constraint firstItem="Rva-Dc-Jcv" firstAttribute="top" secondItem="QoK-Tc-nqg" secondAttribute="top" constant="-6" id="Xni-QJ-UCr"/>
                                                 <constraint firstItem="QoK-Tc-nqg" firstAttribute="leading" secondItem="4Hq-sf-btO" secondAttribute="leading" constant="16" id="dUW-sn-EaZ"/>
-                                                <constraint firstItem="Rva-Dc-Jcv" firstAttribute="bottom" secondItem="QoK-Tc-nqg" secondAttribute="bottom" id="eTA-iJ-3Ii"/>
-                                                <constraint firstItem="Rva-Dc-Jcv" firstAttribute="leading" secondItem="QoK-Tc-nqg" secondAttribute="leading" id="qMM-vk-vLg"/>
-                                                <constraint firstItem="Rva-Dc-Jcv" firstAttribute="trailing" secondItem="QoK-Tc-nqg" secondAttribute="trailing" id="yVv-es-TSR"/>
+                                                <constraint firstItem="Rva-Dc-Jcv" firstAttribute="bottom" secondItem="QoK-Tc-nqg" secondAttribute="bottom" constant="6" id="eTA-iJ-3Ii"/>
+                                                <constraint firstItem="Rva-Dc-Jcv" firstAttribute="leading" secondItem="QoK-Tc-nqg" secondAttribute="leading" constant="-6" id="qMM-vk-vLg"/>
+                                                <constraint firstItem="Rva-Dc-Jcv" firstAttribute="trailing" secondItem="QoK-Tc-nqg" secondAttribute="trailing" constant="6" id="yVv-es-TSR"/>
                                                 <constraint firstAttribute="trailing" secondItem="xX6-oc-1EC" secondAttribute="trailing" constant="16" id="ymF-c1-ccl"/>
                                             </constraints>
                                         </tableViewCellContentView>

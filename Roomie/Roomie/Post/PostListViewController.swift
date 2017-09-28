@@ -27,6 +27,7 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
         postListTableView.separatorStyle = .none
         postListTableView.rowHeight = UITableViewAutomaticDimension
         postListTableView.estimatedRowHeight = 60
+        postListTableView.backgroundColor = UIColor.blue30
         
         PostController.shared.fetchPostsByGroup { (success) in
             if success {

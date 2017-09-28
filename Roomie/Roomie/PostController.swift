@@ -43,24 +43,9 @@ class PostController {
     
     // MARK: - Retreive/Fetch
     
-    //FIXME: I think we can get rid of this function, since we always fetch by group
-    func fetchPosts(completion: @escaping (_ success: Bool) -> Void = { _ in }){
-        let sortDescriptors = [NSSortDescriptor(key: Post.timestampKey, ascending: false)]
-        
-        cloudKitManager.fetchRecords(ofType: Post.recordTypeKey, withSortDescriptors: sortDescriptors) { (records, error) in
-            if let error = error {
-                NSLog("Error fetching data. \(#file) \(#function) \n\(error.localizedDescription)")
-                completion(false)
-                return
-            }
-            guard let records = records else { completion(false); return }
-            
-            self.posts = records.flatMap { Post(ckRecord: $0) }
-            completion(true)
-        }
-    }
-    
     func fetchPostsByGroup(completion: @escaping (_ success: Bool) -> Void = { _ in }){
+        
+        let sortDescriptors = [NSSortDescriptor(key: Post.timestampKey, ascending: true)]
         
         guard let groupRecID = GroupController.shared.currentGroup?.cloudKitRecordID else { completion(false); return}
         
@@ -68,17 +53,14 @@ class PostController {
         
         let predicate = NSPredicate(format: "group == %@", groupRef)
         
-        
-        cloudKitManager.fetchRecordsWithType(Post.recordTypeKey, predicate: predicate, recordFetchedBlock: nil) { (records, error) in
+        cloudKitManager.fetchRecordsWithType(Post.recordTypeKey, predicate: predicate, sortDescriptors: sortDescriptors, recordFetchedBlock: nil) { (records, error) in
+            
             if let error = error {
                 print(error.localizedDescription)
             }
             guard let groupPosts = records else { completion(false); return }
-            var posts: [Post] = []
-            for groupPost in groupPosts {
-                guard let post = Post(ckRecord: groupPost) else { completion(false); return }
-                posts.append(post)
-            }
+            let posts = groupPosts.flatMap { Post(ckRecord: $0) }
+            
             self.posts = posts
             completion(true)
         }

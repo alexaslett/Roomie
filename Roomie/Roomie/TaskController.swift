@@ -42,12 +42,16 @@ class TaskController {
     // MARK: - Retreive/Fetch
     
     func fetchTasks(completion: @escaping (_ success: Bool) -> Void = { _ in }) {
+        
+        let sortDescriptors = [NSSortDescriptor(key: Task.dueDateKey, ascending: false)]
+        
         guard let groupCKRecordID = GroupController.shared.currentGroup?.cloudKitRecordID else { completion(false); return }
         
         let groupRef = CKReference(recordID: groupCKRecordID, action: .none)
         let predicate = NSPredicate(format: "group == %@", groupRef)
         
-        cloudKitManager.fetchRecordsWithType(Task.recordType, predicate: predicate, recordFetchedBlock: nil) { (records, error) in
+        cloudKitManager.fetchRecordsWithType(Task.recordType, predicate: predicate, sortDescriptors: sortDescriptors, recordFetchedBlock: nil) { (records, error) in
+            
             
             if let error = error {
                 NSLog("Error fetching tasks. \(#file) \(#function) \n\(error.localizedDescription)")

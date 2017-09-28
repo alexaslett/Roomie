@@ -24,11 +24,13 @@ class CloudKitManager {
     
     func fetchRecordsWithType(_ type: String,
                               predicate: NSPredicate = NSPredicate(value: true),
+                              sortDescriptors: [NSSortDescriptor]? = nil,
                               recordFetchedBlock: ((_ record: CKRecord) -> Void)?,
                               completion: ((_ records: [CKRecord]?, _ error: Error?) -> Void)?) {
         var fetchedRecords: [CKRecord] = []
         
         let query = CKQuery(recordType: type, predicate: predicate)
+        query.sortDescriptors = sortDescriptors
         let queryOperation = CKQueryOperation(query: query)
         
         let perRecordBlock = { (fetchedRecord: CKRecord) -> Void in

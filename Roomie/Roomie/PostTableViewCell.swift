@@ -23,7 +23,14 @@ class PostTableViewCell: UITableViewCell {
     func updateViews() {
         guard let post = post else { return }
         
-        bubbleView.backgroundColor = UIColor(red: 28/255, green: 40/255, blue: 72/255, alpha: 1.0)
+        self.backgroundColor = UIColor.blue30
+        
+        if post.authorUserName == UserController.shared.currentUser?.firstName {
+            bubbleView.backgroundColor = UIColor.blue10
+        } else {
+            bubbleView.backgroundColor = UIColor.blue60
+        }
+        
         bubbleView.layer.cornerRadius = 8
         authorNameLabel.textColor = .darkGray
         authorNameLabel.text = post.authorUserName
