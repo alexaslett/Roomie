@@ -94,16 +94,11 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
-        
-        let firstName = PostController.shared.posts[indexPath.row].authorUserName 
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as? PostTableViewCell else { return UITableViewCell() }
         
         let post = PostController.shared.posts[indexPath.row]
         
-        post.authorUserName = firstName
-        
-        cell.textLabel?.text = post.authorUserName
-        cell.detailTextLabel?.text = post.text
+        cell.post = post
         
         return cell
     }
