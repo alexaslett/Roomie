@@ -17,6 +17,7 @@ class AddExpenseViewController: UIViewController {
         amountTextField.keyboardType = .decimalPad
         
         hideKeyboardWhenViewIsTapped()
+
     }
 
     @IBOutlet weak var expenseNameTextField: UITextField!
