@@ -20,14 +20,26 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var stackViewsView: UIView!
     @IBOutlet weak var viewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var superviewBottomConstraint: NSLayoutConstraint!
+//    @IBOutlet weak var groupsButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.ivoryWhite60
         
         postListTableView.separatorStyle = .none
         postListTableView.rowHeight = UITableViewAutomaticDimension
         postListTableView.estimatedRowHeight = 60
         postListTableView.backgroundColor = UIColor.ivoryWhite60
+        
+        sendButton.setTitleColor(UIColor.tealBlue30, for: .normal)
+        navigationController?.navigationBar.barTintColor = UIColor.clear
+        tabBarController?.tabBar.barTintColor = UIColor.clear
+        
+        
+        let groupsButton = UIBarButtonItem(title: "Groups", style: .plain, target: self, action: #selector(groupsButtonTapped(_:)))
+        groupsButton.tintColor = UIColor.customLightGrey10
+        navigationItem.leftBarButtonItem = groupsButton
         
         PostController.shared.fetchPostsByGroup { (success) in
             if success {
