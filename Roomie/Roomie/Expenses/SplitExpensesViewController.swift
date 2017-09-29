@@ -24,9 +24,9 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
         }
         updateLabel()
         
-        self.view.gradientBackGround(colorOne: .blue, colorTwo: .purple)
-        self.itemNameLabel.textColor = UIColor.white
-        self.splitAmountLabel.textColor = UIColor.white
+        self.view.backgroundColor = UIColor.ivoryWhite60
+        self.itemNameLabel.textColor = UIColor.black
+        self.splitAmountLabel.textColor = UIColor.black
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,9 +62,6 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
             })
             }
         }
-        
-//        let expenseSummeryVC = self.navigationController?.viewControllers[0] as! ExpenseSummaryViewController
-//        self.navigationController?.popToViewController(expenseSummeryVC, animated: true)
         presentExpenseSaved()
     }
     

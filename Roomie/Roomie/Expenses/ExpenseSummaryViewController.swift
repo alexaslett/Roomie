@@ -26,11 +26,11 @@ class ExpenseSummaryViewController: UIViewController, UITableViewDataSource, UIT
             }
         }
         
-        self.view.gradientBackGround(colorOne: .blue, colorTwo: .purple)
+        self.view.backgroundColor = UIColor.ivoryWhite60
         self.tableView.backgroundColor = UIColor.clear
         
         navigationController?.navigationBar.backgroundColor = UIColor.clear
-        
+        addNewExpenseButton.tintColor = UIColor.tealBlue30
    
     }
     
@@ -48,6 +48,7 @@ class ExpenseSummaryViewController: UIViewController, UITableViewDataSource, UIT
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentSwitch: UISegmentedControl!
+    @IBOutlet weak var addNewExpenseButton: UIButton!
     
     @IBAction func groupButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
