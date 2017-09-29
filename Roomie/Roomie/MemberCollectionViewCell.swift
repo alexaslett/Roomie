@@ -12,13 +12,14 @@ class MemberCollectionViewCell: UICollectionViewCell {
     
     var user: User?
 
-    @IBOutlet weak var nameButton: UIButton!
+    @IBOutlet weak var memberLabel: UILabel!
+    
     
     func updateCells(first: Character, last: Character) {
         
         let nameIntial = "\(first)\(last)"
         
-        nameButton.setTitle(nameIntial, for: .normal)
+        memberLabel.text = nameIntial
     }
     
     

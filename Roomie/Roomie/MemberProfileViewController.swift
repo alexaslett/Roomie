@@ -9,6 +9,7 @@
 import UIKit
 
 class MemberProfileViewController: UIViewController {
+
     
     @IBOutlet weak var profileView: UIView!
     
@@ -16,6 +17,7 @@ class MemberProfileViewController: UIViewController {
     @IBOutlet weak var phoneNumber: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     
+    var member: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,8 @@ class MemberProfileViewController: UIViewController {
         //profileView.gradientBackGround(colorOne: .blue, colorTwo: .purple)
 
         self.view?.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        
+        updateViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +40,11 @@ class MemberProfileViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
+    func updateViews() {
+        guard let member = member else { return }
+        profileName.text = "\(member.firstName) \(member.lastName)"
+        phoneNumber.text = member.phone
+        emailLabel.text = member.email
+    }
     
 }

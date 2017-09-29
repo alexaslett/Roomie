@@ -9,7 +9,7 @@
 import UIKit
 
 
-class MembersCollectionViewController: UICollectionViewController {
+class MembersCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     
     override func viewDidLoad() {
@@ -24,16 +24,18 @@ class MembersCollectionViewController: UICollectionViewController {
         }
         
         //self.collectionView?.gradientBackGround(colorOne: .blue, colorTwo: .purple)
-    
+        
         //self.navigationController?.navigationBar.backgroundColor = UIColor.clear
-
+        
+        collectionView?.delegate = self
+        
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        DispatchQueue.main.async {
-//            self.collectionView?.reloadData()
-//        }
+        //        DispatchQueue.main.async {
+        //            self.collectionView?.reloadData()
+        //        }
     }
     
     @IBAction func groupsButtonTapped(_ sender: Any) {
@@ -44,23 +46,35 @@ class MembersCollectionViewController: UICollectionViewController {
     
     
     
-     // MARK: - Navigation
+    // MARK: - Navigation
     
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "toProfile" {
-//
-//            let destinationVC = segue.destination as? MemberProfileViewController
-//            let selectedCell = sender as! MemberCollectionViewCell
-//            let indexPath = collectionView?.indexPath(for: selectedCell)
-//
-//            let profile = UserController.shared.usersInCurrentGroup[indexPath!.row]
-//
-//            destinationVC?.profileName.text = "\(profile.firstName) \(profile.lastName)"
-//            destinationVC?.phoneNumber.text = profile.phone
-//            destinationVC?.emailLabel.text = profile.email
-//        }
-     }
- 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toProfile" {
+            
+            guard let destinationVC = segue.destination as? MemberProfileViewController,
+//                let selectedCell = sender as? MemberCollectionViewCell,
+//                let indexPath = self.collectionView?.indexPath(for: selectedCell)
+                let indexPath = collectionView?.indexPathsForSelectedItems?.first
+                else { return }
+            
+            let member = UserController.shared.usersInCurrentGroup[indexPath.item]
+            
+            destinationVC.member = member
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        // number of Col.
+        let nbCol = 3
+        
+        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+        let totalSpace = flowLayout.sectionInset.left
+            + flowLayout.sectionInset.right
+            + (flowLayout.minimumInteritemSpacing * CGFloat(nbCol - 1))
+        let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(nbCol))
+        return CGSize(width: size, height: size)
+    }
     
     // MARK: UICollectionViewDataSource
     
@@ -76,7 +90,7 @@ class MembersCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemberCell", for: indexPath) as? MemberCollectionViewCell else { return UICollectionViewCell() }
-        
+
         let member = UserController.shared.usersInCurrentGroup[indexPath.row]
 
         guard let first = member.firstName.characters.first,
@@ -93,36 +107,5 @@ class MembersCollectionViewController: UICollectionViewController {
     
     
     
-    
-    // MARK: UICollectionViewDelegate
-    
-    /*
-     // Uncomment this method to specify if the specified item should be highlighted during tracking
-     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     */
-    
-    /*
-     // Uncomment this method to specify if the specified item should be selected
-     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     */
-    
-    /*
-     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-     override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-     return false
-     }
-     
-     override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-     return false
-     }
-     
-     override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-     
-     }
-     */
     
 }
