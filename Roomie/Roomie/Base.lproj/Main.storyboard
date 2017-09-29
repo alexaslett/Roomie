@@ -30,7 +30,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kCj-Qu-p2v" firstAttribute="centerY" secondItem="ZQx-vw-gZg" secondAttribute="centerY" id="iZm-su-QfK"/>
                             <constraint firstItem="kCj-Qu-p2v" firstAttribute="centerX" secondItem="ZQx-vw-gZg" secondAttribute="centerX" id="sSM-lQ-Awu"/>

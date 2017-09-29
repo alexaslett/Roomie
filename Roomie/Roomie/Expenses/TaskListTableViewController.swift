@@ -18,7 +18,7 @@ class TaskListTableViewController: UITableViewController {
         tableView.refreshControl = refreshControl
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 60
-        tableView.backgroundColor = UIColor.blue30
+        tableView.backgroundColor = UIColor.ivoryWhite60
 
         
         TaskController.shared.fetchTasks { (success) in
