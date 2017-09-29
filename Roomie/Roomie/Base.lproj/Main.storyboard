@@ -140,7 +140,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Groups" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGE-sP-Ari">
                                 <rect key="frame" x="159.5" y="72" width="56" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5kt-a8-Wav">
@@ -240,6 +240,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Welcome" id="JtB-5v-Jnp"/>
                     <connections>
+                        <outlet property="createGroupButton" destination="34C-c7-Wnv" id="oQD-Tg-xkz"/>
+                        <outlet property="groupTitleLabel" destination="nGE-sP-Ari" id="PUo-gI-7t5"/>
+                        <outlet property="joinGroupButton" destination="XR2-Fw-CUh" id="5v8-Be-kZY"/>
                         <outlet property="tableView" destination="5kt-a8-Wav" id="fLF-gK-28r"/>
                         <outlet property="viewBG" destination="Cia-rq-nHB" id="Clj-Df-Xn8"/>
                     </connections>
@@ -266,7 +269,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter group name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kte-Ww-4Li">
                                         <rect key="frame" x="0.0" y="0.0" width="200.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Roomies Apartment 335" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GfY-0c-oQ8">
@@ -291,7 +294,9 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQg-6G-OkU">
                                         <rect key="frame" x="0.0" y="0.0" width="134" height="30"/>
-                                        <state key="normal" title="Generate Passcode"/>
+                                        <state key="normal" title="Generate Passcode">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="generate:" destination="CNN-nj-WjQ" eventType="touchUpInside" id="A9R-1A-xet"/>
                                         </connections>
@@ -532,7 +537,7 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -569,7 +574,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Group Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTx-J3-LqZ">
                                         <rect key="frame" x="0.0" y="0.0" width="137.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="6 DIgit Code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Dy-6p-TqJ">
@@ -603,7 +608,9 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0A9-S0-bcL">
                                         <rect key="frame" x="0.0" y="34" width="200" height="30"/>
-                                        <state key="normal" title="Cancel"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="cancelButtonTapped:" destination="XOg-o4-6ic" eventType="touchUpInside" id="Oed-ns-CfM"/>
                                         </connections>
@@ -633,6 +640,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="LwZ-p9-77B"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="joinGroupButton" destination="ZJo-Ec-eAW" id="dUX-si-hm0"/>
                         <outlet property="passcodeTextfield" destination="1Dy-6p-TqJ" id="RGp-3k-Auc"/>
                     </connections>
                 </viewController>

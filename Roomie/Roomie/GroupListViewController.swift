@@ -12,6 +12,9 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var viewBG: UIView!
+    @IBOutlet weak var createGroupButton: UIButton!
+    @IBOutlet weak var joinGroupButton: UIButton!
+    @IBOutlet weak var groupTitleLabel: UILabel!
     
     // Cell Height
     let cellSpacingHeight: CGFloat = 5
@@ -20,8 +23,12 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         
         // Changing background colors
-        self.viewBG.gradientBackGround(colorOne: .blue, colorTwo: .purple)
+        view.backgroundColor = UIColor.ivoryWhite60
         self.tableView.backgroundColor = UIColor.clear
+        
+        createGroupButton.backgroundColor = UIColor.tealBlue30
+        joinGroupButton.backgroundColor = UIColor.tealBlue30
+        groupTitleLabel.textColor = UIColor.customLightGrey10
         
         self.tableView.separatorStyle = .none
         
@@ -80,8 +87,10 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         cell.textLabel?.text = "\(group.groupName)"
         cell.detailTextLabel?.text = "Passcode: \(group.passcode)"
         
+        cell.textLabel?.textColor = UIColor.white
+        cell.detailTextLabel?.textColor = UIColor.white
         // add border and color
-        cell.backgroundColor = UIColor.white
+        cell.backgroundColor = UIColor.customLightGrey10
         //cell.layer.borderColor = UIColor.black.cgColor
         //cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 20

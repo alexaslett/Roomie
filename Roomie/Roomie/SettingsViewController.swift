@@ -21,9 +21,13 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.gradientBackGround(colorOne: .blue, colorTwo: .purple)
+        view.backgroundColor = UIColor.ivoryWhite60
         
         navigationController?.navigationBar.backgroundColor = UIColor.clear
+        profileButton.backgroundColor = UIColor.tealBlue30
+        contactButton.backgroundColor = UIColor.tealBlue30
+        rateButton.backgroundColor = UIColor.tealBlue30
+        aboutButton.backgroundColor = UIColor.tealBlue30
     }
 
     @IBAction func groupsButtonTapped(_ sender: Any) {

@@ -12,13 +12,15 @@ import CloudKit
 class JoinGroupViewController: UIViewController {
 
     @IBOutlet weak var passcodeTextfield: UITextField!
-
+    @IBOutlet weak var joinGroupButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         GroupController.shared.fetchAllGroups()
 
-        self.view.gradientBackGround(colorOne: .blue, colorTwo: .purple)
+        view.backgroundColor = UIColor.ivoryWhite60
+        joinGroupButton.backgroundColor = UIColor.tealBlue30
 
     }
 
