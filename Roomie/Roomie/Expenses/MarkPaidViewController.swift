@@ -12,8 +12,9 @@ class MarkPaidViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.view.backgroundColor = UIColor.ivoryWhite60
+        
         updateViews()
     }
     @IBOutlet weak var oweLabel: UILabel!

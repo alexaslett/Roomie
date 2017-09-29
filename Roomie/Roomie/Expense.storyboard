@@ -253,6 +253,7 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addNewExpenseButton" destination="ePv-ld-Wvr" id="c1s-q4-uIN"/>
                         <outlet property="segmentSwitch" destination="MLi-yW-IM6" id="jwo-nN-Vtv"/>
                         <outlet property="tableView" destination="cuC-WW-DVP" id="sS9-WS-in6"/>
                     </connections>
@@ -522,7 +523,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Split Equally" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Chp-lu-lhd">
                                         <rect key="frame" x="0.0" y="57" width="93.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>

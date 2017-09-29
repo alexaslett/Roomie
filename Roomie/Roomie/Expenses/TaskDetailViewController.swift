@@ -26,6 +26,7 @@ class TaskDetailViewController: UIViewController {
         self.title = task?.taskName
         self.updateViews()
         self.hideKeyboardWhenViewIsTapped()
+        navigationController?.navigationBar.backgroundColor = UIColor.clear
     }
     
     // MARK: - Actions

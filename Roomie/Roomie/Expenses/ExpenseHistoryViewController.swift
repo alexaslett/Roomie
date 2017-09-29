@@ -27,7 +27,7 @@ class ExpenseHistoryViewController: UIViewController, UITableViewDataSource, UIT
             }
         }
         
-        self.view.gradientBackGround(colorOne: .blue, colorTwo: .purple)
+        self.view.backgroundColor = UIColor.ivoryWhite60
         self.tableView.backgroundColor = UIColor.clear
     }
     

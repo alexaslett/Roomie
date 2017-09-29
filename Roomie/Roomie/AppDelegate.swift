@@ -14,6 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        var navBarApperance = UINavigationBar.appearance()
+        
+        navBarApperance.tintColor = UIColor.tealBlue30
+//        navBarApperance.barTintColor = UIColor.clear
+        
+        
         return true
     }
 }
