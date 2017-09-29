@@ -10,16 +10,17 @@ import Foundation
 import UIKit
 
 extension UIColor {
-    class var blue60: UIColor {
-        return UIColor(hex: "4593B3")
+    
+    class var tealBlue30: UIColor {
+        return UIColor(hex: "7AB8BF")
     }
     
-    class var blue30: UIColor {
-        return UIColor(hex: "1C2848")
+    class var customLightGrey10: UIColor {
+        return UIColor(hex: "A3A09C")
     }
     
-    class var blue10: UIColor {
-        return UIColor(hex: "6FC4D6")
+    class var ivoryWhite60: UIColor {
+        return UIColor(hex: "F5F1ED")
     }
     
     convenience init(hex: String) {
