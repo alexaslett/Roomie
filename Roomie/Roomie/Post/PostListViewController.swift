@@ -27,7 +27,7 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
         postListTableView.separatorStyle = .none
         postListTableView.rowHeight = UITableViewAutomaticDimension
         postListTableView.estimatedRowHeight = 60
-        postListTableView.backgroundColor = UIColor.blue30
+        postListTableView.backgroundColor = UIColor.ivoryWhite60
         
         PostController.shared.fetchPostsByGroup { (success) in
             if success {
@@ -40,7 +40,7 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         
         self.hideKeyboardWhenViewIsTapped()
-        self.stackViewsView.backgroundColor = UIColor.blue30
+        self.stackViewsView.backgroundColor = UIColor.ivoryWhite60
 
     }
     

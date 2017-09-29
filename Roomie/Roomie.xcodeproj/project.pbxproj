@@ -60,6 +60,7 @@
 		711705C71F7319C700BB107F /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705C61F7319C700BB107F /* TaskDetailViewController.swift */; };
 		7181BC431F75C7C600EBD6C9 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7181BC421F75C7C600EBD6C9 /* DateHelper.swift */; };
 		719C38C01F7D55BF00EA6C41 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719C38BF1F7D55BF00EA6C41 /* PostTableViewCell.swift */; };
+		719C38C21F7EAE4300EA6C41 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719C38C11F7EAE4300EA6C41 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +120,7 @@
 		711705C61F7319C700BB107F /* TaskDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		7181BC421F75C7C600EBD6C9 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		719C38BF1F7D55BF00EA6C41 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		719C38C11F7EAE4300EA6C41 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +251,7 @@
 				4D055B561F70245D00EC7BE7 /* LaunchScreen.storyboard */,
 				4D055B591F70245D00EC7BE7 /* Info.plist */,
 				7181BC421F75C7C600EBD6C9 /* DateHelper.swift */,
+				719C38C11F7EAE4300EA6C41 /* Color.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				4D3150DC1F7AD04600FF0EDE /* oweExpenseTableViewCell.swift in Sources */,
 				4DB716621F72BE52004E166B /* User.swift in Sources */,
 				5297A8A71F7C237D00DB8BF7 /* MemberCollectionViewCell.swift in Sources */,
+				719C38C21F7EAE4300EA6C41 /* Color.swift in Sources */,
 				4DB716641F72CA68004E166B /* UserController.swift in Sources */,
 				4DB7166E1F730D6A004E166B /* ExpenseController.swift in Sources */,
 				52C4BCC21F742C6B00E6BB6C /* CreateGroupViewController.swift in Sources */,
