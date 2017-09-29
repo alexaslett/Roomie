@@ -33,26 +33,23 @@
                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LsO-Ht-iIh">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Member" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vby-NG-CQS">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                            <state key="normal" title="CB">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <segue destination="avV-n1-dTE" kind="presentation" identifier="toProfile" id="MIS-zE-lGk"/>
-                                            </connections>
-                                        </button>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="LsO-Ht-iIh" secondAttribute="bottom" id="0gg-Wb-b01"/>
-                                    <constraint firstItem="LsO-Ht-iIh" firstAttribute="top" secondItem="XT1-Fh-1ES" secondAttribute="top" id="3G8-qW-iPl"/>
-                                    <constraint firstItem="LsO-Ht-iIh" firstAttribute="leading" secondItem="XT1-Fh-1ES" secondAttribute="leading" id="A6G-5c-m8V"/>
-                                    <constraint firstAttribute="trailing" secondItem="LsO-Ht-iIh" secondAttribute="trailing" id="Gij-44-l7s"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vby-NG-CQS" secondAttribute="trailing" id="Oof-x0-SyH"/>
+                                    <constraint firstItem="Vby-NG-CQS" firstAttribute="leading" secondItem="XT1-Fh-1ES" secondAttribute="leading" id="abr-xY-R9L"/>
+                                    <constraint firstAttribute="bottom" secondItem="Vby-NG-CQS" secondAttribute="bottom" id="nbb-Rq-hge"/>
+                                    <constraint firstItem="Vby-NG-CQS" firstAttribute="top" secondItem="XT1-Fh-1ES" secondAttribute="top" id="y4c-30-8hJ"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="nameButton" destination="LsO-Ht-iIh" id="nUL-Ap-FiV"/>
+                                    <outlet property="memberLabel" destination="Vby-NG-CQS" id="h1w-B8-Rf2"/>
+                                    <segue destination="avV-n1-dTE" kind="presentation" identifier="toProfile" id="02L-1B-v7K"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -143,7 +140,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycY-Bl-KYG">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycY-Bl-KYG">
                                                 <rect key="frame" x="0.0" y="24.5" width="255" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -214,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hee-r5-ouz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1756" y="490.70464767616198"/>
+            <point key="canvasLocation" x="1858" y="605"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ksM-nv-oNZ">
