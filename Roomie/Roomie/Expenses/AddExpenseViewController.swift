@@ -18,12 +18,14 @@ class AddExpenseViewController: UIViewController {
         
         hideKeyboardWhenViewIsTapped()
 
+        chooseSplitButton.tintColor = UIColor.tealBlue30
     }
 
     @IBOutlet weak var expenseNameTextField: UITextField!
     @IBOutlet weak var amountTextField: UITextField!
     
-  
+    @IBOutlet weak var chooseSplitButton: UIButton!
+    
     
     
     

@@ -443,6 +443,7 @@
                     <navigationItem key="navigationItem" title="Add Expense" id="R9z-LY-C9A"/>
                     <connections>
                         <outlet property="amountTextField" destination="nNQ-Qo-OhR" id="Rvj-9y-gLj"/>
+                        <outlet property="chooseSplitButton" destination="zIR-B7-Tko" id="HIQ-lF-tRs"/>
                         <outlet property="expenseNameTextField" destination="Gix-9c-5UE" id="blE-X3-tzg"/>
                     </connections>
                 </viewController>
