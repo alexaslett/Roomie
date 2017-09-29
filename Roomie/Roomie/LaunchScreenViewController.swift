@@ -14,7 +14,7 @@ class LaunchScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkIfICloudIsAvailable()
-        self.view.gradientBackGround(colorOne: .blue, colorTwo: .purple)
+        view.backgroundColor = UIColor.ivoryWhite60
     }
     
     @IBOutlet weak var signUpButton: UIButton!

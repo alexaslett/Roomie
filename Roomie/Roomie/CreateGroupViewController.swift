@@ -22,7 +22,7 @@ class CreateGroupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.gradientBackGround(colorOne: .blue, colorTwo: .purple)
+        view.backgroundColor = UIColor.ivoryWhite60
         
     }
 

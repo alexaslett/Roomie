@@ -17,7 +17,7 @@ class AboutViewController: UIViewController {
         
         self.aboutTextView.backgroundColor = UIColor.clear
         
-        self.view.gradientBackGround(colorOne: .blue, colorTwo: .purple)
+        view.backgroundColor = UIColor.ivoryWhite60
     }
 
 
