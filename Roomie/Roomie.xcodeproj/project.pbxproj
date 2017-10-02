@@ -59,6 +59,7 @@
 		711705C51F7317E800BB107F /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705C41F7317E800BB107F /* TaskTableViewCell.swift */; };
 		711705C71F7319C700BB107F /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705C61F7319C700BB107F /* TaskDetailViewController.swift */; };
 		71210D8F1F82DC1E00DF319A /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71210D8E1F82DC1E00DF319A /* Font.swift */; };
+		71210D901F82EE0F00DF319A /* OptimusPrincepsSemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71210D8D1F82DB7200DF319A /* OptimusPrincepsSemiBold.ttf */; };
 		7181BC431F75C7C600EBD6C9 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7181BC421F75C7C600EBD6C9 /* DateHelper.swift */; };
 		719C38C01F7D55BF00EA6C41 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719C38BF1F7D55BF00EA6C41 /* PostTableViewCell.swift */; };
 		719C38C21F7EAE4300EA6C41 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719C38C11F7EAE4300EA6C41 /* Color.swift */; };
@@ -422,6 +423,7 @@
 				4D055B581F70245D00EC7BE7 /* LaunchScreen.storyboard in Resources */,
 				4D055B6B1F71865300EC7BE7 /* Settings.storyboard in Resources */,
 				5297A8A11F7C069D00DB8BF7 /* Members.storyboard in Resources */,
+				71210D901F82EE0F00DF319A /* OptimusPrincepsSemiBold.ttf in Resources */,
 				4D055B551F70245D00EC7BE7 /* Assets.xcassets in Resources */,
 				4D055B621F7182E600EC7BE7 /* tabBarController.storyboard in Resources */,
 				4D055B691F71863A00EC7BE7 /* Post.storyboard in Resources */,

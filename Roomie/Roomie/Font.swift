@@ -11,8 +11,8 @@ import UIKit
 
 extension UIFont {
     static var optimusPrincepsFont: UIFont {
-        guard let fontName = UIFont(name: "OptimusPrincepsSemiBold", size: 13.0) else { return UIFont() }
-        
+        guard let fontName = UIFont(name: "OptimusPrincepsSemiBold", size: 20.0) else { return UIFont() }
+
         return fontName
     }
     
