@@ -27,9 +27,9 @@ class TaskTableViewCell: UITableViewCell {
     func updateViews() {
         guard let task = self.task, let date = task.dueDate.formatter else { return }
         
-        ownerNameLabel.textColor = UIColor.black
-        taskNameLabel.textColor = UIColor.black
-        dueDateLabel.textColor = UIColor.black
+        ownerNameLabel.textColor = UIColor.darkGray
+        taskNameLabel.textColor = UIColor.darkGray
+        dueDateLabel.textColor = UIColor.darkGray
         
         ownerNameLabel.text = "Owner: \(task.ownerName)"
         taskNameLabel.text = "Task: \(task.taskName)"

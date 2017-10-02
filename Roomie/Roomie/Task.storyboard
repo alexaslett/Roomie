@@ -117,7 +117,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kcy-Tr-OhJ">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Task Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kcy-Tr-OhJ">
                                                 <rect key="frame" x="111" y="0.0" width="193" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -134,7 +134,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ePI-al-VcL">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Owner Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ePI-al-VcL">
                                                 <rect key="frame" x="111" y="0.0" width="193" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -198,9 +198,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="dueDateLabel" destination="RoU-aa-QhH" id="lK8-0n-WXq"/>
                         <outlet property="dueDatePicker" destination="7YE-HP-d0a" id="7Hf-x2-S42"/>
+                        <outlet property="ownerLabel" destination="DyS-F7-EIw" id="0GZ-qn-hso"/>
                         <outlet property="ownerNameTextField" destination="ePI-al-VcL" id="HwG-fv-jpe"/>
                         <outlet property="taskCompletedButton" destination="5Wd-Sk-1hJ" id="QR6-be-Bhb"/>
+                        <outlet property="taskLabel" destination="kvj-56-He8" id="Stj-aI-MBb"/>
                         <outlet property="taskNameTextField" destination="Kcy-Tr-OhJ" id="bhH-8C-Fhc"/>
                     </connections>
                 </viewController>
