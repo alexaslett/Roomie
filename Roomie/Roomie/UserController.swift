@@ -68,7 +68,7 @@ class UserController {
         
             self.cloudKitManager.fetchRecordsWithType(User.recordTypeKey, predicate: predicate, recordFetchedBlock: nil) { (record, error) in
                 if let error = error {
-                    print(error)
+                    print("Failed to fetch current user, \(error.localizedDescription)")
                 }
                 guard let currentUserRecord = record?.first else { completion(false); return }
                 let currentUser1 = User(cloudKitRecord: currentUserRecord)
@@ -121,6 +121,9 @@ class UserController {
             
         }
     }
+    
+    
+    
 }
 
 

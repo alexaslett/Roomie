@@ -121,7 +121,7 @@ class GroupController {
         
         cloudKitManager.fetchRecords(ofType: Group.recordTypeKey, withSortDescriptors: sortDescriptors) { (records, error) in
             if let error = error {
-                print(error.localizedDescription)
+                print("Failed to fetch groups, \(error.localizedDescription)")
                 completion(false)
                 return
             }
@@ -141,6 +141,30 @@ class GroupController {
 //            self.groups.remove(at: index)
 //        }
 //    }
+    
+    func leaveGroup(group: Group, completion: @escaping(_ success: Bool) -> Void) {
+        
+        guard let groupRecordID = group.cloudKitRecordID else { return }
+        
+        guard let user = UserController.shared.currentUser else { return }
+        let groupRef = CKReference(recordID: groupRecordID, action: .none)
+        guard let index = user.groupsRefs.index(of: groupRef) else { return }
+        user.groupsRefs.remove(at: index)
+        let userRecord = CKRecord(user: user)
+    
+        
+        cloudKitManager.modifyRecords([userRecord], perRecordCompletion: nil) { (records, error) in
+            if let error = error {
+                print("Error leaving group, \(error.localizedDescription)")
+                completion(false)
+                return
+            }
+
+            completion(true)
+        }
+        
+        
+    }
     
     
 }
