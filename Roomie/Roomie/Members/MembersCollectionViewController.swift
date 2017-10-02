@@ -23,7 +23,7 @@ class MembersCollectionViewController: UICollectionViewController, UICollectionV
             }
         }
 
-        self.collectionView?.backgroundView?.backgroundColor = UIColor.ivoryWhite60
+        self.collectionView?.backgroundColor = UIColor.ivoryWhite60
         
         //self.navigationController?.navigationBar.backgroundColor = UIColor.clear
         
