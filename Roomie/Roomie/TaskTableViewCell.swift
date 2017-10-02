@@ -30,9 +30,9 @@ class TaskTableViewCell: UITableViewCell {
         guard let task = self.task, let date = task.dueDate.formatter else { return }
         
         ownerNameLabel.textColor = UIColor.darkGray
-        taskNameLabel.textColor = UIColor.white
-        dueDateLabel.textColor = UIColor.white
-        bubbleView.backgroundColor = UIColor.tealBlue30
+        taskNameLabel.textColor = UIColor.darkGray
+        dueDateLabel.textColor = UIColor.darkGray
+        bubbleView.backgroundColor = UIColor.postItNoteYellow
         
         ownerNameLabel.text = "Owner: \(task.ownerName)"
         taskNameLabel.text = "Task: \(task.taskName)"
