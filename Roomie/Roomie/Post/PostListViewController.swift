@@ -39,7 +39,7 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
         
         
         let groupsButton = UIBarButtonItem(title: "Groups", style: .plain, target: self, action: #selector(groupsButtonTapped(_:)))
-        groupsButton.tintColor = UIColor.customLightGrey10
+        groupsButton.tintColor = UIColor.tealBlue30
         navigationItem.leftBarButtonItem = groupsButton
         
         PostController.shared.fetchPostsByGroup { (success) in

@@ -23,6 +23,10 @@ extension UIColor {
         return UIColor(hex: "F5F1ED")
     }
     
+    class var postItNoteYellow: UIColor {
+        return UIColor(hex: "FEEA9A")
+    }
+    
     convenience init(hex: String) {
         let scanner = Scanner(string: hex)
         scanner.scanLocation = 0

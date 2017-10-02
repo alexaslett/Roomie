@@ -19,11 +19,21 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var ownerNameTextField: UITextField!
     @IBOutlet weak var dueDatePicker: UIDatePicker!
     @IBOutlet weak var taskCompletedButton: UIButton!
-
+    @IBOutlet weak var ownerLabel: UILabel!
+    @IBOutlet weak var taskLabel: UILabel!
+    @IBOutlet weak var dueDateLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = task?.taskName
+        self.view.backgroundColor = UIColor.ivoryWhite60
+        self.taskCompletedButton.backgroundColor = UIColor.ivoryWhite60
+        self.ownerLabel.textColor = UIColor.darkGray
+        self.taskLabel.textColor = UIColor.darkGray
+        self.dueDateLabel.textColor = UIColor.darkGray
+        self.taskCompletedButton.setTitleColor(UIColor.tealBlue30, for: .normal)
+        
         self.updateViews()
         self.hideKeyboardWhenViewIsTapped()
         navigationController?.navigationBar.backgroundColor = UIColor.clear
