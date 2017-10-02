@@ -42,8 +42,8 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let splitAmount1 = splitAmount
             else { return }
-        let usersInGroupCnt = UserController.shared.usersInCurrentGroup.count
-        let perPersonAmount = splitAmount1/Double(usersInGroupCnt)
+        let usersInGroupToSplitExpense = self.figureOutExpensePayees()
+        let perPersonAmount = splitAmount1/Double(usersInGroupToSplitExpense.count)
         
         guard let payor = UserController.shared.currentUser?.cloudKitRecordID,
             let currentGroupCKRecordID = GroupController.shared.currentGroup?.cloudKitRecordID else { return }
@@ -53,9 +53,9 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
         guard let payorName = UserController.shared.currentUser?.firstName else { return }
         guard let itemTitle = itemName else { return }
         
-        for x in 0..<usersInGroupCnt {
-            guard let payeeID = UserController.shared.usersInCurrentGroup[x].cloudKitRecordID else { return }
-            let payeeName = UserController.shared.usersInCurrentGroup[x].firstName
+        for x in 0..<usersInGroupToSplitExpense.count {
+            guard let payeeID = usersInGroupToSplitExpense[x].cloudKitRecordID else { return }
+            let payeeName = usersInGroupToSplitExpense[x].firstName
             let payeeRef = CKReference(recordID: payeeID, action: .none)
             if payeeID != UserController.shared.currentUser?.cloudKitRecordID {
             ExpenseController.shared.createExpense(title: itemTitle, amount: perPersonAmount, payor: payorRef, payee: payeeRef, groupID: groupRef, payorName: payorName, payeeName: payeeName, completion: { (success) in
@@ -99,4 +99,17 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
         present(alert, animated: true, completion: nil)
     }
     
+    func figureOutExpensePayees() -> [User] {
+        var usersToSplitExpense: [User] = []
+        let numberOfUsersInGroup = UserController.shared.usersInCurrentGroup.count
+        for index in 0..<numberOfUsersInGroup {
+            let indexPath = IndexPath(item: index, section: 0)
+            guard let cell = tableView.cellForRow(at: indexPath) as? SplitUserTableViewCell else { return [] }
+            if cell.userIsSelected == true {
+                guard let user = cell.user else { return [] }
+                usersToSplitExpense.append(user)
+            }
+        }
+        return usersToSplitExpense
+    }
 }
