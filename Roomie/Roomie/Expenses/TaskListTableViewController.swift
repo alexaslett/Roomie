@@ -15,6 +15,7 @@ class TaskListTableViewController: UITableViewController {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         
+        tableView.separatorStyle = .none
         tableView.refreshControl = refreshControl
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 60
