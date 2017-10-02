@@ -14,11 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        var navBarApperance = UINavigationBar.appearance()
+        let navBarApperance = UINavigationBar.appearance()
+        let labelAppearance = UILabel.appearance()
+        let barButtonItemAppearance = UIBarButtonItem.appearance()
         
         navBarApperance.tintColor = UIColor.tealBlue30
-//        navBarApperance.barTintColor = UIColor.clear
+        navBarApperance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.tealBlue30, NSAttributedStringKey.font: UIFont.titleFont]
         
+        labelAppearance.font = UIFont.optimusPrincepsFont
+        barButtonItemAppearance.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.tealBlue30, NSAttributedStringKey.font: UIFont.optimusPrincepsFont], for: .normal)
         
         return true
     }

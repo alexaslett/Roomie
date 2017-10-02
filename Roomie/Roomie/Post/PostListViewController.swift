@@ -33,9 +33,8 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
         postListTableView.backgroundColor = UIColor.ivoryWhite60
         
         sendButton.setTitleColor(UIColor.tealBlue30, for: .normal)
-        //navigationController?.navigationBar.barTintColor = UIColor.clear
+        sendButton.titleLabel?.font = UIFont.optimusPrincepsFont
         navigationController?.navigationBar.isTranslucent = true
-        //tabBarController?.tabBar.barTintColor = UIColor.clear
         
         
         let groupsButton = UIBarButtonItem(title: "Groups", style: .plain, target: self, action: #selector(groupsButtonTapped(_:)))

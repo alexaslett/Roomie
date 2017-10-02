@@ -33,6 +33,7 @@ class TaskDetailViewController: UIViewController {
         self.taskLabel.textColor = UIColor.darkGray
         self.dueDateLabel.textColor = UIColor.darkGray
         self.taskCompletedButton.setTitleColor(UIColor.tealBlue30, for: .normal)
+        self.taskCompletedButton.titleLabel?.font = UIFont.optimusPrincepsFont
         
         self.updateViews()
         self.hideKeyboardWhenViewIsTapped()
