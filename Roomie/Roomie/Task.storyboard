@@ -83,7 +83,7 @@
                             <outlet property="delegate" destination="dBd-cu-36m" id="wgA-Mn-iFD"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Task" image="Icon8Task" id="mKw-y6-98V"/>
+                    <tabBarItem key="tabBarItem" title="Task" image="iconTask" id="mKw-y6-98V"/>
                     <navigationItem key="navigationItem" title="Tasks" id="DJZ-PV-R8F">
                         <barButtonItem key="leftBarButtonItem" title="Groups" id="Bzn-j4-vZz">
                             <connections>
@@ -240,7 +240,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icon8Task" width="25" height="25"/>
+        <image name="iconTask" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="3cQ-4r-4uQ"/>

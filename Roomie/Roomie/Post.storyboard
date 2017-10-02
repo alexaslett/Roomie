@@ -123,7 +123,7 @@
                             <constraint firstItem="Bh7-oY-CWL" firstAttribute="leading" secondItem="p8y-xd-bgR" secondAttribute="leading" id="yks-GH-4Js"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Post" image="Icon8Message" id="jfQ-f9-Ivc"/>
+                    <tabBarItem key="tabBarItem" title="Post" image="iconsMessage" id="jfQ-f9-Ivc"/>
                     <navigationItem key="navigationItem" title="Messages" id="H1Y-qJ-zWr"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -161,6 +161,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icon8Message" width="25" height="25"/>
+        <image name="iconsMessage" width="25" height="25"/>
     </resources>
 </document>
