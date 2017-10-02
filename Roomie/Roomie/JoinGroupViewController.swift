@@ -18,6 +18,7 @@ class JoinGroupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         GroupController.shared.fetchAllGroups()
+        hideKeyboardWhenViewIsTapped()
 
         view.backgroundColor = UIColor.ivoryWhite60
         joinGroupButton.backgroundColor = UIColor.tealBlue30
@@ -47,7 +48,7 @@ class JoinGroupViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         } else {
             // present error alert controller
-            presentSimpleAlert(title: "No Found", message: "That group could not be found, check your code and try again")
+            presentSimpleAlert(title: "Not Found", message: "That group could not be found, check your code and try again")
         }
         
     }
