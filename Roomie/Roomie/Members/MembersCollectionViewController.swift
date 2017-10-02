@@ -7,11 +7,11 @@
 //
 
 import UIKit
+import MessageUI
 
 
-class MembersCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    
-    
+class MembersCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout, MFMessageComposeViewControllerDelegate {
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -105,7 +105,23 @@ class MembersCollectionViewController: UICollectionViewController, UICollectionV
         return cell
     }
     
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        controller.dismiss(animated: true, completion: nil)
+    }
     
+    @IBAction func addMemberButton(_ sender: Any) {
+        if (MFMessageComposeViewController.canSendText()) {
+            let controller = MFMessageComposeViewController()
+            
+            guard let passcode = GroupController.shared.currentGroup?.passcode else { return }
+            
+            controller.body = "Roomie Passcode: \(passcode)"
+            controller.recipients = []
+            controller.messageComposeDelegate = self
+            
+            self.present(controller, animated: true, completion: nil)
+        }
+    }
     
     
 }

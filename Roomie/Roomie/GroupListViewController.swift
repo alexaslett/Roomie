@@ -17,7 +17,7 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var groupTitleLabel: UILabel!
     
     // Cell Height
-    let cellSpacingHeight: CGFloat = 5
+    let cellSpacingHeight: CGFloat = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
