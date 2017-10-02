@@ -52,20 +52,37 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
         let groupRef = CKReference(recordID: currentGroupCKRecordID, action: .none)
         guard let payorName = UserController.shared.currentUser?.firstName else { return }
         guard let itemTitle = itemName else { return }
+        var expenseToBeSaved: [CKRecord] = []
         
         for x in 0..<usersInGroupToSplitExpense.count {
             guard let payeeID = usersInGroupToSplitExpense[x].cloudKitRecordID else { return }
             let payeeName = usersInGroupToSplitExpense[x].firstName
             let payeeRef = CKReference(recordID: payeeID, action: .none)
             if payeeID != UserController.shared.currentUser?.cloudKitRecordID {
-            ExpenseController.shared.createExpense(title: itemTitle, amount: perPersonAmount, payor: payorRef, payee: payeeRef, groupID: groupRef, payorName: payorName, payeeName: payeeName, completion: { (success) in
-            })
+                let expense = Expense(title: itemTitle, amount: perPersonAmount, payor: payorRef, payee: payeeRef, groupID: groupRef, payorName: payorName, payeeName: payeeName)
+                let expenseCKRecord = CKRecord(expense)
+                expense.cloudKitRecordID = expenseCKRecord.recordID
+                
+                //ExpenseController.shared.createExpense(title: itemTitle, amount: perPersonAmount, payor: payorRef, payee: payeeRef, groupID: groupRef, payorName: payorName, payeeName: payeeName, completion: { (success) in
+                //})
+                expenseToBeSaved.append(expenseCKRecord)
             }
         }
-        presentExpenseSaved()
+        
+        ExpenseController.shared.saveMultipleExpenses(expenseToBeSaved) { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    let expenseSummeryVC = self.navigationController?.viewControllers[0] as! ExpenseSummaryViewController
+                    self.navigationController?.popToViewController(expenseSummeryVC, animated: true)
+                }
+            } else {
+                self.presentSimpleAlert(title: "Error Saving Expense", message: "Please try again")
+            }
+        }
+        
     }
     
-   
+    
     
     
     func updateLabel() {
@@ -88,16 +105,16 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
         return cell
     }
     
-    func presentExpenseSaved(){
-        let alert = UIAlertController(title: "Expense Saved", message: nil, preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: "Cool!", style: .default) { (_) in
-            let expenseSummeryVC = self.navigationController?.viewControllers[0] as! ExpenseSummaryViewController
-            self.navigationController?.popToViewController(expenseSummeryVC, animated: true)
-        }
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
-    }
+//    func presentExpenseSaved(){
+//        let alert = UIAlertController(title: "Expense Saved", message: nil, preferredStyle: .alert)
+//
+//        let okAction = UIAlertAction(title: "Cool!", style: .default) { (_) in
+//            let expenseSummeryVC = self.navigationController?.viewControllers[0] as! ExpenseSummaryViewController
+//            self.navigationController?.popToViewController(expenseSummeryVC, animated: true)
+//        }
+//        alert.addAction(okAction)
+//        present(alert, animated: true, completion: nil)
+//    }
     
     func figureOutExpensePayees() -> [User] {
         var usersToSplitExpense: [User] = []
@@ -111,5 +128,12 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
             }
         }
         return usersToSplitExpense
+    }
+    
+    func presentSimpleAlert(title: String, message: String){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
+        alertController.addAction(dismissAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }

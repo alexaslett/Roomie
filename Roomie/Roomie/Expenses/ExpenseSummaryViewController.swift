@@ -17,7 +17,13 @@ class ExpenseSummaryViewController: UIViewController, UITableViewDataSource, UIT
         
         tableView.refreshControl = refreshControl
         
-        ExpenseController.shared.fetchOwedExpensesByGroup()
+        ExpenseController.shared.fetchOwedExpensesByGroup { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
         ExpenseController.shared.fetchOweExpensesByGroup { (success) in
             if success {
                 DispatchQueue.main.async {
@@ -36,7 +42,13 @@ class ExpenseSummaryViewController: UIViewController, UITableViewDataSource, UIT
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        ExpenseController.shared.fetchOwedExpensesByGroup()
+        ExpenseController.shared.fetchOwedExpensesByGroup { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
         ExpenseController.shared.fetchOweExpensesByGroup { (success) in
             if success {
                 DispatchQueue.main.async {
