@@ -21,7 +21,7 @@ class CreateGroupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        hideKeyboardWhenViewIsTapped()
         view.backgroundColor = UIColor.ivoryWhite60
         
     }
@@ -33,9 +33,12 @@ class CreateGroupViewController: UIViewController {
     }
     @IBAction func doneButtonTapped(_ sender: Any) {
         guard let groupName = groupNameTextField.text, let code = codeTextField.text, groupName != "", code != "" else { self.presentSimpleAlert(title: "Error Creating Group", message: "Please check that no fields are empty"); return }
+        //navigationItem.rightBarButtonItem?.isEnabled = false
         GroupController.shared.createNewGroup(groupName: groupName, passcode: code) { (success) in
             if success {
+                DispatchQueue.main.async {
                 _ = self.navigationController?.popViewController(animated: true)
+                }
             } else {
                 // present an alertController saying to try and again
                 DispatchQueue.main.async {
@@ -43,7 +46,8 @@ class CreateGroupViewController: UIViewController {
                 }
             }
         }
-        _ = self.navigationController?.popViewController(animated: true)
+        
+        //_ = self.navigationController?.popViewController(animated: true)
     }
     
     func presentSimpleAlert(title: String, message: String){
