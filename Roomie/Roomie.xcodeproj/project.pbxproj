@@ -208,9 +208,9 @@
 		4D055B6E1F71897D00EC7BE7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4D2DBD811F7EBDAD00252649 /* ExpenseCells */,
 				711705C41F7317E800BB107F /* TaskTableViewCell.swift */,
 				4D2AE3AC1F75C8920072CC21 /* SplitUserTableViewCell.swift */,
-				4D2DBD811F7EBDAD00252649 /* ExpenseCells */,
 				719C38BF1F7D55BF00EA6C41 /* PostTableViewCell.swift */,
 				5297A8A61F7C237D00DB8BF7 /* MemberCollectionViewCell.swift */,
 			);
