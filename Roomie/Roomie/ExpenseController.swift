@@ -48,6 +48,19 @@ class ExpenseController {
         completion(true)
     }
     
+    func saveMultipleExpenses(_ expenseRecords: [CKRecord], completion: @escaping (_ success: Bool) -> Void = { _ in }) {
+        
+        cloudKitManager.saveRecords(expenseRecords, perRecordCompletion: nil) { (_, error) in
+            if let error = error {
+                print("Error saving expense to cloudkit \(error.localizedDescription)")
+                completion(false)
+                return
+            }
+        }
+        completion(true)
+    }
+    
+    
     func fetchOweExpensesByGroup(completion: @escaping (_ success: Bool) -> Void = { _ in }){
         
         guard let groupRecID = GroupController.shared.currentGroup?.cloudKitRecordID,
@@ -62,7 +75,11 @@ class ExpenseController {
         
         let compoundPredicate = NSCompoundPredicate.init(andPredicateWithSubpredicates: [predicate1, predicate2, predicate3])
         
-        cloudKitManager.fetchRecordsWithType(Expense.recordTypeKey, predicate: compoundPredicate, recordFetchedBlock: nil) { (records, error) in
+        let sortDescriptor = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        
+        
+        
+        cloudKitManager.fetchRecordsWithType(Expense.recordTypeKey, predicate: compoundPredicate, sortDescriptors: sortDescriptor, recordFetchedBlock: nil) { (records, error) in
             if let error = error {
                 print("Error fetching Owe expenses \(error.localizedDescription)")
                 completion(false)
@@ -88,8 +105,9 @@ class ExpenseController {
         let predicate3 = NSPredicate(format: "isPaid == false")
         
         let compoundPredicate = NSCompoundPredicate.init(andPredicateWithSubpredicates: [predicate1, predicate2, predicate3])
+        let sortDescriptor = [NSSortDescriptor(key: "creationDate", ascending: false)]
         
-        cloudKitManager.fetchRecordsWithType(Expense.recordTypeKey, predicate: compoundPredicate, recordFetchedBlock: nil) { (records, error) in
+        cloudKitManager.fetchRecordsWithType(Expense.recordTypeKey, predicate: compoundPredicate, sortDescriptors: sortDescriptor, recordFetchedBlock: nil) { (records, error) in
             if let error = error {
                 print("Error fetching Owed expenses \(error.localizedDescription)")
                 completion(false)
@@ -118,7 +136,9 @@ class ExpenseController {
         
         let compoundPredicate = NSCompoundPredicate.init(andPredicateWithSubpredicates: [predicate1, predicate2, predicate3])
         
-        cloudKitManager.fetchRecordsWithType(Expense.recordTypeKey, predicate: compoundPredicate, recordFetchedBlock: nil) { (records, error) in
+        let sortDescriptor = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        
+        cloudKitManager.fetchRecordsWithType(Expense.recordTypeKey, predicate: compoundPredicate, sortDescriptors: sortDescriptor, recordFetchedBlock: nil) { (records, error) in
             if let error = error {
                 print("Error fetching paid expenses \(error.localizedDescription)")
                 completion(false)
@@ -146,7 +166,9 @@ class ExpenseController {
         
         let compoundPredicate = NSCompoundPredicate.init(andPredicateWithSubpredicates: [predicate1, predicate2, predicate3])
         
-        cloudKitManager.fetchRecordsWithType(Expense.recordTypeKey, predicate: compoundPredicate, recordFetchedBlock: nil) { (records, error) in
+        let sortDescriptor = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        
+        cloudKitManager.fetchRecordsWithType(Expense.recordTypeKey, predicate: compoundPredicate, sortDescriptors: sortDescriptor, recordFetchedBlock: nil) { (records, error) in
             if let error = error {
                 print("Error fetching paid expenses \(error.localizedDescription)")
                 completion(false)
