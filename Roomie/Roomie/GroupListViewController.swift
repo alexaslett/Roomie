@@ -52,7 +52,7 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         GroupController.shared.fetchGroupsForUser { (success) in
             if success {
                 DispatchQueue.main.async {
@@ -62,7 +62,7 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return GroupController.shared.UsersGroups.count
     }
@@ -102,28 +102,33 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     
-   // Override to support editing the table view.
+    // Override to support editing the table view.
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let group = GroupController.shared.UsersGroups[indexPath.section]
-            GroupController.shared.leaveGroup(group: group, completion: { (success) in
-
-                if success {
-                    GroupController.shared.fetchGroupsForUser(completion: { (success) in
-                        DispatchQueue.main.async {
-                            tableView.reloadData()
-                        }
-                    })
-                }
-            })
+            
+            if GroupController.shared.UsersGroups.count == 1 {
+                showPopUp()
+            } else {
+                GroupController.shared.leaveGroup(group: group, completion: { (success) in
+                    
+                    if success {
+                        GroupController.shared.fetchGroupsForUser(completion: { (success) in
+                            DispatchQueue.main.async {
+                                tableView.reloadData()
+                            }
+                        })
+                    }
+                })
+            }
         }
     }
     
-
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toTabBar" {
             guard let indexpath = tableView.indexPathForSelectedRow else { return }
             let group = GroupController.shared.UsersGroups[indexpath.section]
@@ -131,7 +136,17 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
             GroupController.shared.currentGroup = group
             
         }
-     }
-
+    }
     
+    func showPopUp() {
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "toPopUp") as! PopOverViewController
+        
+        self.addChildViewController(popOverVC)
+        popOverVC.view.frame = self.view.frame
+        self.view.addSubview(popOverVC.view)
+        popOverVC.didMove(toParentViewController: self)
+        //        popOverVC.modalPresentationStyle = .popover
+        //
+        //        present(popOverVC, animated: true, completion: nil)
+    }
 }
