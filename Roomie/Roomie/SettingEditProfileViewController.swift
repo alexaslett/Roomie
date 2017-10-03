@@ -30,13 +30,18 @@ class SettingEditProfileViewController: UIViewController, UIImagePickerControlle
         
         picker.delegate = self
         
+        
+        hideKeyboardWhenViewIsTapped()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        profileImage.contentMode = .scaleAspectFill
         profileImage.layer.cornerRadius = profileImage.frame.width / 2
         profileImage.layer.borderWidth = 2.0
         profileImage.clipsToBounds = true
         profileImage.layer.borderColor = UIColor.white.cgColor
-        
-        
-        hideKeyboardWhenViewIsTapped()
     }
     
     let picker = UIImagePickerController()
@@ -58,17 +63,34 @@ class SettingEditProfileViewController: UIViewController, UIImagePickerControlle
         navigationController?.popViewController(animated: true)
     }
     @IBAction func selectImageButtonTapped(_ sender: Any) {
-        picker.allowsEditing = false
-        picker.sourceType = .photoLibrary
-        picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
-        present(picker, animated: true, completion: nil)
+        
+        let alert = UIAlertController(title: "Select Photo Location", message: nil, preferredStyle: .actionSheet)
+        
+        
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            alert.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (_) -> Void in
+                self.picker.sourceType = .photoLibrary
+                self.present(self.picker, animated: true, completion: nil)
+            }))
+        }
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            alert.addAction(UIAlertAction(title: "Camarea", style: .default, handler: { (_) -> Void in
+                self.picker.sourceType = .camera
+                self.present(self.picker, animated: true, completion: nil)
+            }))
+        }
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Delegates
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let profilePic = info[UIImagePickerControllerOriginalImage] as! UIImage
-        profileImage.contentMode = .scaleAspectFill
+        profileImage.contentMode = .scaleAspectFit
         profileImage.image = profilePic.resizeImage(image: profilePic)
         dismiss(animated: true, completion: nil)
     }

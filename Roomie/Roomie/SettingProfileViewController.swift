@@ -36,10 +36,15 @@ class SettingProfileViewController: UIViewController {
         
         profileImage.image = user.photo
     
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        profileImage.contentMode = .scaleAspectFill
         profileImage.layer.cornerRadius = profileImage.frame.width / 2
         profileImage.layer.borderWidth = 2.0
         profileImage.clipsToBounds = true
         profileImage.layer.borderColor = UIColor.white.cgColor
     }
-    
 }
