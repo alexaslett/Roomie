@@ -21,8 +21,6 @@ class MemberProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //profileView.gradientBackGround(colorOne: .blue, colorTwo: .purple)
 
         self.view?.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         

@@ -62,6 +62,7 @@
 		7181BC431F75C7C600EBD6C9 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7181BC421F75C7C600EBD6C9 /* DateHelper.swift */; };
 		719C38C01F7D55BF00EA6C41 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719C38BF1F7D55BF00EA6C41 /* PostTableViewCell.swift */; };
 		719C38C21F7EAE4300EA6C41 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719C38C11F7EAE4300EA6C41 /* Color.swift */; };
+		CCCA717F1F83FC54000B83A5 /* PopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCA717E1F83FC54000B83A5 /* PopOverViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +124,7 @@
 		7181BC421F75C7C600EBD6C9 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		719C38BF1F7D55BF00EA6C41 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		719C38C11F7EAE4300EA6C41 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		CCCA717E1F83FC54000B83A5 /* PopOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +299,7 @@
 				52C4BCC51F75BA0E00E6BB6C /* JoinGroupViewController.swift */,
 				4D2AE3A21F7580740072CC21 /* GroupListViewController.swift */,
 				4D2DBD781F7B122400252649 /* MainLaunchScreenViewController.swift */,
+				CCCA717E1F83FC54000B83A5 /* PopOverViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				4D2DBD791F7B122400252649 /* MainLaunchScreenViewController.swift in Sources */,
 				4D2AE3A91F75B6540072CC21 /* AddExpenseViewController.swift in Sources */,
 				4DB7166C1F73029B004E166B /* LaunchScreenViewController.swift in Sources */,
+				CCCA717F1F83FC54000B83A5 /* PopOverViewController.swift in Sources */,
 				7181BC431F75C7C600EBD6C9 /* DateHelper.swift in Sources */,
 				4DA885651F71D79200C65C4D /* CloudKitManager.swift in Sources */,
 				528647081F79713300DCECB1 /* SettingsContactUsTableViewController.swift in Sources */,
