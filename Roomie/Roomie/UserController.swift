@@ -6,7 +6,7 @@
 //  Copyright © 2017 One Round Technology. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CloudKit
 
 class UserController {
@@ -100,12 +100,13 @@ class UserController {
         }
     }
     
-    func editProfile(firstName: String, lastName: String, email: String, phone: String?, user: User, completion: @escaping(_ success: Bool) -> Void) {
+    func editProfile(firstName: String, lastName: String, email: String, phone: String?, user: User, photo: UIImage, completion: @escaping(_ success: Bool) -> Void) {
         
         user.firstName = firstName
         user.lastName = lastName
         user.email = email
         user.phone = phone
+        user.photo = photo
         
         let userRecord = CKRecord(user: user)
         

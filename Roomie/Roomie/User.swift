@@ -6,7 +6,7 @@
 //  Copyright © 2017 One Round Technology. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CloudKit
 
 class User {
@@ -18,6 +18,7 @@ class User {
     static let groupsRefsKey = "groupsRefs"
     static let appleUserRefKey = "appleUserRef"
     static let recordTypeKey = "User"
+    static let photoKey = "photo"
     
     //FIXME: Need to make the group ID an array of CKRefrences 
     
@@ -26,17 +27,34 @@ class User {
     var email: String
     var phone: String?
     var groupsRefs: [CKReference]
+    var photo: UIImage?
     
     let appleUserRef: CKReference
     
     var cloudKitRecordID: CKRecordID?
     
-    init(firstName: String, lastName: String, email: String, phone: String?, groupsRefs: [CKReference] = [], appleUserRef: CKReference){
+    var photoAsset: CKAsset? {
+        do {
+            guard let photo = photo else { return nil }
+            let data = UIImagePNGRepresentation(photo)
+            let tempURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(UUID().uuidString + ".dat")
+            try data?.write(to: tempURL)
+            let asset = CKAsset(fileURL: tempURL)
+            return asset
+        } catch {
+            print("Error writing photo data", error)
+        }
+        return nil
+    }
+    
+    
+    init(firstName: String, lastName: String, email: String, phone: String?, groupsRefs: [CKReference] = [], photo: UIImage? = nil, appleUserRef: CKReference){
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
         self.phone = phone
         self.groupsRefs = groupsRefs
+        self.photo = photo
         self.appleUserRef = appleUserRef
     }
     
@@ -47,6 +65,13 @@ class User {
             let email = cloudKitRecord[User.emailKey] as? String,
             let phone = cloudKitRecord[User.phoneKey] as? String,
             let appleUserRef = cloudKitRecord[User.appleUserRefKey] as? CKReference else { return nil }
+        
+        if let photoAsset = cloudKitRecord[User.photoKey] as? CKAsset, let photoData = try? Data(contentsOf: photoAsset.fileURL) {
+            let photo = UIImage(data: photoData)
+            self.photo = photo
+        } else {
+            self.photo = nil
+        }
         
         self.firstName = firstName
         self.lastName = lastName
@@ -73,8 +98,8 @@ extension CKRecord {
         if user.groupsRefs == [] {
         } else {
             self.setValue(user.groupsRefs, forKey: User.groupsRefsKey)
-            
         }
+        self.setValue(user.photoAsset, forKey: User.photoKey)
         self.setValue(user.appleUserRef, forKey: User.appleUserRefKey)
     }
     

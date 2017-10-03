@@ -14,6 +14,7 @@ class SettingProfileViewController: UIViewController {
     @IBOutlet weak var lastNameTextfield: UITextField!
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var phoneTextfield: UITextField!
+    @IBOutlet weak var profileImage: UIImageView!
     
     
     
@@ -32,6 +33,13 @@ class SettingProfileViewController: UIViewController {
         lastNameTextfield.text = user.lastName
         emailTextfield.text = user.email
         phoneTextfield.text = user.phone
+        
+        profileImage.image = user.photo
+    
+        profileImage.layer.cornerRadius = profileImage.frame.width / 2
+        profileImage.layer.borderWidth = 2.0
+        profileImage.clipsToBounds = true
+        profileImage.layer.borderColor = UIColor.white.cgColor
     }
     
 }
