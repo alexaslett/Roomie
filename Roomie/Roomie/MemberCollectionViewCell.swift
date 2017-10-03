@@ -10,16 +10,30 @@ import UIKit
 
 class MemberCollectionViewCell: UICollectionViewCell {
     
-    var user: User?
+    var user: User? {
+        didSet {
+            updateCells()
+        }
+    }
+    
 
     @IBOutlet weak var memberLabel: UILabel!
+    @IBOutlet weak var memberImage: UIImageView!
     
     
-    func updateCells(first: Character, last: Character) {
+    func updateCells() {
+        guard let user = user else { return }
         
-        let nameIntial = "\(first)\(last)"
-        
-        memberLabel.text = nameIntial
+        if user.photo != nil {
+            memberImage.image = user.photo
+            memberLabel.isHidden = true
+        } else {
+            guard let first = user.firstName.characters.first,
+                let second = user.lastName.characters.first
+                else { return }
+            
+            memberLabel.text = "\(first)\(second)"
+        }
     }
     
     

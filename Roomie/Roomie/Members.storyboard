@@ -33,6 +33,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bVU-hX-BvO">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Member" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vby-NG-CQS">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
@@ -42,12 +45,17 @@
                                     </subviews>
                                 </view>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="bVU-hX-BvO" secondAttribute="bottom" id="HAM-Z9-RId"/>
                                     <constraint firstAttribute="trailing" secondItem="Vby-NG-CQS" secondAttribute="trailing" id="Oof-x0-SyH"/>
                                     <constraint firstItem="Vby-NG-CQS" firstAttribute="leading" secondItem="XT1-Fh-1ES" secondAttribute="leading" id="abr-xY-R9L"/>
                                     <constraint firstAttribute="bottom" secondItem="Vby-NG-CQS" secondAttribute="bottom" id="nbb-Rq-hge"/>
+                                    <constraint firstItem="bVU-hX-BvO" firstAttribute="top" secondItem="XT1-Fh-1ES" secondAttribute="top" id="qaF-C5-Cbv"/>
+                                    <constraint firstAttribute="trailing" secondItem="bVU-hX-BvO" secondAttribute="trailing" id="sUL-Qc-PBJ"/>
                                     <constraint firstItem="Vby-NG-CQS" firstAttribute="top" secondItem="XT1-Fh-1ES" secondAttribute="top" id="y4c-30-8hJ"/>
+                                    <constraint firstItem="bVU-hX-BvO" firstAttribute="leading" secondItem="XT1-Fh-1ES" secondAttribute="leading" id="y8j-vu-D8c"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="memberImage" destination="bVU-hX-BvO" id="F1y-SJ-bp1"/>
                                     <outlet property="memberLabel" destination="Vby-NG-CQS" id="h1w-B8-Rf2"/>
                                     <segue destination="avV-n1-dTE" kind="presentation" identifier="toProfile" id="02L-1B-v7K"/>
                                 </connections>
