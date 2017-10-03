@@ -33,7 +33,7 @@ class PostListViewController: UIViewController, UITableViewDelegate, UITableView
         postListTableView.backgroundColor = UIColor.ivoryWhite60
         
         sendButton.setTitleColor(UIColor.tealBlue30, for: .normal)
-        sendButton.titleLabel?.font = UIFont.optimusPrincepsFont
+        sendButton.titleLabel?.font = UIFont.americanTypewriter
         navigationController?.navigationBar.isTranslucent = true
         
         

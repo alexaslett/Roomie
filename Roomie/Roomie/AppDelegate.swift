@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navBarApperance.tintColor = UIColor.tealBlue30
         navBarApperance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.tealBlue30, NSAttributedStringKey.font: UIFont.titleFont]
         
-        labelAppearance.font = UIFont.optimusPrincepsFont
-        barButtonItemAppearance.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.tealBlue30, NSAttributedStringKey.font: UIFont.optimusPrincepsFont], for: .normal)
+        labelAppearance.font = UIFont.americanTypewriter
+        barButtonItemAppearance.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.tealBlue30, NSAttributedStringKey.font: UIFont.americanTypewriter], for: .normal)
         
         return true
     }
