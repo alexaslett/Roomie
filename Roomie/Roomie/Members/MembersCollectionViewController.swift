@@ -93,14 +93,12 @@ class MembersCollectionViewController: UICollectionViewController, UICollectionV
 
         let member = UserController.shared.usersInCurrentGroup[indexPath.row]
 
-        guard let first = member.firstName.characters.first,
-            let last = member.lastName.characters.first
-            else { return UICollectionViewCell() }
 
         cell.backgroundColor = UIColor.tealBlue30
         cell.layer.cornerRadius = cell.frame.width / 2
 
-        cell.updateCells(first: first, last: last)
+        cell.user = member
+        cell.updateCells()
         
         return cell
     }
