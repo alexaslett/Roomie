@@ -26,7 +26,11 @@ class SettingEditProfileViewController: UIViewController, UIImagePickerControlle
         lastNameTextfield.text = user.lastName
         emailTextfield.text = user.email
         phoneTextfield.text = user.phone
-        profileImage.image = user.photo
+        if user.photo != nil {
+            profileImage.image = user.photo
+        } else {
+            profileImage.image = #imageLiteral(resourceName: "avatar")
+        }
         
         picker.delegate = self
         

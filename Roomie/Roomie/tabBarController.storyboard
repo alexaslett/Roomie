@@ -34,7 +34,7 @@
         <scene sceneID="MxL-nA-SAr">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="Expenses" storyboardName="Expense" id="yIt-mT-SCZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Expense" image="Icon8Expense" selectedImage="Icon8Expense" id="EIy-CL-fRX"/>
+                    <tabBarItem key="tabBarItem" title="Expense" id="EIy-CL-fRX"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WVd-eI-QXo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -44,7 +44,7 @@
         <scene sceneID="wcG-x9-8M5">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="Tasks" storyboardName="Task" id="yab-nF-hn2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Task" image="Icon8Task" id="VgT-IA-nSX"/>
+                    <tabBarItem key="tabBarItem" title="Task" id="VgT-IA-nSX"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UGC-tX-EhY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -54,7 +54,7 @@
         <scene sceneID="7LP-6r-RNg">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="Messages" storyboardName="Post" id="kZe-LE-cb7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Post" image="Icon8Message" id="fVv-ph-5SP"/>
+                    <tabBarItem key="tabBarItem" title="Post" id="fVv-ph-5SP"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vE2-Rt-U1J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -64,7 +64,7 @@
         <scene sceneID="X5q-f1-Shd">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="Settings" storyboardName="Settings" id="kKp-gD-JPV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="Icon8Settings" id="JDS-xX-ymz"/>
+                    <tabBarItem key="tabBarItem" title="Settings" id="JDS-xX-ymz"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fto-Vg-dMr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -81,10 +81,4 @@
             <point key="canvasLocation" x="178" y="582"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Icon8Expense" width="25" height="25"/>
-        <image name="Icon8Message" width="25" height="25"/>
-        <image name="Icon8Settings" width="25" height="25"/>
-        <image name="Icon8Task" width="25" height="25"/>
-    </resources>
 </document>
