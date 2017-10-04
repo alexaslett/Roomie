@@ -215,11 +215,11 @@
                                     <segue destination="1qM-vk-mN0" kind="show" id="oQd-0o-U9a"/>
                                 </connections>
                             </button>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="MLi-yW-IM6">
-                                <rect key="frame" x="86.5" y="128" width="147" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="MLi-yW-IM6">
+                                <rect key="frame" x="75" y="128" width="170" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="147" id="gnQ-C3-Mma"/>
-                                    <constraint firstAttribute="height" constant="28" id="hDK-pM-iDK"/>
+                                    <constraint firstAttribute="width" constant="170" id="gnQ-C3-Mma"/>
+                                    <constraint firstAttribute="height" constant="35" id="hDK-pM-iDK"/>
                                 </constraints>
                                 <segments>
                                     <segment title="Owe"/>
@@ -408,16 +408,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Khe-eF-Tca">
-                                <rect key="frame" x="82.5" y="229" width="155.5" height="110"/>
+                                <rect key="frame" x="50" y="204" width="220" height="110"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Expense Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gix-9c-5UE">
-                                        <rect key="frame" x="0.0" y="0.0" width="155.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="220" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="220" id="4an-CK-XKq"/>
+                                            <constraint firstAttribute="height" constant="30" id="700-N6-2JM"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="$0.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nNQ-Qo-OhR">
-                                        <rect key="frame" x="28" y="40" width="100" height="30"/>
+                                        <rect key="frame" x="60" y="40" width="100" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="OGA-Ac-hdr"/>
                                         </constraints>
@@ -426,7 +430,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIR-B7-Tko">
-                                        <rect key="frame" x="28" y="80" width="100" height="30"/>
+                                        <rect key="frame" x="60" y="80" width="100" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="a3L-Ey-JIZ"/>
                                         </constraints>
@@ -436,12 +440,15 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="nNQ-Qo-OhR" firstAttribute="top" secondItem="Gix-9c-5UE" secondAttribute="bottom" constant="10" id="xRI-vN-V50"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Khe-eF-Tca" firstAttribute="centerX" secondItem="YJ7-nl-YUO" secondAttribute="centerX" id="YEC-eY-GaV"/>
-                            <constraint firstItem="Khe-eF-Tca" firstAttribute="centerY" secondItem="YJ7-nl-YUO" secondAttribute="centerY" id="tRg-PE-yUS"/>
+                            <constraint firstItem="Khe-eF-Tca" firstAttribute="top" secondItem="GWc-hK-xZj" secondAttribute="bottom" constant="140" id="jkb-4V-Jkk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Expense" id="R9z-LY-C9A"/>
@@ -468,7 +475,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tz4-7J-Nqh">
-                                <rect key="frame" x="0.0" y="154" width="320" height="365"/>
+                                <rect key="frame" x="0.0" y="163" width="320" height="356"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userCell" id="wCe-9J-oIA" customClass="SplitUserTableViewCell" customModule="Roomie" customModuleProvider="target">
@@ -548,7 +555,7 @@
                         <constraints>
                             <constraint firstItem="tz4-7J-Nqh" firstAttribute="leading" secondItem="fFc-kT-KKN" secondAttribute="leading" id="2M6-eY-wWx"/>
                             <constraint firstItem="Gw7-hM-00E" firstAttribute="centerX" secondItem="fFc-kT-KKN" secondAttribute="centerX" id="70e-fP-2o9"/>
-                            <constraint firstItem="tz4-7J-Nqh" firstAttribute="top" secondItem="HMI-WX-IcT" secondAttribute="bottom" constant="90" id="793-gj-MSB"/>
+                            <constraint firstItem="tz4-7J-Nqh" firstAttribute="top" secondItem="Chp-lu-lhd" secondAttribute="bottom" constant="13.5" id="BAI-MB-NgH"/>
                             <constraint firstItem="vkM-Pc-CYy" firstAttribute="top" secondItem="tz4-7J-Nqh" secondAttribute="bottom" id="SUn-XJ-SCI"/>
                             <constraint firstAttribute="trailing" secondItem="tz4-7J-Nqh" secondAttribute="trailing" id="Wdl-I2-DQD"/>
                             <constraint firstItem="Gw7-hM-00E" firstAttribute="top" secondItem="HMI-WX-IcT" secondAttribute="bottom" constant="8" id="dvb-WJ-9Uc"/>
