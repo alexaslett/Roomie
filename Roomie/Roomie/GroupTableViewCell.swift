@@ -12,6 +12,9 @@ class GroupTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var bubbleView: UIView!
+    @IBOutlet weak var groupNameLabel: UILabel!
+    
     var group: Group? {
         didSet {
             DispatchQueue.main.async {
@@ -21,6 +24,14 @@ class GroupTableViewCell: UITableViewCell {
     }
     
     func updateViews() {
+        guard let group = self.group else { return }
         
+        self.backgroundColor = UIColor.ivoryWhite60
+        groupNameLabel.textColor = UIColor.white
+        bubbleView.backgroundColor = UIColor.customLightGrey10
+        
+        bubbleView.layer.cornerRadius = 8
+        groupNameLabel.text = group.groupName
+        groupNameLabel.font = UIFont.biggerAmericanTypewriter
     }
 }

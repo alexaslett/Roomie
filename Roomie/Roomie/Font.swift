@@ -16,6 +16,12 @@ extension UIFont {
         return fontName
     }
     
+    static var biggerAmericanTypewriter: UIFont {
+        guard let fontName = UIFont(name: "AmericanTypewriter", size: 23.0) else { return UIFont() }
+        
+        return fontName
+    }
+    
     static var titleFont: UIFont {
         guard let fontName = UIFont(name: "AmericanTypewriter", size: 30.0) else { return UIFont() }
         

@@ -11,26 +11,28 @@ import UIKit
 class GroupListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet var viewBG: UIView!
     @IBOutlet weak var createGroupButton: UIButton!
     @IBOutlet weak var joinGroupButton: UIButton!
     @IBOutlet weak var groupTitleLabel: UILabel!
-    
-    // Cell Height
-    let cellSpacingHeight: CGFloat = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Changing background colors
         view.backgroundColor = UIColor.ivoryWhite60
-        self.tableView.backgroundColor = UIColor.clear
+        self.tableView.backgroundColor = UIColor.ivoryWhite60
+        
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 60
+        self.tableView.separatorStyle = .none
         
         createGroupButton.backgroundColor = UIColor.tealBlue30
         joinGroupButton.backgroundColor = UIColor.tealBlue30
         groupTitleLabel.textColor = UIColor.customLightGrey10
         
-        self.tableView.separatorStyle = .none
+        createGroupButton.titleLabel?.font = UIFont.americanTypewriter
+        joinGroupButton.titleLabel?.font = UIFont.americanTypewriter
+        groupTitleLabel.font = UIFont.americanTypewriter
         
         self.navigationController?.navigationBar.backgroundColor = UIColor.clear
         
@@ -62,50 +64,26 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
+    // MARK: - Table view data source
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return GroupController.shared.UsersGroups.count
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return cellSpacingHeight
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        headerView.backgroundColor = UIColor.clear
-        return headerView
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath)
-        let group = GroupController.shared.UsersGroups[indexPath.section]
-        cell.textLabel?.text = "\(group.groupName)"
-        cell.detailTextLabel?.text = "Passcode: \(group.passcode)"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as? GroupTableViewCell else { return UITableViewCell() }
         
-        cell.textLabel?.textColor = UIColor.white
-        cell.detailTextLabel?.textColor = UIColor.white
-        // add border and color
-        cell.backgroundColor = UIColor.customLightGrey10
-        //cell.layer.borderColor = UIColor.black.cgColor
-        //cell.layer.borderWidth = 1
-        cell.layer.cornerRadius = 20
-        cell.clipsToBounds = true
+        let group = GroupController.shared.UsersGroups[indexPath.row]
+        
+        cell.group = group
         
         return cell
     }
     
-    
-    
-    
     // Override to support editing the table view.
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let group = GroupController.shared.UsersGroups[indexPath.section]
+            let group = GroupController.shared.UsersGroups[indexPath.row]
             
             if GroupController.shared.UsersGroups.count == 1 {
                 showPopUp()
@@ -131,7 +109,7 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toTabBar" {
             guard let indexpath = tableView.indexPathForSelectedRow else { return }
-            let group = GroupController.shared.UsersGroups[indexpath.section]
+            let group = GroupController.shared.UsersGroups[indexpath.row]
             // Fix me for MVC
             GroupController.shared.currentGroup = group
             
