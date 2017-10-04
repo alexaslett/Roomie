@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController  {
     
     @IBOutlet weak var profileButton: UIButton!
     @IBOutlet weak var contactButton: UIButton!
@@ -59,6 +59,7 @@ class SettingsViewController: UIViewController {
         alert.addAction(alertAction)
         present(alert, animated:  true, completion: nil)
     }
+    
     
 }
 

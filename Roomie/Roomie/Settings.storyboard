@@ -427,6 +427,7 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <action selector="firstNameTextfield:" destination="43x-pZ-BIP" eventType="editingDidEnd" id="ipP-1S-zDO"/>
+                                            <outlet property="delegate" destination="Nkn-zH-hZC" id="Jc9-jW-FE0"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wr0-et-zwr">
@@ -434,18 +435,27 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Nkn-zH-hZC" id="xwo-CD-Wbw"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h7S-3L-ae0">
                                         <rect key="frame" x="0.0" y="80" width="200" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Nkn-zH-hZC" id="wAy-CU-aK6"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bpT-a1-CPQ">
                                         <rect key="frame" x="0.0" y="120" width="200" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Nkn-zH-hZC" id="ja1-nr-2eZ"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <constraints>
