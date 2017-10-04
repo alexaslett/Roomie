@@ -37,7 +37,8 @@ class ExpenseSummaryViewController: UIViewController, UITableViewDataSource, UIT
         
         navigationController?.navigationBar.backgroundColor = UIColor.clear
         addNewExpenseButton.tintColor = UIColor.tealBlue30
-   
+        let font = UIFont.systemFont(ofSize: 15)
+        segmentSwitch.setTitleTextAttributes([NSAttributedStringKey.font: font], for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
