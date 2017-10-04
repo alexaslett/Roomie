@@ -54,13 +54,25 @@ class TaskDetailViewController: UIViewController {
         let group = CKReference(recordID: groupCKRecordID, action: .deleteSelf)
         
         if self.task == nil {
-            TaskController.shared.createTask(taskName: taskName, owner: owner, ownerName: ownerName, dueDate: dueDatePicker.date, group: group)
+            TaskController.shared.createTask(taskName: taskName, owner: owner, ownerName: ownerName, dueDate: dueDatePicker.date, group: group, completion: { (success) in
+                if success {
+                    DispatchQueue.main.async {
+                    _ = self.navigationController?.popViewController(animated: true)
+                    }
+                }
+            })
         } else {
             guard let task = self.task else { return }
-            TaskController.shared.updateTasks(task: task, taskName: taskName, owner: owner, ownerName: ownerName, group: group)
+            
+            TaskController.shared.updateTasks(task: task, taskName: taskName, owner: owner, ownerName: ownerName, dueDate: dueDatePicker.date, group: group, completion: { (success) in
+                if success {
+                    DispatchQueue.main.async {
+                        _ = self.navigationController?.popViewController(animated: true)
+                    }
+                }
+            })
             updateViews()
         }
-        _ = navigationController?.popViewController(animated: true)
     }
     
     func updateViews() {

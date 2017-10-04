@@ -23,19 +23,19 @@ class TaskController {
     
     // MARK: - Create
     
-    func createTask(taskName: String, owner: CKReference, ownerName: String, dueDate: Date = Date(), group: CKReference, completion: @escaping ((Error?) -> Void) = { _ in }) {
+    func createTask(taskName: String, owner: CKReference, ownerName: String, dueDate: Date = Date(), group: CKReference, completion: @escaping ((Bool) -> Void) = { _ in }) {
         
         let task = Task(taskName: taskName, owner: owner, ownerName: ownerName, dueDate: dueDate, group: group)
         let choreRecord = CKRecord(task: task)
         
         cloudKitManager.saveRecord(choreRecord) { (record, error) in
-            defer { completion(error) }
             
-            if let error = error { NSLog("Error saving record \(#file) \(#function) \(error.localizedDescription)"); return }
+            if let error = error {NSLog("Error saving record \(#file) \(#function) \(error.localizedDescription)"); completion(false); return }
             
-            guard record != nil else { NSLog("cannot create task"); return }
+            guard record != nil else { NSLog("cannot create task"); completion(false); return }
             
             self.tasks.append(task)
+            completion(true)
         }
     }
     
