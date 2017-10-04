@@ -10,17 +10,17 @@ import UIKit
 import Foundation
 
 class SettingsViewController: UIViewController {
-
+    
     @IBOutlet weak var profileButton: UIButton!
     @IBOutlet weak var contactButton: UIButton!
     @IBOutlet weak var rateButton: UIButton!
     @IBOutlet weak var aboutButton: UIButton!
     
     @IBOutlet var viewBG: UIView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = UIColor.ivoryWhite60
         
         navigationController?.navigationBar.backgroundColor = UIColor.clear
@@ -29,9 +29,35 @@ class SettingsViewController: UIViewController {
         rateButton.backgroundColor = UIColor.tealBlue30
         aboutButton.backgroundColor = UIColor.tealBlue30
     }
-
+    
     @IBAction func groupsButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func rateButtonTapped(_ sender: Any) {
+        rateButtonAlert()
+    }
+    
+    
+    func rateButtonAlert() {
+        let alert = UIAlertController(title: "Rate Us", message: "Do you enjoy Roomie? \nPlease rate us in the App Store.", preferredStyle: .alert)
+        
+        //        let alertAction = UIAlertAction(title: "Rate us", style: .default) { (_) in
+        //            let settingVC = self.navigationController?.viewControllers[0] as! SettingsViewController
+        //            self.navigationController?.popToViewController(settingVC, animated: true)
+        //        }
+        //        let alertActionNotNow = UIAlertAction(title: "Not now", style: .cancel) { (_) in
+        //            let settingVC = self.navigationController?.viewControllers[0] as! SettingsViewController
+        //            self.navigationController?.popToViewController(settingVC, animated: true)
+        //        }
+        //        alert.addAction(alertAction)
+        //        alert.addAction(alertActionNotNow)
+        let alertAction = UIAlertAction(title: "Close", style: .default) { (_) in
+            let settingVC = self.navigationController?.viewControllers[0] as! SettingsViewController
+            self.navigationController?.popToViewController(settingVC, animated: true)
+        }
+        alert.addAction(alertAction)
+        present(alert, animated:  true, completion: nil)
     }
     
 }
@@ -49,6 +75,5 @@ extension UIView {
         
         layer.insertSublayer(gradientLayer, at: 0)
     }
-
     
 }

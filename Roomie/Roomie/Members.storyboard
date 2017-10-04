@@ -81,7 +81,7 @@
                                 <action selector="groupsButtonTapped:" destination="zia-Hg-sGu" id="rat-z7-58n"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6IV-vl-VaA">
+                        <barButtonItem key="rightBarButtonItem" title="Invite" id="6IV-vl-VaA">
                             <connections>
                                 <action selector="addMemberButton:" destination="zia-Hg-sGu" id="WbJ-sE-33F"/>
                             </connections>
