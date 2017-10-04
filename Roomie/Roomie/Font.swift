@@ -11,8 +11,14 @@ import UIKit
 
 extension UIFont {
     static var americanTypewriter: UIFont {
-        guard let fontName = UIFont(name: "AmericanTypewriter", size: 20.0) else { return UIFont() }
+        guard let fontName = UIFont(name: "AmericanTypewriter", size: 17.0) else { return UIFont() }
 
+        return fontName
+    }
+    
+    static var biggerAmericanTypewriter: UIFont {
+        guard let fontName = UIFont(name: "AmericanTypewriter", size: 23.0) else { return UIFont() }
+        
         return fontName
     }
     
