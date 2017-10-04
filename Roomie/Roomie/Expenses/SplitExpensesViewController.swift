@@ -87,7 +87,7 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
     
     func updateLabel() {
         guard let splitAmount1 = splitAmount, let itemName = itemName else { return }
-        splitAmountLabel.text = "\(splitAmount1)"
+        splitAmountLabel.text = "$\(String(format: "%.2f", splitAmount1))"
         itemNameLabel.text = itemName
     }
     
