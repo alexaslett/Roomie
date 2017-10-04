@@ -58,6 +58,7 @@
 		711705C31F73176000BB107F /* TaskListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705C21F73176000BB107F /* TaskListTableViewController.swift */; };
 		711705C51F7317E800BB107F /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705C41F7317E800BB107F /* TaskTableViewCell.swift */; };
 		711705C71F7319C700BB107F /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711705C61F7319C700BB107F /* TaskDetailViewController.swift */; };
+		711AC30D1F853153002C0611 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711AC30C1F853153002C0611 /* GroupTableViewCell.swift */; };
 		71210D8F1F82DC1E00DF319A /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71210D8E1F82DC1E00DF319A /* Font.swift */; };
 		7181BC431F75C7C600EBD6C9 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7181BC421F75C7C600EBD6C9 /* DateHelper.swift */; };
 		719C38C01F7D55BF00EA6C41 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719C38BF1F7D55BF00EA6C41 /* PostTableViewCell.swift */; };
@@ -120,6 +121,7 @@
 		711705C21F73176000BB107F /* TaskListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListTableViewController.swift; sourceTree = "<group>"; };
 		711705C41F7317E800BB107F /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		711705C61F7319C700BB107F /* TaskDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
+		711AC30C1F853153002C0611 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		71210D8E1F82DC1E00DF319A /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		7181BC421F75C7C600EBD6C9 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		719C38BF1F7D55BF00EA6C41 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				4D2AE3AC1F75C8920072CC21 /* SplitUserTableViewCell.swift */,
 				719C38BF1F7D55BF00EA6C41 /* PostTableViewCell.swift */,
 				5297A8A61F7C237D00DB8BF7 /* MemberCollectionViewCell.swift */,
+				711AC30C1F853153002C0611 /* GroupTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				711705BB1F7309DE00BB107F /* PostListViewController.swift in Sources */,
 				52C4BCC61F75BA0E00E6BB6C /* JoinGroupViewController.swift in Sources */,
 				4D055B601F717A2300EC7BE7 /* Expense.swift in Sources */,
+				711AC30D1F853153002C0611 /* GroupTableViewCell.swift in Sources */,
 				711705C51F7317E800BB107F /* TaskTableViewCell.swift in Sources */,
 				522AB55B1F78BF090026EF22 /* SettingProfileViewController.swift in Sources */,
 				4D3150DE1F7AD05C00FF0EDE /* owedExpenseTableViewCell.swift in Sources */,
