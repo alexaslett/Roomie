@@ -326,7 +326,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="59d-kr-vqe">
-                                <rect key="frame" x="60.5" y="160.5" width="200" height="109.5"/>
+                                <rect key="frame" x="60.5" y="125.5" width="200" height="109.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Owe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IyI-FL-1HA">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="20.5"/>
@@ -373,7 +373,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="sgC-cB-Xt5" firstAttribute="top" secondItem="59d-kr-vqe" secondAttribute="bottom" constant="10" id="6tt-sK-CBN"/>
+                            <constraint firstItem="sgC-cB-Xt5" firstAttribute="top" secondItem="59d-kr-vqe" secondAttribute="bottom" constant="45" id="6tt-sK-CBN"/>
                             <constraint firstItem="4Hl-If-B5D" firstAttribute="centerX" secondItem="YrR-Ar-P8M" secondAttribute="centerX" id="DbU-hS-1gu"/>
                             <constraint firstItem="59d-kr-vqe" firstAttribute="centerX" secondItem="YrR-Ar-P8M" secondAttribute="centerX" id="Ds3-b2-fVS"/>
                             <constraint firstItem="sgC-cB-Xt5" firstAttribute="centerX" secondItem="YrR-Ar-P8M" secondAttribute="centerX" id="WXr-ld-C0i"/>
