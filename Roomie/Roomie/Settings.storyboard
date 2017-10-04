@@ -67,6 +67,9 @@
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="rateButtonTapped:" destination="OCM-tC-rCW" eventType="touchUpInside" id="7Mx-fb-mcx"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5vu-ia-eAV">
                                         <rect key="frame" x="0.0" y="135" width="175" height="30"/>
@@ -127,12 +130,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FbZ-e8-jTw">
-                                <rect key="frame" x="67" y="272" width="240" height="125"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FbZ-e8-jTw">
+                                <rect key="frame" x="67" y="272" width="240" height="338"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="125" id="Mmi-xH-auZ"/>
-                                </constraints>
                                 <string key="text">Welcome to Roomies! 
 We are called One Round Tech and we’re dedicated to making your busy life a little bit easier.  
 Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
@@ -151,6 +151,7 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                         <constraints>
                             <constraint firstItem="FbZ-e8-jTw" firstAttribute="top" secondItem="ovt-7S-vlu" secondAttribute="bottom" constant="8" id="6Gi-LO-4FV"/>
                             <constraint firstItem="ovt-7S-vlu" firstAttribute="leading" secondItem="z6z-js-Ipn" secondAttribute="leading" id="C7d-cm-Qu7"/>
+                            <constraint firstItem="fCo-4j-PdX" firstAttribute="top" secondItem="FbZ-e8-jTw" secondAttribute="bottom" constant="8" id="JsR-3c-6jK"/>
                             <constraint firstAttribute="trailing" secondItem="ovt-7S-vlu" secondAttribute="trailing" id="QlK-uF-Htl"/>
                             <constraint firstItem="FbZ-e8-jTw" firstAttribute="leading" secondItem="z6z-js-Ipn" secondAttribute="leading" constant="67" id="geL-pd-lLK"/>
                             <constraint firstItem="ovt-7S-vlu" firstAttribute="top" secondItem="WGP-Ll-V9K" secondAttribute="bottom" id="lPD-cs-fa1"/>
@@ -185,7 +186,7 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cWf-qc-Qjs">
-                                <rect key="frame" x="137" y="253.5" width="200" height="150"/>
+                                <rect key="frame" x="145" y="253.5" width="200" height="150"/>
                                 <subviews>
                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ajj-g0-0qI" userLabel="First Name Textfield">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
@@ -218,7 +219,7 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="dHp-TW-hVt">
-                                <rect key="frame" x="71" y="253.5" width="58" height="145"/>
+                                <rect key="frame" x="79" y="253.5" width="58" height="145"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNd-lx-WFD">
                                         <rect key="frame" x="15.5" y="0.0" width="42.5" height="20.5"/>
@@ -258,7 +259,7 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                             <constraint firstItem="NXd-GF-bPg" firstAttribute="width" secondItem="3hP-dD-ZMa" secondAttribute="width" multiplier="0.35" id="dgz-U3-HRF"/>
                             <constraint firstItem="dHp-TW-hVt" firstAttribute="top" secondItem="NXd-GF-bPg" secondAttribute="bottom" constant="28" id="drF-ww-YGL"/>
                             <constraint firstItem="cWf-qc-Qjs" firstAttribute="leading" secondItem="dHp-TW-hVt" secondAttribute="trailing" constant="8" id="hHE-xX-7iW"/>
-                            <constraint firstAttribute="trailing" secondItem="cWf-qc-Qjs" secondAttribute="trailing" constant="38" id="qmE-0t-qpy"/>
+                            <constraint firstAttribute="trailing" secondItem="cWf-qc-Qjs" secondAttribute="trailing" constant="30" id="qmE-0t-qpy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="gbs-Ov-9HG">
@@ -417,7 +418,7 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="adQ-jI-e62">
-                                <rect key="frame" x="134" y="246" width="200" height="150"/>
+                                <rect key="frame" x="145" y="246" width="200" height="150"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dwm-KZ-1jh">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
@@ -426,6 +427,7 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <action selector="firstNameTextfield:" destination="43x-pZ-BIP" eventType="editingDidEnd" id="ipP-1S-zDO"/>
+                                            <outlet property="delegate" destination="Nkn-zH-hZC" id="Jc9-jW-FE0"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wr0-et-zwr">
@@ -433,18 +435,27 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Nkn-zH-hZC" id="xwo-CD-Wbw"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h7S-3L-ae0">
                                         <rect key="frame" x="0.0" y="80" width="200" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Nkn-zH-hZC" id="wAy-CU-aK6"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bpT-a1-CPQ">
                                         <rect key="frame" x="0.0" y="120" width="200" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Nkn-zH-hZC" id="ja1-nr-2eZ"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -453,7 +464,7 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="mNi-qI-eii">
-                                <rect key="frame" x="61" y="246" width="58" height="145"/>
+                                <rect key="frame" x="72" y="246" width="58" height="145"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xm-vp-x0i">
                                         <rect key="frame" x="15.5" y="0.0" width="42.5" height="20.5"/>
@@ -499,12 +510,11 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                             <constraint firstItem="dqf-4c-p6h" firstAttribute="centerX" secondItem="jan-Lg-Tpc" secondAttribute="centerX" id="F9S-yb-Ogv"/>
                             <constraint firstItem="adQ-jI-e62" firstAttribute="top" secondItem="1f4-bQ-sPd" secondAttribute="bottom" constant="31" id="Gau-S0-Vwl"/>
                             <constraint firstItem="Dwm-KZ-1jh" firstAttribute="top" secondItem="dqf-4c-p6h" secondAttribute="bottom" constant="1" id="Gr5-nZ-Yhn"/>
-                            <constraint firstItem="mNi-qI-eii" firstAttribute="leading" secondItem="jan-Lg-Tpc" secondAttribute="leading" constant="61" id="N3Y-4B-KYO"/>
+                            <constraint firstAttribute="trailing" secondItem="adQ-jI-e62" secondAttribute="trailing" constant="30" id="RqX-nj-Pxk"/>
                             <constraint firstItem="dqf-4c-p6h" firstAttribute="top" secondItem="1f4-bQ-sPd" secondAttribute="bottom" id="WuZ-LN-Okd"/>
                             <constraint firstItem="1f4-bQ-sPd" firstAttribute="centerX" secondItem="jan-Lg-Tpc" secondAttribute="centerX" id="dp2-0b-kiP"/>
                             <constraint firstItem="1f4-bQ-sPd" firstAttribute="width" secondItem="jan-Lg-Tpc" secondAttribute="width" multiplier="0.35" id="fXF-98-TZC"/>
                             <constraint firstItem="adQ-jI-e62" firstAttribute="leading" secondItem="mNi-qI-eii" secondAttribute="trailing" constant="15" id="tpi-72-SSS"/>
-                            <constraint firstAttribute="trailing" secondItem="adQ-jI-e62" secondAttribute="trailing" constant="41" id="v8n-sY-9cf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Profile" id="WeM-tN-tm9">
@@ -525,7 +535,7 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="beq-c7-oZr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="43x-pZ-BIP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2408.8000000000002" y="-156.07196401799101"/>
+            <point key="canvasLocation" x="2412" y="-168"/>
         </scene>
         <!--Settings-->
         <scene sceneID="1Li-dO-joi">

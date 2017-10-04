@@ -53,8 +53,8 @@ class SettingsContactUsTableViewController: UITableViewController, MFMailCompose
             mailVC.mailComposeDelegate = self
             mailVC.setSubject(subjectTextfield.text!)
             mailVC.setMessageBody(messageTextView.text!, isHTML: false)
-            mailVC.setToRecipients(["jpham1221@yahoo.com"])
-            //"oneroundtech@gmail.com"
+            mailVC.setToRecipients(["oneroundtech@gmail.com"])
+            
             self.present(mailVC, animated: true, completion: nil)
         } else {
             print("This device cannot send emails John!")

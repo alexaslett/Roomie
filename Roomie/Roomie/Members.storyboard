@@ -81,7 +81,7 @@
                                 <action selector="groupsButtonTapped:" destination="zia-Hg-sGu" id="rat-z7-58n"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6IV-vl-VaA">
+                        <barButtonItem key="rightBarButtonItem" title="Invite" id="6IV-vl-VaA">
                             <connections>
                                 <action selector="addMemberButton:" destination="zia-Hg-sGu" id="WbJ-sE-33F"/>
                             </connections>
@@ -193,7 +193,7 @@
                                     <constraint firstAttribute="height" constant="54" id="qzI-OR-gQX"/>
                                     <constraint firstAttribute="width" secondItem="ewv-dH-ad1" secondAttribute="height" multiplier="187:54" id="s2s-GH-q4a"/>
                                 </constraints>
-                                <state key="normal" title="Cancel"/>
+                                <state key="normal" title="Close"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="20"/>
