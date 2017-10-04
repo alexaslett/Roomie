@@ -28,6 +28,26 @@ class SettingsViewController: UIViewController  {
         contactButton.backgroundColor = UIColor.tealBlue30
         rateButton.backgroundColor = UIColor.tealBlue30
         aboutButton.backgroundColor = UIColor.tealBlue30
+        
+        profileButton.layer.shadowColor = UIColor.black.cgColor
+        profileButton.layer.shadowRadius = 2
+        profileButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        profileButton.layer.shadowOpacity = 0.5
+        
+        contactButton.layer.shadowColor = UIColor.black.cgColor
+        contactButton.layer.shadowRadius = 2
+        contactButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        contactButton.layer.shadowOpacity = 0.5
+        
+        rateButton.layer.shadowColor = UIColor.black.cgColor
+        rateButton.layer.shadowRadius = 2
+        rateButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        rateButton.layer.shadowOpacity = 0.5
+        
+        aboutButton.layer.shadowColor = UIColor.black.cgColor
+        aboutButton.layer.shadowRadius = 2
+        aboutButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        aboutButton.layer.shadowOpacity = 0.5
     }
     
     @IBAction func groupsButtonTapped(_ sender: Any) {

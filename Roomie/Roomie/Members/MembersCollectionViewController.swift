@@ -96,6 +96,11 @@ class MembersCollectionViewController: UICollectionViewController, UICollectionV
 
         cell.backgroundColor = UIColor.tealBlue30
         cell.layer.cornerRadius = cell.frame.width / 2
+        
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowRadius = 2
+        cell.layer.shadowOffset = CGSize(width: 2, height: 2)
+        cell.layer.shadowOpacity = 0.5
 
         cell.user = member
         cell.updateCells()

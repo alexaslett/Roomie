@@ -93,14 +93,14 @@ class ExpenseSummaryViewController: UIViewController, UITableViewDataSource, UIT
             let oweExpense = ExpenseController.shared.oweExpenses[indexPath.row]
             oweCell.oweExpense = oweExpense
             oweCell.updateTable()
-            oweCell.layer.cornerRadius = 20
+            oweCell.backgroundColor = UIColor.ivoryWhite60
             return oweCell
         case 1:
             guard let owedCell = tableView.dequeueReusableCell(withIdentifier: "owedExpenseCell", for: indexPath) as? owedExpenseTableViewCell else { return UITableViewCell() }
             let owedExpense = ExpenseController.shared.owedExpenses[indexPath.row]
             owedCell.owedExpense = owedExpense
             owedCell.updateTable()
-            owedCell.layer.cornerRadius = 20
+            owedCell.backgroundColor = UIColor.ivoryWhite60
             return owedCell
         default:
             return UITableViewCell()
