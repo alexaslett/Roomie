@@ -16,12 +16,25 @@ class MarkPaidViewController: UIViewController {
         self.view.backgroundColor = UIColor.ivoryWhite60
         
         updateViews()
+        
+        markPaidButton.layer.shadowColor = UIColor.black.cgColor
+        markPaidButton.layer.shadowRadius = 2
+        markPaidButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        markPaidButton.layer.shadowOpacity = 0.5
+        
+        deleteButton.layer.shadowColor = UIColor.black.cgColor
+        deleteButton.layer.shadowRadius = 2
+        deleteButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        deleteButton.layer.shadowOpacity = 0.5
     }
     @IBOutlet weak var oweLabel: UILabel!
     @IBOutlet weak var personLabel: UILabel!
     @IBOutlet weak var amountOwedLabel: UILabel!
     @IBOutlet weak var expenseNameLabel: UILabel!
     @IBOutlet weak var owesYouLabel: UILabel!
+    @IBOutlet weak var markPaidButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    
     
     var expense: Expense?
     var isOwed: Bool = false
@@ -42,6 +55,7 @@ class MarkPaidViewController: UIViewController {
     
     @IBAction func markPaidButtonClicked(_ sender: Any) {
         guard let expense = expense else { return }
+        
         ExpenseController.shared.editExpense(expense: expense) { (success) in
             if success {
                 let expenseSummeryVC = self.navigationController?.viewControllers[0] as! ExpenseSummaryViewController

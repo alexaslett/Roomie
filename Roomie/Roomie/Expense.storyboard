@@ -278,24 +278,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Hl-If-B5D">
-                                <rect key="frame" x="97.5" y="409" width="125" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="125" id="RsA-wt-Cwg"/>
-                                </constraints>
-                                <state key="normal" title="Delete Expense">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="deleteButtonTapped:" destination="lM5-qv-hAB" eventType="touchUpInside" id="IbU-8q-yNP"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="November Internet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgC-cB-Xt5">
                                 <rect key="frame" x="35" y="280" width="250" height="50"/>
                                 <constraints>
@@ -306,25 +288,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zya-43-YIb">
-                                <rect key="frame" x="63" y="340" width="194" height="49"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="0G6-7X-x2B"/>
-                                    <constraint firstAttribute="width" constant="194" id="Xlf-Gm-I99"/>
-                                </constraints>
-                                <state key="normal" title="Mark as paid">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="markPaidButtonClicked:" destination="lM5-qv-hAB" eventType="touchUpInside" id="BLh-WW-T2u"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="59d-kr-vqe">
                                 <rect key="frame" x="60.5" y="125.5" width="200" height="109.5"/>
                                 <subviews>
@@ -370,22 +333,63 @@
                                     <constraint firstAttribute="bottom" secondItem="cyc-Dc-ND6" secondAttribute="bottom" id="zPo-XD-EEo"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="js3-Zs-U6l">
+                                <rect key="frame" x="8" y="338" width="304" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Hl-If-B5D">
+                                        <rect key="frame" x="0.0" y="0.0" width="147" height="40"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <state key="normal" title="Delete Expense">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="deleteButtonTapped:" destination="lM5-qv-hAB" eventType="touchUpInside" id="IbU-8q-yNP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zya-43-YIb">
+                                        <rect key="frame" x="157" y="0.0" width="147" height="40"/>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <state key="normal" title="Mark as paid">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="markPaidButtonClicked:" destination="lM5-qv-hAB" eventType="touchUpInside" id="BLh-WW-T2u"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="0wk-Qa-njM"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="sgC-cB-Xt5" firstAttribute="top" secondItem="59d-kr-vqe" secondAttribute="bottom" constant="45" id="6tt-sK-CBN"/>
-                            <constraint firstItem="4Hl-If-B5D" firstAttribute="centerX" secondItem="YrR-Ar-P8M" secondAttribute="centerX" id="DbU-hS-1gu"/>
                             <constraint firstItem="59d-kr-vqe" firstAttribute="centerX" secondItem="YrR-Ar-P8M" secondAttribute="centerX" id="Ds3-b2-fVS"/>
+                            <constraint firstItem="js3-Zs-U6l" firstAttribute="leading" secondItem="YrR-Ar-P8M" secondAttribute="leading" constant="8" id="Hey-qE-IhC"/>
+                            <constraint firstAttribute="trailing" secondItem="js3-Zs-U6l" secondAttribute="trailing" constant="8" id="O4m-Cq-Nd4"/>
                             <constraint firstItem="sgC-cB-Xt5" firstAttribute="centerX" secondItem="YrR-Ar-P8M" secondAttribute="centerX" id="WXr-ld-C0i"/>
-                            <constraint firstItem="VqT-Tg-CaR" firstAttribute="top" secondItem="4Hl-If-B5D" secondAttribute="bottom" constant="80" id="XKc-vD-Slj"/>
-                            <constraint firstItem="Zya-43-YIb" firstAttribute="centerX" secondItem="YrR-Ar-P8M" secondAttribute="centerX" id="Xod-Ap-t7f"/>
-                            <constraint firstItem="Zya-43-YIb" firstAttribute="top" secondItem="sgC-cB-Xt5" secondAttribute="bottom" constant="10" id="l7U-hf-hLH"/>
-                            <constraint firstItem="4Hl-If-B5D" firstAttribute="top" secondItem="Zya-43-YIb" secondAttribute="bottom" constant="20" id="rFX-Xc-59k"/>
+                            <constraint firstItem="js3-Zs-U6l" firstAttribute="top" secondItem="sgC-cB-Xt5" secondAttribute="bottom" constant="8" id="ZmK-3U-Z4i"/>
+                            <constraint firstItem="VqT-Tg-CaR" firstAttribute="top" secondItem="js3-Zs-U6l" secondAttribute="bottom" constant="141" id="uDZ-qy-odS"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="amountOwedLabel" destination="cyc-Dc-ND6" id="aWS-bB-kOH"/>
+                        <outlet property="deleteButton" destination="4Hl-If-B5D" id="qyg-GB-y1K"/>
                         <outlet property="expenseNameLabel" destination="sgC-cB-Xt5" id="7Yr-dp-VD1"/>
+                        <outlet property="markPaidButton" destination="Zya-43-YIb" id="2e5-Qa-yiX"/>
                         <outlet property="oweLabel" destination="IyI-FL-1HA" id="gSV-TV-P9s"/>
                         <outlet property="owesYouLabel" destination="WJh-tT-6fY" id="g6W-dt-PIA"/>
                         <outlet property="personLabel" destination="Gt8-0W-5nM" id="Sqt-6c-t8h"/>

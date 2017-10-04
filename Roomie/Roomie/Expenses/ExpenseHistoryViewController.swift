@@ -69,14 +69,14 @@ class ExpenseHistoryViewController: UIViewController, UITableViewDataSource, UIT
             let youPaidExpense = ExpenseController.shared.paidExpenses[indexPath.row]
             youPaidCell.expense = youPaidExpense
             youPaidCell.updateYouPaidCell()
-            youPaidCell.layer.cornerRadius = 10
+            youPaidCell.backgroundColor = UIColor.ivoryWhite60
             return youPaidCell
         case 1:
             guard let werePaidCell = tableView.dequeueReusableCell(withIdentifier: "werePaidCell", for: indexPath) as? WerePaidTableViewCell else { return UITableViewCell() }
             let werePaidExpense = ExpenseController.shared.othersPaidExpenses[indexPath.row]
             werePaidCell.expense = werePaidExpense
             werePaidCell.updateWerePaidCell()
-            werePaidCell.layer.cornerRadius = 10
+            werePaidCell.backgroundColor = UIColor.ivoryWhite60
             return werePaidCell
         default:
             return UITableViewCell()
