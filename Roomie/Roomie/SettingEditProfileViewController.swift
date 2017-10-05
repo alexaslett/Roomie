@@ -15,6 +15,7 @@ class SettingEditProfileViewController: UIViewController, UIImagePickerControlle
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var phoneTextfield: UITextField!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var avatarImage: UIImageView!
     
     
     
@@ -28,8 +29,10 @@ class SettingEditProfileViewController: UIViewController, UIImagePickerControlle
         phoneTextfield.text = user.phone
         if user.photo != nil {
             profileImage.image = user.photo
-        } else {
-            profileImage.image = #imageLiteral(resourceName: "avatar")
+            avatarImage.isHidden = true
+        }
+        else {
+            profileImage.isHidden = true
         }
         
         picker.delegate = self
@@ -57,13 +60,21 @@ class SettingEditProfileViewController: UIViewController, UIImagePickerControlle
             let firstName = firstNameTextfield.text,
             let lastName = lastNameTextfield.text,
             let email = emailTextfield.text,
-            let phone = phoneTextfield.text,
-            let userPhoto = profileImage.image
+            let phone = phoneTextfield.text
+            //let userPhoto = profileImage.image
         else { return }
         
-        UserController.shared.editProfile(firstName: firstName, lastName: lastName, email: email, phone: phone, user: user, photo: userPhoto) { (success) in
-            
+        if profileImage.image == nil {
+            UserController.shared.editProfile(firstName: firstName, lastName: lastName, email: email, phone: phone, user: user) { (success) in
+                
+            }
+        } else {
+            guard let userPhoto = profileImage.image else { return }
+            UserController.shared.editProfile(firstName: firstName, lastName: lastName, email: email, phone: phone, user: user, photo: userPhoto, completion: { (success) in
+                
+            })
         }
+        
         navigationController?.popViewController(animated: true)
     }
     @IBAction func selectImageButtonTapped(_ sender: Any) {

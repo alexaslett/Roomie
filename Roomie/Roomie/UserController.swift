@@ -100,7 +100,7 @@ class UserController {
         }
     }
     
-    func editProfile(firstName: String, lastName: String, email: String, phone: String?, user: User, photo: UIImage, completion: @escaping(_ success: Bool) -> Void) {
+    func editProfile(firstName: String, lastName: String, email: String, phone: String?, user: User, photo: UIImage? = nil, completion: @escaping(_ success: Bool) -> Void) {
         
         user.firstName = firstName
         user.lastName = lastName

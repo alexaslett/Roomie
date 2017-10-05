@@ -57,7 +57,7 @@ class SettingsContactUsTableViewController: UITableViewController, MFMailCompose
             
             self.present(mailVC, animated: true, completion: nil)
         } else {
-            print("This device cannot send emails John!")
+            print("This device cannot send emails.")
         }
     }
     
