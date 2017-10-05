@@ -53,9 +53,6 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         self.navigationController?.navigationBar.backgroundColor = UIColor.clear
         
         
-        // Welcome in navigation
-        guard let user = UserController.shared.currentUser?.firstName else { return }
-        navigationController?.navigationBar.topItem?.title = "Welcome \(user)!"
         
         GroupController.shared.fetchGroupsForUser { (success) in
             if success {
@@ -65,12 +62,15 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
             }
         }
         
-        userImage()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        userImage()
+        
+        // Welcome in navigation
+        guard let user = UserController.shared.currentUser?.firstName else { return }
+        navigationController?.navigationBar.topItem?.title = "Welcome \(user)!"
         
         GroupController.shared.fetchGroupsForUser { (success) in
             if success {
@@ -87,6 +87,11 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
 
         if user.photo != nil {
             profileImage.image = user.photo
+            profileImage.contentMode = .scaleAspectFill
+            profileImage.layer.cornerRadius = profileImage.frame.width / 2
+            profileImage.layer.borderWidth = 2.0
+            profileImage.clipsToBounds = true
+            profileImage.layer.borderColor = UIColor.white.cgColor
             nameLabel.isHidden = true
         } else {
             nameLabel.textColor = UIColor.white
