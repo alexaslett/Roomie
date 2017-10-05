@@ -10,10 +10,16 @@ import UIKit
 
 class GroupListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var user: User?
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var createGroupButton: UIButton!
     @IBOutlet weak var joinGroupButton: UIButton!
     @IBOutlet weak var groupTitleLabel: UILabel!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var profileImage: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +40,16 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         joinGroupButton.titleLabel?.font = UIFont.americanTypewriter
         groupTitleLabel.font = UIFont.americanTypewriter
         
+        createGroupButton.layer.shadowColor = UIColor.black.cgColor
+        createGroupButton.layer.shadowRadius = 2
+        createGroupButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        createGroupButton.layer.shadowOpacity = 0.5
+        
+        joinGroupButton.layer.shadowColor = UIColor.black.cgColor
+        joinGroupButton.layer.shadowRadius = 2
+        joinGroupButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        joinGroupButton.layer.shadowOpacity = 0.5
+        
         self.navigationController?.navigationBar.backgroundColor = UIColor.clear
         
         
@@ -49,6 +65,7 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
             }
         }
         
+        userImage()
         
     }
     
@@ -64,6 +81,36 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
+    func userImage() {
+        
+        guard let user = UserController.shared.currentUser else { return }
+
+        if user.photo != nil {
+            profileImage.image = user.photo
+            nameLabel.isHidden = true
+        } else {
+            nameLabel.textColor = UIColor.white
+            nameLabel.backgroundColor = UIColor.tealBlue30
+            nameLabel.layer.masksToBounds = true
+            
+            nameLabel.layer.shadowColor = UIColor.black.cgColor
+            nameLabel.layer.shadowRadius = 2
+            nameLabel.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+            nameLabel.layer.shadowOpacity = 0.5
+            nameLabel.layer.cornerRadius = nameLabel.frame.width / 2
+
+            
+            guard let first = user.firstName.characters.first,
+                let last = user.lastName.characters.first
+                else { return }
+            
+            nameLabel.text = "\(first)\(last)"
+        }
+        
+    }
+    
+    
+    
     // MARK: - Table view data source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -74,6 +121,13 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as? GroupTableViewCell else { return UITableViewCell() }
         
         let group = GroupController.shared.UsersGroups[indexPath.row]
+        
+        cell.contentView.layer.shadowColor = UIColor.black.cgColor
+        cell.contentView.layer.shadowRadius = 2
+        cell.contentView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        cell.contentView.layer.shadowOpacity = 0.7
+        cell.contentView.clipsToBounds = true
+        cell.contentView.layer.masksToBounds = true
         
         cell.group = group
         
@@ -103,6 +157,10 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Leave"
+    }
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -128,6 +186,6 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         //        present(popOverVC, animated: true, completion: nil)
     }
     
-
+    
 
 }
