@@ -32,7 +32,7 @@ class TaskController {
             
             if let error = error {NSLog("Error saving record \(#file) \(#function) \(error.localizedDescription)"); completion(false); return }
             
-            guard record != nil else { NSLog("cannot create task"); completion(false); return }
+            task.ckRecordID = record?.recordID
             
             self.tasks.append(task)
             completion(true)

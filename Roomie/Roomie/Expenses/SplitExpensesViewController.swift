@@ -63,12 +63,9 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
                 let expenseCKRecord = CKRecord(expense)
                 expense.cloudKitRecordID = expenseCKRecord.recordID
                 
-                //ExpenseController.shared.createExpense(title: itemTitle, amount: perPersonAmount, payor: payorRef, payee: payeeRef, groupID: groupRef, payorName: payorName, payeeName: payeeName, completion: { (success) in
-                //})
                 expenseToBeSaved.append(expenseCKRecord)
             }
         }
-        
         ExpenseController.shared.saveMultipleExpenses(expenseToBeSaved) { (success) in
             if success {
                 DispatchQueue.main.async {
@@ -104,17 +101,6 @@ class SplitExpensesViewController: UIViewController, UITableViewDataSource, UITa
         cell.user = user
         return cell
     }
-    
-//    func presentExpenseSaved(){
-//        let alert = UIAlertController(title: "Expense Saved", message: nil, preferredStyle: .alert)
-//
-//        let okAction = UIAlertAction(title: "Cool!", style: .default) { (_) in
-//            let expenseSummeryVC = self.navigationController?.viewControllers[0] as! ExpenseSummaryViewController
-//            self.navigationController?.popToViewController(expenseSummeryVC, animated: true)
-//        }
-//        alert.addAction(okAction)
-//        present(alert, animated: true, completion: nil)
-//    }
     
     func figureOutExpensePayees() -> [User] {
         var usersToSplitExpense: [User] = []

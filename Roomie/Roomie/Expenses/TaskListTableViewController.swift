@@ -21,8 +21,6 @@ class TaskListTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 60
         tableView.backgroundColor = UIColor.ivoryWhite60
         navigationController?.navigationBar.backgroundColor = UIColor.clear
-
-        
         TaskController.shared.fetchTasks { (success) in
             if success {
                 DispatchQueue.main.async {
@@ -30,18 +28,13 @@ class TaskListTableViewController: UITableViewController {
                 }
             }
         }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        TaskController.shared.fetchTasks { (success) in
-            if success {
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
-        }
+        tableView.reloadData()
     }
     
     // MARK: - Refresh func
