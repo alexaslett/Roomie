@@ -13,8 +13,9 @@ class SignUpTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        hideKeyboardWhenViewIsTapped()
         phoneNumberField.keyboardType = .numberPad
+        emailField.keyboardType = .emailAddress
         
         
     }
