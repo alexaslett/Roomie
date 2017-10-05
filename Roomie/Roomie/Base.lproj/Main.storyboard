@@ -363,16 +363,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kR5-xl-JLa">
-                                <rect key="frame" x="87" y="193" width="200" height="280"/>
+                                <rect key="frame" x="87" y="223" width="200" height="220"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lte-OT-9Vv">
-                                        <rect key="frame" x="8" y="50" width="184" height="21"/>
+                                        <rect key="frame" x="8" y="60" width="184" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qiy-wF-9b3">
-                                        <rect key="frame" x="0.0" y="230" width="200" height="50"/>
+                                        <rect key="frame" x="0.0" y="170" width="200" height="50"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="xZK-5B-krK"/>
@@ -387,10 +387,10 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="Lte-OT-9Vv" firstAttribute="top" secondItem="kR5-xl-JLa" secondAttribute="top" constant="50" id="ChH-2r-Mol"/>
+                                    <constraint firstItem="Lte-OT-9Vv" firstAttribute="top" secondItem="kR5-xl-JLa" secondAttribute="top" constant="60" id="ChH-2r-Mol"/>
                                     <constraint firstAttribute="trailing" secondItem="Lte-OT-9Vv" secondAttribute="trailing" constant="8" id="Ren-r7-PR8"/>
                                     <constraint firstAttribute="bottom" secondItem="qiy-wF-9b3" secondAttribute="bottom" id="l4k-GA-wG3"/>
-                                    <constraint firstAttribute="height" constant="280" id="nis-CB-IOl"/>
+                                    <constraint firstAttribute="height" constant="220" id="nis-CB-IOl"/>
                                     <constraint firstItem="Lte-OT-9Vv" firstAttribute="leading" secondItem="kR5-xl-JLa" secondAttribute="leading" constant="8" id="rZ8-xB-csh"/>
                                     <constraint firstAttribute="trailing" secondItem="qiy-wF-9b3" secondAttribute="trailing" id="rZJ-jb-szV"/>
                                     <constraint firstAttribute="width" constant="200" id="uIQ-LQ-ZC9"/>

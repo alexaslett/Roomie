@@ -75,6 +75,13 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         
         let group = GroupController.shared.UsersGroups[indexPath.row]
         
+        cell.contentView.layer.shadowColor = UIColor.black.cgColor
+        cell.contentView.layer.shadowRadius = 2
+        cell.contentView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        cell.contentView.layer.shadowOpacity = 0.7
+        cell.contentView.clipsToBounds = true
+        cell.contentView.layer.masksToBounds = true
+        
         cell.group = group
         
         return cell
@@ -103,6 +110,10 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Leave"
+    }
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -128,6 +139,6 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         //        present(popOverVC, animated: true, completion: nil)
     }
     
-
+    
 
 }
