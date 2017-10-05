@@ -39,24 +39,12 @@ class ExpenseSummaryViewController: UIViewController, UITableViewDataSource, UIT
         addNewExpenseButton.tintColor = UIColor.tealBlue30
         let font = UIFont.systemFont(ofSize: 15)
         segmentSwitch.setTitleTextAttributes([NSAttributedStringKey.font: font], for: .normal)
+        addNewExpenseButton.titleLabel?.font = UIFont.americanTypewriter
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        ExpenseController.shared.fetchOwedExpensesByGroup { (success) in
-            if success {
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
-        }
-        ExpenseController.shared.fetchOweExpensesByGroup { (success) in
-            if success {
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
-        }
+        tableView.reloadData()
     }
     
     @IBOutlet weak var tableView: UITableView!
