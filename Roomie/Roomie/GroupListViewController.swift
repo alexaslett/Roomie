@@ -10,10 +10,16 @@ import UIKit
 
 class GroupListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var user: User?
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var createGroupButton: UIButton!
     @IBOutlet weak var joinGroupButton: UIButton!
     @IBOutlet weak var groupTitleLabel: UILabel!
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var profileImage: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +40,16 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         joinGroupButton.titleLabel?.font = UIFont.americanTypewriter
         groupTitleLabel.font = UIFont.americanTypewriter
         
+        createGroupButton.layer.shadowColor = UIColor.black.cgColor
+        createGroupButton.layer.shadowRadius = 2
+        createGroupButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        createGroupButton.layer.shadowOpacity = 0.5
+        
+        joinGroupButton.layer.shadowColor = UIColor.black.cgColor
+        joinGroupButton.layer.shadowRadius = 2
+        joinGroupButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        joinGroupButton.layer.shadowOpacity = 0.5
+        
         self.navigationController?.navigationBar.backgroundColor = UIColor.clear
         
         
@@ -49,6 +65,7 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
             }
         }
         
+        userImage()
         
     }
     
@@ -62,6 +79,36 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
                 }
             }
         }
+    }
+    
+    func userImage() {
+        
+        guard let user = UserController.shared.currentUser else { return }
+
+        if user.photo != nil {
+            profileImage.image = user.photo
+            nameLabel.isHidden = true
+            profileImage.layer.borderColor = UIColor.black.cgColor
+            profileImage.layer.borderWidth = 2
+        } else {
+            nameLabel.textColor = UIColor.white
+            nameLabel.backgroundColor = UIColor.tealBlue30
+            nameLabel.layer.masksToBounds = true
+            
+            nameLabel.layer.shadowColor = UIColor.black.cgColor
+            nameLabel.layer.shadowRadius = 2
+            nameLabel.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+            nameLabel.layer.shadowOpacity = 0.5
+            nameLabel.layer.cornerRadius = nameLabel.frame.width / 2
+
+            
+            guard let first = user.firstName.characters.first,
+                let last = user.lastName.characters.first
+                else { return }
+            
+            nameLabel.text = "\(first)\(last)"
+        }
+        
     }
     
     // MARK: - Table view data source

@@ -138,13 +138,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Groups" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGE-sP-Ari">
-                                <rect key="frame" x="159.5" y="72" width="56" height="21"/>
+                                <rect key="frame" x="159.5" y="160" width="56" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5kt-a8-Wav">
-                                <rect key="frame" x="8" y="101" width="359" height="457"/>
+                                <rect key="frame" x="8" y="189" width="359" height="369"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" id="2fe-rq-yvL" customClass="GroupTableViewCell" customModule="Roomie" customModuleProvider="target">
@@ -231,6 +231,23 @@
                                     <segue destination="XOg-o4-6ic" kind="presentation" id="liX-qw-bqg"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k1I-pa-IUl">
+                                <rect key="frame" x="147" y="72" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="0Fp-tb-XfW"/>
+                                    <constraint firstAttribute="height" constant="80" id="gzo-oU-8zg"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QaC-O8-eFz">
+                                <rect key="frame" x="147" y="72" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="ZfX-mf-62a"/>
+                                    <constraint firstAttribute="height" constant="80" id="dm1-We-aWy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -240,10 +257,15 @@
                             <constraint firstItem="pX2-Ed-heV" firstAttribute="top" secondItem="XR2-Fw-CUh" secondAttribute="bottom" constant="33" id="JLZ-b5-grA"/>
                             <constraint firstAttribute="trailing" secondItem="5kt-a8-Wav" secondAttribute="trailing" constant="8" id="ThQ-0R-Pu1"/>
                             <constraint firstItem="XR2-Fw-CUh" firstAttribute="centerX" secondItem="Cia-rq-nHB" secondAttribute="centerX" id="W5o-wp-8O6"/>
+                            <constraint firstItem="QaC-O8-eFz" firstAttribute="centerX" secondItem="Cia-rq-nHB" secondAttribute="centerX" id="Xte-At-BWU"/>
                             <constraint firstItem="34C-c7-Wnv" firstAttribute="top" secondItem="5kt-a8-Wav" secondAttribute="bottom" constant="8" id="Zbe-9T-tJb"/>
+                            <constraint firstItem="k1I-pa-IUl" firstAttribute="centerX" secondItem="Cia-rq-nHB" secondAttribute="centerX" id="diU-IA-WqX"/>
+                            <constraint firstItem="nGE-sP-Ari" firstAttribute="top" secondItem="k1I-pa-IUl" secondAttribute="bottom" constant="8" id="dyn-86-r07"/>
+                            <constraint firstItem="QaC-O8-eFz" firstAttribute="top" secondItem="zjp-TU-5Qf" secondAttribute="bottom" constant="8" id="hQ8-UZ-pwS"/>
                             <constraint firstItem="34C-c7-Wnv" firstAttribute="centerX" secondItem="Cia-rq-nHB" secondAttribute="centerX" id="kGa-SG-xR9"/>
                             <constraint firstItem="nGE-sP-Ari" firstAttribute="centerX" secondItem="Cia-rq-nHB" secondAttribute="centerX" id="mEp-Lc-ezP"/>
-                            <constraint firstItem="nGE-sP-Ari" firstAttribute="top" secondItem="zjp-TU-5Qf" secondAttribute="bottom" constant="8" id="vI3-YM-d0f"/>
+                            <constraint firstItem="k1I-pa-IUl" firstAttribute="top" secondItem="zjp-TU-5Qf" secondAttribute="bottom" constant="8" id="oCg-FC-fRe"/>
+                            <constraint firstItem="nGE-sP-Ari" firstAttribute="top" secondItem="QaC-O8-eFz" secondAttribute="bottom" constant="8" id="rq7-NX-yB7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome" id="JtB-5v-Jnp"/>
@@ -251,6 +273,8 @@
                         <outlet property="createGroupButton" destination="34C-c7-Wnv" id="oQD-Tg-xkz"/>
                         <outlet property="groupTitleLabel" destination="nGE-sP-Ari" id="PUo-gI-7t5"/>
                         <outlet property="joinGroupButton" destination="XR2-Fw-CUh" id="5v8-Be-kZY"/>
+                        <outlet property="nameLabel" destination="QaC-O8-eFz" id="x5J-AO-Y7O"/>
+                        <outlet property="profileImage" destination="k1I-pa-IUl" id="5WV-z3-aAS"/>
                         <outlet property="tableView" destination="5kt-a8-Wav" id="fLF-gK-28r"/>
                     </connections>
                 </viewController>
