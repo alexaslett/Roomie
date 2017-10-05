@@ -97,7 +97,6 @@
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="M7T-KR-qhT"/>
                                             <constraint firstAttribute="width" secondItem="Rg7-Nh-3g1" secondAttribute="height" multiplier="359:30" id="cyM-aU-8hb"/>
                                         </constraints>
                                     </stackView>
@@ -119,7 +118,6 @@
                             <constraint firstAttribute="trailing" secondItem="aaL-q6-3ue" secondAttribute="trailing" id="geU-JS-CoG"/>
                             <constraint firstItem="Bh7-oY-CWL" firstAttribute="top" secondItem="aaL-q6-3ue" secondAttribute="bottom" id="qSH-zd-8gG"/>
                             <constraint firstAttribute="bottom" secondItem="Bh7-oY-CWL" secondAttribute="bottom" constant="49" id="xKx-hp-7xl"/>
-                            <constraint firstItem="521-Fq-d6h" firstAttribute="top" secondItem="Bh7-oY-CWL" secondAttribute="bottom" id="yDl-7C-Sf6"/>
                             <constraint firstItem="Bh7-oY-CWL" firstAttribute="leading" secondItem="p8y-xd-bgR" secondAttribute="leading" id="yks-GH-4Js"/>
                         </constraints>
                     </view>
@@ -133,7 +131,6 @@
                         <outlet property="sendButton" destination="Hyg-QP-WA2" id="aKW-NV-T2X"/>
                         <outlet property="stackViewsView" destination="Bh7-oY-CWL" id="v9o-5g-S0f"/>
                         <outlet property="superviewBottomConstraint" destination="xKx-hp-7xl" id="AxC-tc-efB"/>
-                        <outlet property="viewBottomConstraint" destination="yDl-7C-Sf6" id="udt-Jx-HQT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3vk-eo-fhU" userLabel="First Responder" sceneMemberID="firstResponder"/>
