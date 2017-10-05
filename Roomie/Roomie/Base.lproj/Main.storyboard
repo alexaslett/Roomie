@@ -238,7 +238,7 @@
                                     <constraint firstAttribute="height" constant="80" id="gzo-oU-8zg"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QaC-O8-eFz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QaC-O8-eFz">
                                 <rect key="frame" x="147" y="72" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="ZfX-mf-62a"/>
@@ -540,7 +540,6 @@
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="signUpButtonTapped:" destination="LzG-Cr-yRb" eventType="touchUpInside" id="nI5-Ty-lCR"/>
-                                                        <segue destination="VZ2-3Y-J11" kind="show" identifier="" id="Ok2-FM-4cV"/>
                                                     </connections>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="bik-Xg-S4s" userLabel="Full Name Textfield">
@@ -616,6 +615,7 @@
                         <outlet property="firstNameField" destination="6h4-Fs-tRz" id="FqI-oB-YnT"/>
                         <outlet property="lastNameField" destination="bYZ-9b-gMh" id="5ZV-hq-Ewl"/>
                         <outlet property="phoneNumberField" destination="hGB-UT-FWe" id="ZC5-1h-w1i"/>
+                        <segue destination="VZ2-3Y-J11" kind="show" identifier="toGroupList" id="PLU-X7-D2g"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1sM-NK-fyq" userLabel="First Responder" sceneMemberID="firstResponder"/>

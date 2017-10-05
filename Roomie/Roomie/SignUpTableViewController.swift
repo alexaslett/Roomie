@@ -26,17 +26,27 @@ class SignUpTableViewController: UITableViewController {
     @IBOutlet weak var phoneNumberField: UITextField!
     
     @IBAction func signUpButtonTapped(_ sender: Any) {
-        guard let firstName = firstNameField.text, firstName != "", let lastName = lastNameField.text, lastName != "", let email = emailField.text, email != "", let phone = phoneNumberField.text else { self.presentSimpleAlert(title: "Unable to create an account", message: "Be sure you entered a vaild email and username, try again")
-            return
+        guard let firstName = firstNameField.text,
+            !firstName.isEmpty,
+            let lastName = lastNameField.text,
+            !lastName.isEmpty,
+            let email = emailField.text,
+            !email.isEmpty,
+            let phone = phoneNumberField.text
+            else { return self.presentSimpleAlert(title: "Unable to create an account", message: "Be sure you entered a vaild email and username, try again")
+            
         }
         
         // activityIndicator.startAnimating()
         
         UserController.shared.createUserWith(firstName: firstName, lastName: lastName, email: email, phone: phone) { (success) in
-            if !success {
+            if success {
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "toGroupList", sender: self)
+                }
+            } else {
                 DispatchQueue.main.async {
                     self.presentSimpleAlert(title: "Unable to create an account", message: "Make sure you have a network connection, and please try again.")
-                    
                 }
             }
         }

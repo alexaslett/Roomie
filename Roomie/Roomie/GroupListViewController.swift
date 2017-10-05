@@ -88,8 +88,6 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         if user.photo != nil {
             profileImage.image = user.photo
             nameLabel.isHidden = true
-            profileImage.layer.borderColor = UIColor.black.cgColor
-            profileImage.layer.borderWidth = 2
         } else {
             nameLabel.textColor = UIColor.white
             nameLabel.backgroundColor = UIColor.tealBlue30
@@ -110,6 +108,8 @@ class GroupListViewController: UIViewController, UITableViewDataSource, UITableV
         }
         
     }
+    
+    
     
     // MARK: - Table view data source
     

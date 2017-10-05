@@ -15,10 +15,14 @@ class MainLaunchScreenViewController: UIViewController {
         UserController.shared.fetchCurrentUser { (_) in
             if UserController.shared.currentUser != nil {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NavGroupList") as! UINavigationController
-                self.present(storyboard, animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    self.present(storyboard, animated: true, completion: nil)
+                }
             } else {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LaunchScreenViewController") as! LaunchScreenViewController
-                self.present(storyboard, animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    self.present(storyboard, animated: true, completion: nil)
+                }
             }
         }
         

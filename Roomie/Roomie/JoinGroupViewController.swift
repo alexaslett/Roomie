@@ -22,6 +22,11 @@ class JoinGroupViewController: UIViewController {
 
         view.backgroundColor = UIColor.ivoryWhite60
         joinGroupButton.backgroundColor = UIColor.tealBlue30
+        
+        joinGroupButton.layer.shadowColor = UIColor.black.cgColor
+        joinGroupButton.layer.shadowRadius = 2
+        joinGroupButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        joinGroupButton.layer.shadowOpacity = 0.5
 
     }
 
