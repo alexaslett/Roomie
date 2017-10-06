@@ -118,7 +118,7 @@ class MembersCollectionViewController: UICollectionViewController, UICollectionV
             
             guard let passcode = GroupController.shared.currentGroup?.passcode else { return }
             
-            controller.body = "Download Roomie - The Roomate App. Our group Passcode: \(passcode)"
+            controller.body = "Download Roomie - The Roomate App. Our group Passcode: \(passcode). Link: https://goo.gl/s1qu2X"
             controller.recipients = []
             controller.messageComposeDelegate = self
             

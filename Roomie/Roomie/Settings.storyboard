@@ -505,7 +505,6 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="4C1-3F-7fC">
                                 <rect key="frame" x="122" y="84" width="130" height="130"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="130" id="8pF-Ya-5fV"/>
                                     <constraint firstAttribute="width" constant="130" id="Xxi-5T-mDG"/>
                                 </constraints>
                             </imageView>
@@ -517,13 +516,13 @@ Contributors: Alex Aslett, Kaitlyn Barker, Johnathan Pham</string>
                             <constraint firstItem="dqf-4c-p6h" firstAttribute="centerX" secondItem="jan-Lg-Tpc" secondAttribute="centerX" id="F9S-yb-Ogv"/>
                             <constraint firstItem="adQ-jI-e62" firstAttribute="top" secondItem="1f4-bQ-sPd" secondAttribute="bottom" constant="31" id="Gau-S0-Vwl"/>
                             <constraint firstItem="Dwm-KZ-1jh" firstAttribute="top" secondItem="dqf-4c-p6h" secondAttribute="bottom" constant="1" id="Gr5-nZ-Yhn"/>
-                            <constraint firstItem="4C1-3F-7fC" firstAttribute="leading" secondItem="jan-Lg-Tpc" secondAttribute="leading" constant="122" id="HEH-of-ZIC"/>
-                            <constraint firstAttribute="trailing" secondItem="4C1-3F-7fC" secondAttribute="trailing" constant="123" id="LVP-Ve-VXB"/>
                             <constraint firstAttribute="trailing" secondItem="adQ-jI-e62" secondAttribute="trailing" constant="30" id="RqX-nj-Pxk"/>
+                            <constraint firstItem="dqf-4c-p6h" firstAttribute="top" secondItem="4C1-3F-7fC" secondAttribute="bottom" constant="1" id="WPx-rt-boF"/>
                             <constraint firstItem="dqf-4c-p6h" firstAttribute="top" secondItem="1f4-bQ-sPd" secondAttribute="bottom" id="WuZ-LN-Okd"/>
                             <constraint firstItem="4C1-3F-7fC" firstAttribute="top" secondItem="Htq-kS-rHs" secondAttribute="bottom" constant="20" id="dUB-ZR-kvX"/>
                             <constraint firstItem="1f4-bQ-sPd" firstAttribute="centerX" secondItem="jan-Lg-Tpc" secondAttribute="centerX" id="dp2-0b-kiP"/>
                             <constraint firstItem="1f4-bQ-sPd" firstAttribute="width" secondItem="jan-Lg-Tpc" secondAttribute="width" multiplier="0.35" id="fXF-98-TZC"/>
+                            <constraint firstItem="4C1-3F-7fC" firstAttribute="centerX" secondItem="jan-Lg-Tpc" secondAttribute="centerX" id="kSn-EM-Nmc"/>
                             <constraint firstItem="adQ-jI-e62" firstAttribute="leading" secondItem="mNi-qI-eii" secondAttribute="trailing" constant="15" id="tpi-72-SSS"/>
                         </constraints>
                     </view>
