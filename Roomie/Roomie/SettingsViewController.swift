@@ -62,21 +62,23 @@ class SettingsViewController: UIViewController  {
     func rateButtonAlert() {
         let alert = UIAlertController(title: "Rate Us", message: "Do you enjoy Roomie? \nPlease rate us in the App Store.", preferredStyle: .alert)
         
-        //        let alertAction = UIAlertAction(title: "Rate us", style: .default) { (_) in
-        //            let settingVC = self.navigationController?.viewControllers[0] as! SettingsViewController
-        //            self.navigationController?.popToViewController(settingVC, animated: true)
-        //        }
-        //        let alertActionNotNow = UIAlertAction(title: "Not now", style: .cancel) { (_) in
-        //            let settingVC = self.navigationController?.viewControllers[0] as! SettingsViewController
-        //            self.navigationController?.popToViewController(settingVC, animated: true)
-        //        }
-        //        alert.addAction(alertAction)
-        //        alert.addAction(alertActionNotNow)
-        let alertAction = UIAlertAction(title: "Close", style: .default) { (_) in
-            let settingVC = self.navigationController?.viewControllers[0] as! SettingsViewController
-            self.navigationController?.popToViewController(settingVC, animated: true)
-        }
-        alert.addAction(alertAction)
+                let alertAction = UIAlertAction(title: "Rate us", style: .default) { (_) in
+                    let settingVC = self.navigationController?.viewControllers[0] as! SettingsViewController
+                    self.navigationController?.popToViewController(settingVC, animated: true)
+                    guard let url = URL(string: "itms-apps://itunes.apple.com/us/app/apple-store/id1291529888?mt=8)/reviews") else { return }
+                    UIApplication.shared.openURL(url);
+                }
+                let alertActionNotNow = UIAlertAction(title: "Not now", style: .cancel) { (_) in
+                    let settingVC = self.navigationController?.viewControllers[0] as! SettingsViewController
+                    self.navigationController?.popToViewController(settingVC, animated: true)
+                }
+                alert.addAction(alertAction)
+                alert.addAction(alertActionNotNow)
+//        let alertAction = UIAlertAction(title: "Close", style: .default) { (_) in
+//            let settingVC = self.navigationController?.viewControllers[0] as! SettingsViewController
+//            self.navigationController?.popToViewController(settingVC, animated: true)
+//        }
+
         present(alert, animated:  true, completion: nil)
     }
     
