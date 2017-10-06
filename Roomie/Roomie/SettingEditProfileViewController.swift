@@ -107,6 +107,8 @@ class SettingEditProfileViewController: UIViewController, UIImagePickerControlle
         let profilePic = info[UIImagePickerControllerOriginalImage] as! UIImage
         profileImage.contentMode = .scaleAspectFit
         profileImage.image = profilePic.resizeImage(image: profilePic)
+        profileImage.isHidden = false 
+        avatarImage.isHidden = true
         dismiss(animated: true, completion: nil)
     }
     
